@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetoBio
 {
-    public partial class Form1 : Form
+    public partial class Loading : Form
     {
-        public Form1()
+        public Loading()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace ProjetoBio
         {
             pbProgresso1.Width += 3;
 
-            if (pbProgresso1.Width >= 599)
+            if (pbProgresso1.Width >= 559)
             {
                 timer1.Stop();
 

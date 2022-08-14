@@ -68,7 +68,7 @@ namespace ProjetoBio
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            x
+            
         }
 
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -127,6 +127,13 @@ namespace ProjetoBio
         private void contentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnTeste_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Loading loading1 = new Loading();
+            loading1.Show();
         }
     }
 }

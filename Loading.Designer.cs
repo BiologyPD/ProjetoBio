@@ -1,7 +1,7 @@
 ﻿
 namespace ProjetoBio
 {
-    partial class Form1
+    partial class Loading
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace ProjetoBio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loading));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbProgresso1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
