@@ -17,6 +17,12 @@ namespace ProjetoBio
             InitializeComponent();
         }
 
-       
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            MenuPrincipal menu = new MenuPrincipal();
+
+            menu.Show();
+            this.Hide();
+        }
     }
 }

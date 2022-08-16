@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjetoBio
+namespace ProjetoBio    
 {
     static class Program
     {
@@ -17,6 +17,7 @@ namespace ProjetoBio
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Loading());
+
         }
     }
 }

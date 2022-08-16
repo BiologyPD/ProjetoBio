@@ -4,14 +4,14 @@ namespace ProjetoBio
     partial class MenuPrincipal
     {
         /// <summary>
-        /// Variável de designer necessária.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpar os recursos que estão sendo usados.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,235 +21,124 @@ namespace ProjetoBio
             base.Dispose(disposing);
         }
 
-        #region Código gerado pelo Windows Form Designer
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Método necessário para suporte ao Designer - não modifique 
-        /// o conteúdo deste método com o editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.newWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cascadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tileVerticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tileHorizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.arrangeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.menuStrip.SuspendLayout();
-            this.statusStrip.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbAqua = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgAqua = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.grpDg = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAqua)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAqua)).BeginInit();
+            this.grpDg.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip
+            // label1
             // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewMenu,
-            this.toolsMenu,
-            this.windowsMenu,
-            this.helpMenu});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.MdiWindowListItem = this.windowsMenu;
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(672, 38);
-            this.menuStrip.TabIndex = 0;
-            this.menuStrip.Text = "MenuStrip";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(855, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(307, 37);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Selecione uma categoria";
             // 
-            // viewMenu
+            // pbAqua
             // 
-            this.viewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolBarToolStripMenuItem,
-            this.statusBarToolStripMenuItem});
-            this.viewMenu.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.viewMenu.Name = "viewMenu";
-            this.viewMenu.Size = new System.Drawing.Size(77, 34);
-            this.viewMenu.Text = "&Exibir";
+            this.pbAqua.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAqua.Image = ((System.Drawing.Image)(resources.GetObject("pbAqua.Image")));
+            this.pbAqua.Location = new System.Drawing.Point(18, 44);
+            this.pbAqua.Name = "pbAqua";
+            this.pbAqua.Size = new System.Drawing.Size(335, 335);
+            this.pbAqua.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAqua.TabIndex = 4;
+            this.pbAqua.TabStop = false;
+            this.pbAqua.Click += new System.EventHandler(this.pbAqua_Click);
+            this.pbAqua.MouseHover += new System.EventHandler(this.pbAqua_Hover);
             // 
-            // toolBarToolStripMenuItem
+            // pictureBox1
             // 
-            this.toolBarToolStripMenuItem.Checked = true;
-            this.toolBarToolStripMenuItem.CheckOnClick = true;
-            this.toolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
-            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
-            this.toolBarToolStripMenuItem.Text = "&Barra de Ferramentas";
-            this.toolBarToolStripMenuItem.Click += new System.EventHandler(this.ToolBarToolStripMenuItem_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1574, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(335, 335);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
-            // statusBarToolStripMenuItem
+            // dgAqua
             // 
-            this.statusBarToolStripMenuItem.Checked = true;
-            this.statusBarToolStripMenuItem.CheckOnClick = true;
-            this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
-            this.statusBarToolStripMenuItem.Text = "&Barra de Status";
-            this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
+            this.dgAqua.BackgroundColor = System.Drawing.Color.DarkCyan;
+            this.dgAqua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAqua.Location = new System.Drawing.Point(0, 57);
+            this.dgAqua.Name = "dgAqua";
+            this.dgAqua.Size = new System.Drawing.Size(499, 297);
+            this.dgAqua.TabIndex = 7;
             // 
-            // toolsMenu
+            // label2
             // 
-            this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.optionsToolStripMenuItem});
-            this.toolsMenu.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(145, 34);
-            this.toolsMenu.Text = "&Ferramentas";
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.DarkCyan;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F);
+            this.label2.Location = new System.Drawing.Point(162, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(182, 37);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Vida Aquática";
             // 
-            // optionsToolStripMenuItem
+            // grpDg
             // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(160, 34);
-            this.optionsToolStripMenuItem.Text = "&Opções";
-            // 
-            // windowsMenu
-            // 
-            this.windowsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newWindowToolStripMenuItem,
-            this.cascadeToolStripMenuItem,
-            this.tileVerticalToolStripMenuItem,
-            this.tileHorizontalToolStripMenuItem,
-            this.closeAllToolStripMenuItem,
-            this.arrangeIconsToolStripMenuItem});
-            this.windowsMenu.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.windowsMenu.Name = "windowsMenu";
-            this.windowsMenu.Size = new System.Drawing.Size(93, 34);
-            this.windowsMenu.Text = "&Janelas";
-            // 
-            // newWindowToolStripMenuItem
-            // 
-            this.newWindowToolStripMenuItem.Name = "newWindowToolStripMenuItem";
-            this.newWindowToolStripMenuItem.Size = new System.Drawing.Size(276, 34);
-            this.newWindowToolStripMenuItem.Text = "&Nova Janela";
-            this.newWindowToolStripMenuItem.Click += new System.EventHandler(this.ShowNewForm);
-            // 
-            // cascadeToolStripMenuItem
-            // 
-            this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(276, 34);
-            this.cascadeToolStripMenuItem.Text = "&Cascata";
-            this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.CascadeToolStripMenuItem_Click);
-            // 
-            // tileVerticalToolStripMenuItem
-            // 
-            this.tileVerticalToolStripMenuItem.Name = "tileVerticalToolStripMenuItem";
-            this.tileVerticalToolStripMenuItem.Size = new System.Drawing.Size(276, 34);
-            this.tileVerticalToolStripMenuItem.Text = "Empilhar &Vertical";
-            this.tileVerticalToolStripMenuItem.Click += new System.EventHandler(this.TileVerticalToolStripMenuItem_Click);
-            // 
-            // tileHorizontalToolStripMenuItem
-            // 
-            this.tileHorizontalToolStripMenuItem.Name = "tileHorizontalToolStripMenuItem";
-            this.tileHorizontalToolStripMenuItem.Size = new System.Drawing.Size(276, 34);
-            this.tileHorizontalToolStripMenuItem.Text = "Empilhar &Horizontal";
-            this.tileHorizontalToolStripMenuItem.Click += new System.EventHandler(this.TileHorizontalToolStripMenuItem_Click);
-            // 
-            // closeAllToolStripMenuItem
-            // 
-            this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(276, 34);
-            this.closeAllToolStripMenuItem.Text = "Fec&har todos";
-            this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.CloseAllToolStripMenuItem_Click);
-            // 
-            // arrangeIconsToolStripMenuItem
-            // 
-            this.arrangeIconsToolStripMenuItem.Name = "arrangeIconsToolStripMenuItem";
-            this.arrangeIconsToolStripMenuItem.Size = new System.Drawing.Size(276, 34);
-            this.arrangeIconsToolStripMenuItem.Text = "&Organizar Ícones";
-            this.arrangeIconsToolStripMenuItem.Click += new System.EventHandler(this.ArrangeIconsToolStripMenuItem_Click);
-            // 
-            // helpMenu
-            // 
-            this.helpMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator8,
-            this.aboutToolStripMenuItem});
-            this.helpMenu.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(80, 34);
-            this.helpMenu.Text = "&Ajuda";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(183, 6);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(186, 34);
-            this.aboutToolStripMenuItem.Text = "&Sobre ... ...";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 458);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(672, 22);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
+            this.grpDg.Controls.Add(this.label2);
+            this.grpDg.Controls.Add(this.dgAqua);
+            this.grpDg.Location = new System.Drawing.Point(353, 25);
+            this.grpDg.Name = "grpDg";
+            this.grpDg.Size = new System.Drawing.Size(499, 354);
+            this.grpDg.TabIndex = 9;
+            this.grpDg.TabStop = false;
             // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 480);
-            this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.menuStrip);
-            this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
+            this.ClientSize = new System.Drawing.Size(1920, 1057);
+            this.Controls.Add(this.pbAqua);
+            this.Controls.Add(this.grpDg);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MenuPrincipal";
-            this.Text = " ";
+            this.ShowIcon = false;
+            this.Text = "  ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
-            this.statusStrip.ResumeLayout(false);
-            this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAqua)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAqua)).EndInit();
+            this.grpDg.ResumeLayout(false);
+            this.grpDg.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
         #endregion
 
-
-        private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpMenu;
-        private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.ToolStripMenuItem viewMenu;
-        private System.Windows.Forms.ToolStripMenuItem toolBarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statusBarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenu;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem windowsMenu;
-        private System.Windows.Forms.ToolStripMenuItem newWindowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cascadeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tileVerticalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tileHorizontalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem arrangeIconsToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pbAqua;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dgAqua;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox grpDg;
     }
 }
-
-
-
