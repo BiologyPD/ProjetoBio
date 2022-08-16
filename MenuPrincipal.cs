@@ -76,5 +76,10 @@ namespace ProjetoBio
             pori.Show();
             this.Hide();
         }
+
+        private void dgAqua_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
