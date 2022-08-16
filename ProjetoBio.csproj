@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Air.cs" />
     <Compile Include="Aqua.cs" />
+    <Compile Include="Ground.cs" />
     <Compile Include="Loading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +61,7 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Parasite.cs" />
     <Compile Include="Porifero.cs">
       <SubType>Form</SubType>
     </Compile>
