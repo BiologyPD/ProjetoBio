@@ -36,6 +36,7 @@ namespace ProjetoBio
         {
             InitializeComponent();
             lstAqua = aqua.GeraAnimais();
+           
         }
 
         private void carregaGridAqua()
@@ -187,6 +188,14 @@ namespace ProjetoBio
         private void dgAqua_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja mesmo sair?","Alerta do sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

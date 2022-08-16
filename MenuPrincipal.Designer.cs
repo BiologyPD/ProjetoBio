@@ -38,6 +38,7 @@ namespace ProjetoBio
             this.dgGround = new System.Windows.Forms.DataGridView();
             this.dgAqua = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnSair = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbAqua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAir)).BeginInit();
@@ -73,9 +74,9 @@ namespace ProjetoBio
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1574, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(1574, 44);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(335, 354);
+            this.pictureBox1.Size = new System.Drawing.Size(335, 335);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -128,12 +129,26 @@ namespace ProjetoBio
             this.label2.TabIndex = 8;
             this.label2.Text = "Vida Aquática";
             // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.Red;
+            this.btnSair.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnSair.Location = new System.Drawing.Point(1792, 0);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(128, 46);
+            this.btnSair.TabIndex = 12;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(1920, 1057);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.dgAqua);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgAir);
@@ -142,7 +157,7 @@ namespace ProjetoBio
             this.Controls.Add(this.pbAqua);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuPrincipal";
             this.ShowIcon = false;
             this.Text = "  ";
@@ -169,5 +184,6 @@ namespace ProjetoBio
         private System.Windows.Forms.DataGridView dgGround;
         private System.Windows.Forms.DataGridView dgAqua;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSair;
     }
 }

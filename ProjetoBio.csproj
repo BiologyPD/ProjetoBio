@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Air.cs" />
+    <Compile Include="AnimaisAqua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnimaisAqua.Designer.cs">
+      <DependentUpon>AnimaisAqua.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aqua.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="Loading.cs">
@@ -70,6 +76,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AnimaisAqua.resx">
+      <DependentUpon>AnimaisAqua.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
