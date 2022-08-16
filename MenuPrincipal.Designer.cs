@@ -33,15 +33,17 @@ namespace ProjetoBio
             this.label1 = new System.Windows.Forms.Label();
             this.pbAqua = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgAir = new System.Windows.Forms.DataGridView();
+            this.dgParasite = new System.Windows.Forms.DataGridView();
+            this.dgGround = new System.Windows.Forms.DataGridView();
             this.dgAqua = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.grpDg = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbAqua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgParasite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAqua)).BeginInit();
-            this.grpDg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -78,11 +80,38 @@ namespace ProjetoBio
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // dgAir
+            // 
+            this.dgAir.BackgroundColor = System.Drawing.Color.DarkCyan;
+            this.dgAir.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAir.Location = new System.Drawing.Point(1077, 82);
+            this.dgAir.Name = "dgAir";
+            this.dgAir.Size = new System.Drawing.Size(499, 297);
+            this.dgAir.TabIndex = 9;
+            // 
+            // dgParasite
+            // 
+            this.dgParasite.BackgroundColor = System.Drawing.Color.DarkCyan;
+            this.dgParasite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgParasite.Location = new System.Drawing.Point(1077, 748);
+            this.dgParasite.Name = "dgParasite";
+            this.dgParasite.Size = new System.Drawing.Size(499, 297);
+            this.dgParasite.TabIndex = 10;
+            // 
+            // dgGround
+            // 
+            this.dgGround.BackgroundColor = System.Drawing.Color.DarkCyan;
+            this.dgGround.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgGround.Location = new System.Drawing.Point(353, 748);
+            this.dgGround.Name = "dgGround";
+            this.dgGround.Size = new System.Drawing.Size(499, 297);
+            this.dgGround.TabIndex = 11;
+            // 
             // dgAqua
             // 
             this.dgAqua.BackgroundColor = System.Drawing.Color.DarkCyan;
             this.dgAqua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAqua.Location = new System.Drawing.Point(0, 57);
+            this.dgAqua.Location = new System.Drawing.Point(353, 82);
             this.dgAqua.Name = "dgAqua";
             this.dgAqua.Size = new System.Drawing.Size(499, 297);
             this.dgAqua.TabIndex = 7;
@@ -93,30 +122,11 @@ namespace ProjetoBio
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.DarkCyan;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F);
-            this.label2.Location = new System.Drawing.Point(162, 19);
+            this.label2.Location = new System.Drawing.Point(506, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(182, 37);
             this.label2.TabIndex = 8;
             this.label2.Text = "Vida Aquática";
-            // 
-            // grpDg
-            // 
-            this.grpDg.Controls.Add(this.label2);
-            this.grpDg.Controls.Add(this.dgAqua);
-            this.grpDg.Location = new System.Drawing.Point(353, 25);
-            this.grpDg.Name = "grpDg";
-            this.grpDg.Size = new System.Drawing.Size(499, 354);
-            this.grpDg.TabIndex = 9;
-            this.grpDg.TabStop = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkCyan;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1077, 82);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(499, 297);
-            this.dataGridView1.TabIndex = 9;
             // 
             // MenuPrincipal
             // 
@@ -124,9 +134,12 @@ namespace ProjetoBio
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(1920, 1057);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgAqua);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dgAir);
+            this.Controls.Add(this.dgParasite);
+            this.Controls.Add(this.dgGround);
             this.Controls.Add(this.pbAqua);
-            this.Controls.Add(this.grpDg);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -137,10 +150,10 @@ namespace ProjetoBio
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbAqua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgParasite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgGround)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAqua)).EndInit();
-            this.grpDg.ResumeLayout(false);
-            this.grpDg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,9 +164,10 @@ namespace ProjetoBio
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbAqua;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dgAir;
+        private System.Windows.Forms.DataGridView dgParasite;
+        private System.Windows.Forms.DataGridView dgGround;
         private System.Windows.Forms.DataGridView dgAqua;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox grpDg;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

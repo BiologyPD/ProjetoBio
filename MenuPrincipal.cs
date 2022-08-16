@@ -18,6 +18,17 @@ namespace ProjetoBio
         private List<Aqua> lstAqua = new List<Aqua>(); 
         private BindingSource bsAqua;
 
+        private Air air = new Air();
+        private List<Air> lstAir = new List<Air>();
+        private BindingSource bsAir;
+
+        private Ground ground = new Ground();
+        private List<Ground> lstGround = new List<Ground>();
+        private BindingSource bsGround;
+
+        private Parasite parasite = new Parasite();
+        private List<Parasite> lstParasite = new List<Parasite>();
+        private BindingSource bsParasite;
 
 
 
@@ -27,7 +38,7 @@ namespace ProjetoBio
             lstAqua = aqua.GeraAnimais();
         }
 
-        private void carregaGridAnimais()
+        private void carregaGridAqua()
         {
             bsAqua = new BindingSource();
             bsAqua.DataSource = lstAqua;
@@ -36,9 +47,36 @@ namespace ProjetoBio
             dgAqua.Refresh();
         }
 
-        private void MenuPrincipal_Load(object sender, EventArgs e)
+        private void carregaGridAir()
         {
- dgAqua.ColumnCount = 4;
+            bsAir = new BindingSource();
+            bsAir.DataSource = lstAir;
+
+            dgAir.DataSource = bsAir;
+            dgAir.Refresh();
+        }
+        
+        private void carregaGridGround()
+        {
+            bsGround = new BindingSource();
+            bsGround.DataSource = lstGround;
+
+            dgGround.DataSource = bsGround;
+            dgGround.Refresh();
+        }
+
+        private void carregaGridParasite()
+        {
+            bsParasite = new BindingSource();
+            bsParasite.DataSource = lstParasite;
+
+            dgParasite.DataSource = bsParasite;
+            dgParasite.Refresh();
+        }
+
+        private void preparaDgAqua()
+        {
+            dgAqua.ColumnCount = 4;
             dgAqua.AutoGenerateColumns = false;
             dgAqua.Columns[0].Width = 200;
             dgAqua.Columns[0].HeaderText = "NUMERAÇÃO";
@@ -54,11 +92,80 @@ namespace ProjetoBio
             dgAqua.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgAqua.MultiSelect = false;
             dgAqua.AllowUserToResizeRows = false;
-            grpDg.Enabled = false;
-            carregaGridAnimais();
-           
-        
-      
+            carregaGridAqua();
+        }
+
+        private void preparaDgAir()
+        {
+            dgAir.ColumnCount = 4;
+            dgAir.AutoGenerateColumns = false;
+            dgAir.Columns[0].Width = 200;
+            dgAir.Columns[0].HeaderText = "NUMERAÇÃO";
+            dgAir.Columns[0].DataPropertyName = "Num";
+            dgAir.Columns[1].Width = 200;
+            dgAir.Columns[1].HeaderText = "NOME";
+            dgAir.Columns[1].DataPropertyName = "Nome";
+            dgAir.Columns[2].Width = 200;
+            dgAir.Columns[2].HeaderText = "CLASSE";
+            dgAir.Columns[2].DataPropertyName = "Classe";
+            dgAir.AllowUserToAddRows = false;
+            dgAir.AllowUserToDeleteRows = false;
+            dgAir.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgAir.MultiSelect = false;
+            dgAir.AllowUserToResizeRows = false;
+            carregaGridAir();
+        }
+
+        private void preparaDgGround()
+        {
+            dgGround.ColumnCount = 4;
+            dgGround.AutoGenerateColumns = false;
+            dgGround.Columns[0].Width = 200;
+            dgGround.Columns[0].HeaderText = "NUMERAÇÃO";
+            dgGround.Columns[0].DataPropertyName = "Num";
+            dgGround.Columns[1].Width = 200;
+            dgGround.Columns[1].HeaderText = "NOME";
+            dgGround.Columns[1].DataPropertyName = "Nome";
+            dgGround.Columns[2].Width = 200;
+            dgGround.Columns[2].HeaderText = "CLASSE";
+            dgGround.Columns[2].DataPropertyName = "Classe";
+            dgGround.AllowUserToAddRows = false;
+            dgGround.AllowUserToDeleteRows = false;
+            dgGround.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgGround.MultiSelect = false;
+            dgGround.AllowUserToResizeRows = false;
+            carregaGridGround();
+        }
+
+        private void preparaDgParasite()
+        {
+            dgParasite.ColumnCount = 4;
+            dgParasite.AutoGenerateColumns = false;
+            dgParasite.Columns[0].Width = 200;
+            dgParasite.Columns[0].HeaderText = "NUMERAÇÃO";
+            dgParasite.Columns[0].DataPropertyName = "Num";
+            dgParasite.Columns[1].Width = 200;
+            dgParasite.Columns[1].HeaderText = "NOME";
+            dgParasite.Columns[1].DataPropertyName = "Nome";
+            dgParasite.Columns[2].Width = 200;
+            dgParasite.Columns[2].HeaderText = "CLASSE";
+            dgParasite.Columns[2].DataPropertyName = "Classe";
+            dgParasite.AllowUserToAddRows = false;
+            dgParasite.AllowUserToDeleteRows = false;
+            dgParasite.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgParasite.MultiSelect = false;
+            dgParasite.AllowUserToResizeRows = false;
+            carregaGridParasite();
+        }
+
+            private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            preparaDgAqua();
+            preparaDgAir();
+            preparaDgGround();
+            preparaDgParasite();
+
+
         }
 
 
