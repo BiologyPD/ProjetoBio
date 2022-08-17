@@ -32,19 +32,26 @@ namespace ProjetoBio
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.label1 = new System.Windows.Forms.Label();
             this.pbAqua = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbAir = new System.Windows.Forms.PictureBox();
             this.dgAir = new System.Windows.Forms.DataGridView();
             this.dgParasite = new System.Windows.Forms.DataGridView();
             this.dgGround = new System.Windows.Forms.DataGridView();
             this.dgAqua = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
+            this.pbGround = new System.Windows.Forms.PictureBox();
+            this.pbParasite = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbAqua)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgParasite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAqua)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGround)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbParasite)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +59,7 @@ namespace ProjetoBio
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(855, 9);
+            this.label1.Location = new System.Drawing.Point(809, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 37);
             this.label1.TabIndex = 0;
@@ -71,15 +78,15 @@ namespace ProjetoBio
             this.pbAqua.Click += new System.EventHandler(this.pbAqua_Click);
             this.pbAqua.MouseHover += new System.EventHandler(this.pbAqua_Hover);
             // 
-            // pictureBox1
+            // pbAir
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1574, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(335, 335);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.pbAir.Image = ((System.Drawing.Image)(resources.GetObject("pbAir.Image")));
+            this.pbAir.Location = new System.Drawing.Point(1574, 44);
+            this.pbAir.Name = "pbAir";
+            this.pbAir.Size = new System.Drawing.Size(335, 335);
+            this.pbAir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbAir.TabIndex = 5;
+            this.pbAir.TabStop = false;
             // 
             // dgAir
             // 
@@ -94,7 +101,7 @@ namespace ProjetoBio
             // 
             this.dgParasite.BackgroundColor = System.Drawing.Color.DarkCyan;
             this.dgParasite.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgParasite.Location = new System.Drawing.Point(1077, 748);
+            this.dgParasite.Location = new System.Drawing.Point(1074, 748);
             this.dgParasite.Name = "dgParasite";
             this.dgParasite.Size = new System.Drawing.Size(499, 297);
             this.dgParasite.TabIndex = 10;
@@ -103,7 +110,7 @@ namespace ProjetoBio
             // 
             this.dgGround.BackgroundColor = System.Drawing.Color.DarkCyan;
             this.dgGround.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgGround.Location = new System.Drawing.Point(353, 748);
+            this.dgGround.Location = new System.Drawing.Point(355, 748);
             this.dgGround.Name = "dgGround";
             this.dgGround.Size = new System.Drawing.Size(499, 297);
             this.dgGround.TabIndex = 11;
@@ -142,12 +149,70 @@ namespace ProjetoBio
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
+            // pbGround
+            // 
+            this.pbGround.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbGround.BackgroundImage")));
+            this.pbGround.Location = new System.Drawing.Point(18, 710);
+            this.pbGround.Name = "pbGround";
+            this.pbGround.Size = new System.Drawing.Size(335, 335);
+            this.pbGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGround.TabIndex = 13;
+            this.pbGround.TabStop = false;
+            // 
+            // pbParasite
+            // 
+            this.pbParasite.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbParasite.BackgroundImage")));
+            this.pbParasite.Location = new System.Drawing.Point(1574, 710);
+            this.pbParasite.Name = "pbParasite";
+            this.pbParasite.Size = new System.Drawing.Size(335, 335);
+            this.pbParasite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbParasite.TabIndex = 14;
+            this.pbParasite.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.DarkCyan;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 20.25F);
+            this.label3.Location = new System.Drawing.Point(1251, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 37);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Vida Aérea";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.DarkCyan;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 20.25F);
+            this.label4.Location = new System.Drawing.Point(1222, 708);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(200, 37);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Vida Parasitária";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.DarkCyan;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 20.25F);
+            this.label5.Location = new System.Drawing.Point(506, 708);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(178, 37);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Vida Terrestre";
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
             this.ClientSize = new System.Drawing.Size(1920, 1057);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pbParasite);
+            this.Controls.Add(this.pbGround);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.dgAqua);
             this.Controls.Add(this.label2);
@@ -155,7 +220,7 @@ namespace ProjetoBio
             this.Controls.Add(this.dgParasite);
             this.Controls.Add(this.dgGround);
             this.Controls.Add(this.pbAqua);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbAir);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuPrincipal";
@@ -164,11 +229,13 @@ namespace ProjetoBio
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbAqua)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgParasite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgGround)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAqua)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGround)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbParasite)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,12 +245,17 @@ namespace ProjetoBio
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbAqua;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbAir;
         private System.Windows.Forms.DataGridView dgAir;
         private System.Windows.Forms.DataGridView dgParasite;
         private System.Windows.Forms.DataGridView dgGround;
         private System.Windows.Forms.DataGridView dgAqua;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.PictureBox pbGround;
+        private System.Windows.Forms.PictureBox pbParasite;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
