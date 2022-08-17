@@ -60,11 +60,11 @@ namespace ProjetoBio
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.label1.Location = new System.Drawing.Point(219, 4);
+            this.label1.Location = new System.Drawing.Point(231, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 30);
+            this.label1.Size = new System.Drawing.Size(105, 30);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Placeholder";
+            this.label1.Text = "Loading...";
             // 
             // timer1
             // 
@@ -83,7 +83,7 @@ namespace ProjetoBio
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // Loading
+            // SplashScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -93,10 +93,11 @@ namespace ProjetoBio
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Loading";
+            this.Name = "SplashScreen";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.TopMost = true;
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -64,7 +64,7 @@ namespace ProjetoBio
             this.btnSair.BackColor = System.Drawing.Color.Red;
             this.btnSair.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSair.Location = new System.Drawing.Point(1823, 0);
+            this.btnSair.Location = new System.Drawing.Point(1823, 12);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(105, 46);
             this.btnSair.TabIndex = 13;
