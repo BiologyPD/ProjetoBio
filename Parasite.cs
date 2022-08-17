@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +35,7 @@ namespace ProjetoBio
             return _lstParasite;
         }
 
-        public List<Parasite> GeraAnimais()
+        public List<Parasite> GeraAnimaisParasite()
         {
             AddToList(1, "Niphates alba Van Soest", "Porifero");
             AddToList(2, "Polvo Dumbo", "Molusco");
