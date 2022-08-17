@@ -35,7 +35,7 @@ namespace ProjetoBio
             return _lstAqua;
         }
 
-        public List<Aqua> GeraAnimais()
+        public List<Aqua> GeraAnimaisAqua()
         {
             AddToList(1, "Niphates alba Van Soest", "Porifero");
             AddToList(2, "Polvo Dumbo", "Molusco");
