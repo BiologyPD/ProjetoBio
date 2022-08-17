@@ -53,6 +53,12 @@
     <Compile Include="AnimaisAqua.Designer.cs">
       <DependentUpon>AnimaisAqua.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnimaisGround.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnimaisGround.Designer.cs">
+      <DependentUpon>AnimaisGround.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aqua.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="Loading.cs">
@@ -78,6 +84,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AnimaisAqua.resx">
       <DependentUpon>AnimaisAqua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnimaisGround.resx">
+      <DependentUpon>AnimaisGround.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>

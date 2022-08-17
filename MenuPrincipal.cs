@@ -169,8 +169,10 @@ namespace ProjetoBio
             preparaDgAir();
             preparaDgGround();
             preparaDgParasite();
-
-
+            dgAir.Enabled = false;
+            dgAqua.Enabled = false;
+            dgGround.Enabled = false;
+            dgParasite.Enabled = false;
         }
 
 
@@ -184,8 +186,8 @@ namespace ProjetoBio
 
         private void pbAqua_Click(object sender, EventArgs e)
         {
-            Porifero pori = new Porifero();
-            pori.Show();
+            AnimaisAqua anAqua = new AnimaisAqua();
+            anAqua.Show();
             this.Hide();
         }
 
