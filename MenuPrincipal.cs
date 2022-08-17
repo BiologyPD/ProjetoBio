@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,7 +35,11 @@ namespace ProjetoBio
         public MenuPrincipal()
         {
             InitializeComponent();
-            lstAqua = aqua.GeraAnimais();
+            lstAqua = aqua.GeraAnimaisAqua();
+            lstAir = air.GeraAnimaisAir();
+            lstGround = ground.GeraAnimaisGround();
+            lstParasite = parasite.GeraAnimaisParasite();
+
            
         }
 
