@@ -39,9 +39,9 @@ namespace ProjetoBio
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(442, 328);
+            this.pictureBox1.Size = new System.Drawing.Size(398, 264);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -51,10 +51,10 @@ namespace ProjetoBio
             this.LeechDesc1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LeechDesc1.Font = new System.Drawing.Font("Segoe UI", 20.25F);
             this.LeechDesc1.ForeColor = System.Drawing.Color.Black;
-            this.LeechDesc1.Location = new System.Drawing.Point(448, 0);
+            this.LeechDesc1.Location = new System.Drawing.Point(416, 12);
             this.LeechDesc1.Multiline = true;
             this.LeechDesc1.Name = "LeechDesc1";
-            this.LeechDesc1.Size = new System.Drawing.Size(1480, 1045);
+            this.LeechDesc1.Size = new System.Drawing.Size(1401, 490);
             this.LeechDesc1.TabIndex = 4;
             this.LeechDesc1.Text = resources.GetString("LeechDesc1.Text");
             this.LeechDesc1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -64,7 +64,7 @@ namespace ProjetoBio
             this.btnSair.BackColor = System.Drawing.Color.Red;
             this.btnSair.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSair.Location = new System.Drawing.Point(1833, 0);
+            this.btnSair.Location = new System.Drawing.Point(1823, 0);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(105, 46);
             this.btnSair.TabIndex = 13;

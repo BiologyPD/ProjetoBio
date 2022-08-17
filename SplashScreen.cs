@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetoBio
 {
-    public partial class Loading : Form
+    public partial class SplashScreen : Form
     {
-        public Loading()
+        public SplashScreen()
         {
             InitializeComponent();
         }

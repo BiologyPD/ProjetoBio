@@ -1,7 +1,7 @@
 ﻿
 namespace ProjetoBio
 {
-    partial class Loading
+    partial class SplashScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace ProjetoBio
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loading));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreen));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbProgresso1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@ namespace ProjetoBio
             // panel1
             // 
             this.panel1.Controls.Add(this.pbProgresso1);
-            this.panel1.Location = new System.Drawing.Point(12, 210);
+            this.panel1.Location = new System.Drawing.Point(7, 207);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(559, 17);
             this.panel1.TabIndex = 0;
@@ -88,13 +88,14 @@ namespace ProjetoBio
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
-            this.ClientSize = new System.Drawing.Size(583, 236);
+            this.ClientSize = new System.Drawing.Size(573, 236);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Loading";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

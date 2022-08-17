@@ -61,11 +61,11 @@
     </Compile>
     <Compile Include="Aqua.cs" />
     <Compile Include="Ground.cs" />
-    <Compile Include="Loading.cs">
+    <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Loading.Designer.cs">
-      <DependentUpon>Loading.cs</DependentUpon>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -94,8 +94,8 @@
     <EmbeddedResource Include="AnimaisGround.resx">
       <DependentUpon>AnimaisGround.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Loading.resx">
-      <DependentUpon>Loading.cs</DependentUpon>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
