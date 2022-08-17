@@ -10,19 +10,21 @@ using System.Windows.Forms;
 
 namespace ProjetoBio
 {
-    public partial class Porifero : Form
+    public partial class Sanguessugas : Form
     {
-        public Porifero()
+        public Sanguessugas()
         {
             InitializeComponent();
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            MenuPrincipal menu = new MenuPrincipal();
 
-            menu.Show();
-            this.Hide();
+        }
+
+        private void Sanguessugas_Load(object sender, EventArgs e)
+        {
+            LeechDesc1.Enabled = false;
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -33,4 +35,4 @@ namespace ProjetoBio
             }
         }
     }
-}
+    }

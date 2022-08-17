@@ -1,7 +1,7 @@
 ﻿
 namespace ProjetoBio
 {
-    partial class Porifero
+    partial class Sanguessugas
     {
         /// <summary>
         /// Required designer variable.
@@ -29,72 +29,74 @@ namespace ProjetoBio
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Porifero));
-            this.btnHome = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sanguessugas));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LeechDesc1 = new System.Windows.Forms.TextBox();
             this.btnSair = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnHome
-            // 
-            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Location = new System.Drawing.Point(968, 957);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(148, 72);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(767, 1019);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.Size = new System.Drawing.Size(442, 328);
+            this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // LeechDesc1
+            // 
+            this.LeechDesc1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
+            this.LeechDesc1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LeechDesc1.Font = new System.Drawing.Font("Segoe UI", 20.25F);
+            this.LeechDesc1.ForeColor = System.Drawing.Color.Black;
+            this.LeechDesc1.Location = new System.Drawing.Point(448, 0);
+            this.LeechDesc1.Multiline = true;
+            this.LeechDesc1.Name = "LeechDesc1";
+            this.LeechDesc1.Size = new System.Drawing.Size(1480, 1045);
+            this.LeechDesc1.TabIndex = 4;
+            this.LeechDesc1.Text = resources.GetString("LeechDesc1.Text");
+            this.LeechDesc1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnSair
             // 
             this.btnSair.BackColor = System.Drawing.Color.Red;
             this.btnSair.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSair.Location = new System.Drawing.Point(1764, 12);
+            this.btnSair.Location = new System.Drawing.Point(1833, 0);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(128, 46);
+            this.btnSair.Size = new System.Drawing.Size(105, 46);
             this.btnSair.TabIndex = 13;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // Porifero
+            // Sanguessugas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(56)))), ((int)(((byte)(79)))));
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1940, 1057);
             this.Controls.Add(this.btnSair);
+            this.Controls.Add(this.LeechDesc1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnHome);
-            this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.Name = "Porifero";
+            this.Name = "Sanguessugas";
             this.ShowIcon = false;
-            this.Text = "Porifero";
+            this.Text = "Sanguessugas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Sanguessugas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox LeechDesc1;
         private System.Windows.Forms.Button btnSair;
     }
 }

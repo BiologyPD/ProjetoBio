@@ -39,6 +39,7 @@ namespace ProjetoBio
         {
             AddToList(1, "Niphates alba Van Soest", "Porifero");
             AddToList(2, "Polvo Dumbo", "Molusco");
+            AddToList(3, "Sanguessuga", "Anelideo");
             return _lstAqua;
         }
     }
