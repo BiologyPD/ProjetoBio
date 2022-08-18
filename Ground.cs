@@ -40,6 +40,7 @@ namespace ProjetoBio
             AddToList(1, "Lagarto-agama", "Réptil");
             AddToList(2, "Sapo de Vidro", "Anfíbio");
             AddToList(3, "Quokka", "Mamífero");
+            AddToList(4, "Aranha Armadeira", "Quelicerado");
             return _lstGround;
         }
     }
