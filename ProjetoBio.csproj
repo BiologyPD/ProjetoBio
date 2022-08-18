@@ -59,6 +59,7 @@
     <Compile Include="AnimaisGround.Designer.cs">
       <DependentUpon>AnimaisGround.cs</DependentUpon>
     </Compile>
+    <Compile Include="Animais\Animais.cs" />
     <Compile Include="Aqua.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="SplashScreen.cs">
