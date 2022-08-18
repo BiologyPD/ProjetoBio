@@ -37,8 +37,8 @@ namespace ProjetoBio
 
         public List<Air> GeraAnimaisAir()
         {
-            AddToList(1, "Niphates alba Van Soest", "Porifero");
-            AddToList(2, "Polvo Dumbo", "Molusco");
+            AddToList(1, "Suindara", "Ave");
+            AddToList(2, "Nacrai", "Morcego");
             return _lstAir;
         }
     }

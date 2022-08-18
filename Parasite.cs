@@ -37,8 +37,9 @@ namespace ProjetoBio
 
         public List<Parasite> GeraAnimaisParasite()
         {
-            AddToList(1, "Niphates alba Van Soest", "Porifero");
-            AddToList(2, "Polvo Dumbo", "Molusco");
+            AddToList(1, "Tenya", "Platelminto");
+            AddToList(2, "Lombriga", "Nematelminto");
+            AddToList(3, "Carrapato Estrela", "Artrópode parasita");
             return _lstParasite;
         }
     }
