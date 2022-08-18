@@ -158,6 +158,7 @@ namespace ProjetoBio
             this.pbGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbGround.TabIndex = 13;
             this.pbGround.TabStop = false;
+            this.pbGround.Click += new System.EventHandler(this.pbGround_Click);
             // 
             // pbParasite
             // 

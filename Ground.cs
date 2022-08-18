@@ -37,8 +37,9 @@ namespace ProjetoBio
 
         public List<Ground> GeraAnimaisGround()
         {
-            AddToList(1, "Niphates alba Van Soest", "Porifero");
-            AddToList(2, "Polvo Dumbo", "Molusco");
+            AddToList(1, "Lagarto-agama", "Réptil");
+            AddToList(2, "Sapo de Vidro", "Anfíbio");
+            AddToList(3, "Quokka", "Mamífero");
             return _lstGround;
         }
     }

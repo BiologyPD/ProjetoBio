@@ -203,5 +203,10 @@ namespace ProjetoBio
                 Application.Exit();
             }
         }
+
+        private void pbGround_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
