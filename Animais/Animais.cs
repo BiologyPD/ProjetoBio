@@ -13,7 +13,7 @@ namespace ProjetoBio.Animais
         Platelminto,
         Nematelminto,
         Molusco,
-        Anelídeo,
+        Anelideo,
         Artropode,
         Equinoderma,
         Cordado
@@ -47,23 +47,84 @@ namespace ProjetoBio.Animais
 
     public struct Alimentacao 
     { 
-        public EAlimentacao Tipo { get; set; }
+        private EAlimentacao _tipo;
+        public EAlimentacao Tipo { get => _tipo; set 
+            {
+                _tipo = value;
+                switch (value)
+                {
+                    case Filo.Porifera:
+                        HasAnus = false;
+                        HasBoca = false;
+                        break;
+
+                    case Filo.Cnidario:
+                        HasAnus = false;
+                        HasBoca = true;
+                        break;
+
+                    case Filo.Platelminto:
+                        HasAnus = false; 
+                        HasBoca = true;
+                        break;
+
+                    default:
+                        HasAnus = true;
+                        HasBoca = true;
+                }
+            }; }
         public EMetodoAlimentacao Meio { get; set; }
         public string Descricao { get; set; }
+        public bool HasBoca { get; private set; }
+        public bool HasAnus { get; private set; }
+        public string TipoBoca { get; set; }
 
         // TODO string DescricaoBoca
 
-        public Alimentacao(EAlimentacao tipo, EMetodoAlimentacao meio, string descricao, Filo filo) 
+        public Alimentacao(EAlimentacao tipo, EMetodoAlimentacao meio, string descricao, Filo filo, string tipoBoca) 
         {
             Tipo = tipo;
             Meio = meio;
             Descricao = descricao;
-
-            // TODO Decidir se tem boca/anûs a partir do filo
-            // TODO Atribuir DescricaoBoca
+            TipoBoca = tipoBoca;
+            this.Filo = filo;
         }
 
+        public override string ToString() 
+        {
+            string toText = "Tipo de alimentação:  "
+                + Tipo.ToString()
+                + "\nMétodo de alimentação:  "
+                + Meio.ToString()
+                + "\nDescrição:  "
+                + Descricao;
 
+            switch (HasBoca, HasAnus)
+            {
+                case (true, true):
+                    toText += "\nPossui boca e ânus.";
+                    break;
+
+                case (true, false):
+                    toText += "\nPossui somente boca.";
+                    break;
+
+                case (false, true):
+                    toText += "\nPossui somente ânus.";
+                    break;
+
+                case (false, false):
+                    toText += "\nNão possui boca ou ânus.";
+                    break;
+            }
+            
+            if (HasBoca)
+            {
+                toText += "\nDescrição da boca:  " + TipoBoca;
+            }
+
+            return toText;
+        }
     }
 
     public enum EAlimentacao 
@@ -102,6 +163,19 @@ namespace ProjetoBio.Animais
             Meio = meio;
             Descricao = descricao;
         }
+
+        public override string ToString()
+        {
+            bool moreThan1 = Meio.Count > 1;
+            string toText = moreThan1 ? "Meios:  " :  "Meio:  ";
+
+            foreach(EDefesa eDef in Meio)
+            {
+                toText += eDef.ToString() + moreThan1 ? " | ";
+            }
+
+            return toText;
+        }
     }
 
     public enum EReproducao 
@@ -115,7 +189,7 @@ namespace ProjetoBio.Animais
     {
         public EDevEmbrionario Meio { get; set; }
         public string Descricao { get; set; }
-        public bool HasCorte { get; }
+        public bool HasCorte { get; private set; }
         public string DescricaoCorte { get; set; }
 
         public DevEmbrionario(EDevEmbrionario meio, string descricao) 
@@ -161,11 +235,12 @@ namespace ProjetoBio.Animais
         public Filo Filo { get; set; }
         public string Adaptacoes { get; set; }
         public string Bioma { get; set; }
-        public string ObtencaoAlimento { get; set; }
+        public Alimentacao Alimentacao { get; set; }
         public string RegulacaoAgua { get; set; }
-        public string Locomocao { get; set; }
-        public string Defesa { get; set; }
+        public Locomocao Locomocao { get; set; }
+        public Defesa Defesa { get; set; }
         public Reproducao Reproducao { get; set; }
+        public DevEmbrionario DevEmbrionario { get; set;}
         public string? Personagem { get; set; }
 
     }
