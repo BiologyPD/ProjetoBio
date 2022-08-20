@@ -14,6 +14,7 @@ namespace ProjetoBio
     {
         public SplashScreen()
         {
+            Animais.Animais.ShowJson();
             InitializeComponent();
         }
 
