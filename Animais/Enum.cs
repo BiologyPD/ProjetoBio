@@ -20,7 +20,7 @@ namespace ProjetoBio.Animais
     }
     public static class FiloExtensions
     {
-        public static string[] Values { get; private set; } =
+        public static string[] Values { get; } =
         {
             "Porífera",
             "Cnidário",
@@ -32,10 +32,8 @@ namespace ProjetoBio.Animais
             "Equinoderma",
             "Cordado",
         };
-        public static string ToString(this Filo filo)
-        {
-            return Values[(int) filo];
-        }
+
+        public static string ToString(this Filo filo) => Values[(int)filo];
     }
 
     public struct Locomocao
@@ -53,9 +51,9 @@ namespace ProjetoBio.Animais
         {
             string _string;
             if (Meio.Count == 0)
-                { _string = "Não se locomove.\n"; }
-            else if (Meio.Count == 1) 
-                { _string = "Meio de locomoção:  " + Meio[0]; }
+            { _string = "Não se locomove.\n"; }
+            else if (Meio.Count == 1)
+            { _string = "Meio de locomoção:  " + Meio[0]; }
             else if (Meio.Count >= 2)
             {
                 _string = "Meios de locomoção:  | ";
@@ -93,7 +91,7 @@ namespace ProjetoBio.Animais
         public static string ToString(this ELocomocao eLocomocao)
         {
             return Values[(int)eLocomocao];
-        } 
+        }
     }
 
     public enum Respiracao
@@ -102,6 +100,19 @@ namespace ProjetoBio.Animais
         Branquial,
         Pulmonar,
         Traqueal,
+    }
+
+    public static class RespiracaoExtensions
+    {
+        public static string[] Values { get; } = 
+        {
+            "Cutanea",
+            "Branquial",
+            "Pulmonar",
+            "Traqueal",
+        }
+
+        public static string ToString(this Respiracao respiracao) => Values[((int)respiracao)];
     }
 
     public struct Alimentacao
@@ -179,11 +190,37 @@ namespace ProjetoBio.Animais
         Onivoro
     }
 
+    public static class EAlimentacaoExtensions
+    {
+        public static string[] Values { get; } =
+        {
+            "Particulas",
+            "Herbivoro",
+            "Carnivoro",
+            "Onivoro",
+        };
+
+        public static ToString(this EAlimentacao eAlimentacao) => return Values[((int)eAlimentacao)];
+    }
+
+
     public enum EMetodoAlimentacao
     {
         Filtrador,
         Caçador,
         Herbivoro
+    }
+
+    public static class EMetodoAlimentacaoExtensions
+    {
+        public static string[] Values { get; } =
+        {
+            "Filtrador",
+            "Caçador",
+            "Herbivoro",
+        };
+
+        public static ToString(this EMetodoAlimentacao eMetodoAlimentacao) => Values[((int)eMetodoAlimentacao)];
     }
 
     public enum EDefesa
@@ -197,6 +234,8 @@ namespace ProjetoBio.Animais
         Bando,
         Nenhum
     }
+
+    // TODO defesa extensions
 
     public struct Defesa
     {
