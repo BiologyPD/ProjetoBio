@@ -16,7 +16,7 @@ namespace ProjetoBio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SplashScreen());
+            Application.Run(new Animais.FrmAnimal());
 
         }
     }
