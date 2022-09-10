@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -35,13 +35,13 @@ namespace ProjetoBio.Animais
                 Respiracao = Respiracao.Traqueal,
                 Adaptacoes = "Comportamento social, divisão de trabalho e ocasionalmente agricultura/pecuária",
                 Bioma = "Todos",
-                Alimentacao = new Alimentacao()
+                Alimentacao = new Alimentacao(Filo.Artropode)
                 {
                     Tipo = EAlimentacao.Herbivoro,
                     Descricao = "Colhe folhas encontradas, as come ou as usa como compostagem para cultivar um fungo, que é seu alimento. Tem grande interesse em carboidratos simples.",
                     Meio = EMetodoAlimentacao.Herbivoro,
-                    TipoFilo = Filo.Artropode,
                     TipoBoca = "Composta por duas garras adjacentes as laterais de uma cavidade.",
+
                 },
                 Defesa = new Defesa()
                 {
@@ -64,7 +64,7 @@ namespace ProjetoBio.Animais
                 {
                     Meio = new List<ELocomocao>
                     {
-                        ELocomocao.Escalando,
+                        ELocomocao.Escalar,
                         ELocomocao.Andar,
                     },
                     Descricao = "Anda com seus seis membros articulados, além de ser capaz de escalar.",
