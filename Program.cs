@@ -16,8 +16,7 @@ namespace ProjetoBio
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Animais.FrmAnimal());
-
+            Application.Run(Animais.Animal.smilinguido().ToFrmAnimal());
         }
     }
 }

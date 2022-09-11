@@ -80,10 +80,10 @@ namespace ProjetoBio.Animais
 
     public class Locomocao
     {
-        public List<ELocomocao> Meio { get; set; }
+        public ELocomocao[] Meio { get; set; }
         public string Descricao { get; set; }
 
-        public Locomocao(List<ELocomocao> meio, string descricao)
+        public Locomocao(ELocomocao[] meio, string descricao)
         {
             Meio = meio;
             Descricao = descricao;
@@ -94,11 +94,11 @@ namespace ProjetoBio.Animais
         public override string ToString()
         {
             string _string = "";
-            if (Meio.Count == 0)
+            if (Meio.Count() == 0)
                 { _string = "Não se locomove.\n"; }
-            else if (Meio.Count == 1) 
+            else if (Meio.Count() == 1) 
                 { _string = "Meio de locomoção:  " + Meio[0]; }
-            else if (Meio.Count >= 2)
+            else if (Meio.Count() >= 2)
             {
                 _string = "Meios de locomoção:  | ";
                 foreach (ELocomocao me in Meio)
@@ -252,22 +252,22 @@ namespace ProjetoBio.Animais
 
     public class Defesa
     {
-        public List<EDefesa> Meio { get; set; }
+        public EDefesa[] Meios { get; set; }
         public string Descricao { get; set; }
 
         public Defesa() { }
-        public Defesa(List<EDefesa> meio, string descricao)
+        public Defesa(EDefesa[] meios, string descricao)
         {
-            Meio = meio;
+            Meios = meios;
             Descricao = descricao;
         }
 
         public override string ToString()
         {
-            bool moreThan1 = Meio.Count > 1;
+            bool moreThan1 = Meios.Count() > 1;
             string toText = moreThan1 ? "Meios:  " : "Meio:  ";
 
-            foreach (EDefesa eDef in Meio)
+            foreach (EDefesa eDef in Meios)
             {
                 toText += eDef.Text + (moreThan1 ? " | " : "");
             }
@@ -306,7 +306,6 @@ namespace ProjetoBio.Animais
         public EReproducao TipoReproducao { get; set; }
         public EDevEmbrionario Meio { get; set; }
         public string Descricao { get; set; }
-        public bool HasCorte { get; set; }
         public string DescricaoCorte { get; set; }
 
         public DevEmbrionario(EReproducao tipoReproducao, EDevEmbrionario meio, string descricao)
@@ -314,17 +313,15 @@ namespace ProjetoBio.Animais
             TipoReproducao = tipoReproducao;
             Meio = meio;
             Descricao = descricao;
-            HasCorte = false;
-            DescricaoCorte = "Não há";
+            DescricaoCorte = String.Empty;
         }
 
         public DevEmbrionario(EReproducao tipoReproducao, EDevEmbrionario meio, string descricao, string descricaoCorte)
         {
             TipoReproducao = tipoReproducao;
             Meio = meio;
-            Descricao = descricao;
-            HasCorte = true;
-            DescricaoCorte = descricaoCorte;
+            Descricao = descricao.Trim();
+            DescricaoCorte = descricaoCorte.Trim();
         }
 
         public DevEmbrionario() { }
@@ -335,7 +332,7 @@ namespace ProjetoBio.Animais
                 + "\nMeio:  " + Meio.Text
                 + "\nDescrição:  " + Descricao
                 + "\n"
-                + (HasCorte
+                + (DescricaoCorte != String.Empty
                 ? "Descrição da corte:  " + DescricaoCorte
                 : "Não há comportamento de corte");
         }
