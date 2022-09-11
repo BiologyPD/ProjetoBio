@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
@@ -20,11 +21,7 @@ namespace ProjetoBio.Animais
             Id = id;
         }
 
-        public static T[] GetValuesOf<T>() where T : Enum
-        {
-            return (T[]) typeof(T).GetMethod("GetValues", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.FlattenHierarchy)
-                .Invoke(null, null);
-        }
+        public static T[] GetValues<T>() where T : Enum => (T[]) typeof(T).GetField("Values").GetValue(null);
     }
 
     public class KeyPair<T> where T : Enum
@@ -38,9 +35,28 @@ namespace ProjetoBio.Animais
             Value = e;
         }
 
-        public static KeyPair<T>[] GetKeyPairs(T[] Values) => Values.Select(e => new KeyPair<T>(e)).ToArray();
-        public static KeyPair<T>[] GetKeyPairs() => Enum.GetValuesOf<T>().Select(e => new KeyPair<T>(e)).ToArray();
+        public static KeyPair<T>[] GetKeyPairs() => KeyPair.GetKeyPairs<T>();
+    }
 
+    public static class KeyPair
+    {
+        public static KeyPair<T>[] ToKeyPairs<T>(T[] Values) where T : Enum 
+            => Values.Select(e => new KeyPair<T>(e)).ToArray();
+
+        public static KeyPair<T>[] GetKeyPairs<T>() where T : Enum
+            => ToKeyPairs<T>(Enum.GetValues<T>());
+    }
+
+    public class Tipo : Enum
+    {
+        private Tipo(string text, int id) : base(text, id) { }
+
+        public static readonly Tipo Aereo = new Tipo("Aéreo", 0);
+        public static readonly Tipo Terrestre = new Tipo("Terrestre", 1);
+        public static readonly Tipo Parasita = new Tipo("Parasita", 2);
+        public static readonly Tipo Aquatico = new Tipo("Aquático", 3);
+
+        public static readonly Tipo[] Values = { Aereo, Terrestre, Parasita, Aquatico };
     }
 
     public class Filo : Enum
@@ -60,8 +76,6 @@ namespace ProjetoBio.Animais
         public static readonly Filo[] Values = {
             Porifera, Cnidario, Platelminto, Nematelminto, Molusco, Anelideo, Artropode, Equinoderma, Cordado
         };
-
-        public static Filo[] GetValues() => Values;
     }
 
     public class Locomocao
@@ -108,7 +122,6 @@ namespace ProjetoBio.Animais
         public static readonly ELocomocao Escalar = new ELocomocao("Escalando", 5);
 
         public static readonly ELocomocao[] Values = { Saltar, Rastejar, Voar, Andar, Nadar, Escalar };
-        public static ELocomocao[] GetValues() => Values;
     }
 
     public class Respiracao : Enum
@@ -121,7 +134,6 @@ namespace ProjetoBio.Animais
         public static readonly Respiracao Traqueal = new Respiracao("Traqueal", 3);
 
         public static readonly Respiracao[] Values = { Cutanea, Branquial, Pulmonar, Traqueal };
-        public static Respiracao[] GetValues() => Values;
     }
 
     public class Alimentacao
@@ -207,7 +219,6 @@ namespace ProjetoBio.Animais
         public static readonly EAlimentacao Onivoro = new EAlimentacao("Onívoro", 3);
 
         public static readonly EAlimentacao[] Values = { Particulas, Herbivoro, Carnivoro, Onivoro };
-        public static EAlimentacao[] GetValues() => Values;
     }
 
     public class EMetodoAlimentacao : Enum
@@ -219,7 +230,6 @@ namespace ProjetoBio.Animais
         public static readonly EMetodoAlimentacao Herbivoro = new EMetodoAlimentacao("Herbívoro", 2);
 
         public static readonly EMetodoAlimentacao[] Values = { Filtrador, Cacador, Herbivoro };
-        public static EMetodoAlimentacao[] GetValues() => Values;
     }
 
     public class EDefesa : Enum
@@ -238,7 +248,6 @@ namespace ProjetoBio.Animais
         public static readonly EDefesa[] Values = { 
             Espinhos, Camuflagem, Veneno, Ataque, Mobilidade, ResistênciaFisica, Bando, Nenhum 
         };
-        public static EDefesa[] GetValues() => Values;
     }
 
     public class Defesa
@@ -276,7 +285,6 @@ namespace ProjetoBio.Animais
         public static readonly EReproducao Ambos = new EReproducao("Ambos", 2);
 
         public static readonly EReproducao[] Values = { Sexuada, Assexuada, Ambos };
-        public static EReproducao[] GetValues() => Values;
     }
 
     public class EDevEmbrionario : Enum
@@ -291,7 +299,6 @@ namespace ProjetoBio.Animais
         public static readonly EDevEmbrionario Monotremado = new EDevEmbrionario("Monotremado", 5);
 
         public static readonly EDevEmbrionario[] Values = { Ovo, OvoCalcificado, Placenta, Larva, Ninfa, Monotremado };
-        public static EDevEmbrionario[] GetValues() => Values;
     }
 
     public class DevEmbrionario

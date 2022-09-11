@@ -85,7 +85,6 @@
             this.cbFilo.Name = "cbFilo";
             this.cbFilo.Size = new System.Drawing.Size(121, 21);
             this.cbFilo.TabIndex = 3;
-            this.cbFilo.SelectedIndexChanged += new System.EventHandler(this.cbFilo_SelectedIndexChanged);
             // 
             // txtNome
             // 
