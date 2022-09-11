@@ -22,7 +22,7 @@ namespace ProjetoBio.Animais
 
         public static T[] GetValuesOf<T>() where T : Enum
         {
-            return (T[]) typeof(T).GetMethod("GetValues", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.FlattenHierarchy)
+            return (T[]) typeof(T).GetMethod("GetValues", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.FlattenHierarchy)
                 .Invoke(null, null);
         }
     }

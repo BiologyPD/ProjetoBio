@@ -16,7 +16,7 @@ namespace ProjetoBio.Animais
         {
             MessageBox.Show(Enum.GetValuesOf<Filo>().ToString());
             InitializeComponent();
-            //CarregarCB<Respiracao>(cbRespiracao);
+            CarregarCB<Respiracao>(cbRespiracao);
             CarregarCB<Filo>(cbFilo);
         }
 
@@ -25,10 +25,10 @@ namespace ProjetoBio.Animais
             cb.DisplayMember = "Key";
             cb.ValueMember = "Value";
             cb.DataSource = KeyPair<T>.GetKeyPairs();
-            // cb.DataSource = Enum.GetValuesOf<T>().Select(e => new { Key = e.Text, Value = e }).ToList();
-            // cb.DataSource = KeyPair<T>.GetKeyPairs();
-            // cb.DataSource = KeyPair<Filo>.GetKeyPairs();
-            // cb.DataSource = KeyPair<T>.GetKeyPairs(Enum.GetValuesOf<T>());
+            cb.DataSource = Enum.GetValuesOf<T>().Select(e => new { Key = e.Text, Value = e }).ToList();
+            cb.DataSource = KeyPair<T>.GetKeyPairs();
+            cb.DataSource = KeyPair<Filo>.GetKeyPairs();
+            cb.DataSource = KeyPair<T>.GetKeyPairs(Enum.GetValuesOf<T>());
         }
 
         private void cbFilo_SelectedIndexChanged(object sender, EventArgs e)
