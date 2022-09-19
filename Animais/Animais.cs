@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Windows.Forms;
+using ProjetoBio.Utils;
 
 namespace ProjetoBio.Animais
 {
@@ -13,6 +14,15 @@ namespace ProjetoBio.Animais
     {
         // * textBox
         public string Nome { get; set; }
+        
+        // textBox
+        public string NomeCientifico { get; set; }
+        
+        // textBox
+        public string Aparencia { get; set; }
+
+        // textBox
+        public string DescricaoMembros { get; set; }
 
         // * comboBox
         public Filo Filo { get; set; }
@@ -28,6 +38,9 @@ namespace ProjetoBio.Animais
 
         // * textBox
         public string Bioma { get; set; }
+
+        // textBox multiline
+        public string Habitat { get; set; }
 
         // * comboBox
         // * comboBox
@@ -55,30 +68,33 @@ namespace ProjetoBio.Animais
         // * optional textBox
         public string Personagem { get; set; }
 
+        public string InformacoesInuteis { get; set; }
+
         public Animal(string nome, Filo filo, Tipo tipo, Respiracao respiracao, string adaptacoes, string bioma, Alimentacao alimentacao, string regulacaoAgua, Locomocao locomocao, Defesa defesa, DevEmbrionario devEmbrionario, string personagem)
         {
-            Nome = nome.Trim() ?? throw new ArgumentNullException(nameof(nome));
+            Nome = nome.Check();
+            Adaptacoes = adaptacoes.Check();
+            Bioma = bioma.Check();
+            RegulacaoAgua = regulacaoAgua.Check();
+            Personagem = personagem.Check();
             Filo = filo ?? throw new ArgumentNullException(nameof(filo));
             Tipo = tipo ?? throw new ArgumentNullException(nameof(tipo));
             Respiracao = respiracao ?? throw new ArgumentNullException(nameof(respiracao));
-            Adaptacoes = adaptacoes.Trim() ?? throw new ArgumentNullException(nameof(adaptacoes));
-            Bioma = bioma.Trim() ?? throw new ArgumentNullException(nameof(bioma));
             Alimentacao = alimentacao ?? throw new ArgumentNullException(nameof(alimentacao));
-            RegulacaoAgua = regulacaoAgua.Trim() ?? throw new ArgumentNullException(nameof(regulacaoAgua));
             Locomocao = locomocao ?? throw new ArgumentNullException(nameof(locomocao));
             Defesa = defesa ?? throw new ArgumentNullException(nameof(defesa));
             DevEmbrionario = devEmbrionario ?? throw new ArgumentNullException(nameof(devEmbrionario));
-            Personagem = personagem.Trim() ?? throw new ArgumentNullException(nameof(personagem));
         }
 
         public Animal() { }
 
-        public static Animal smilinguido()
-        {
-            Animal animal1 = new Animal()
+        public static Animal smilinguido() {
+            return new Animal()
             {
                 Nome = "Formiga",
                 Filo = Filo.Artropode,
+                Aparencia = "Pequena, escura, corpo alongado segmentado e com antenas.",
+                // Membros = "Possui 6 membros, 3 em cada lateral do corpo, e cada par adjacente a um dos seus três segmentos corporais.",
                 Tipo = Tipo.Terrestre,
                 Respiracao = Respiracao.Traqueal,
                 Adaptacoes = "Comportamento social, divisão de trabalho e ocasionalmente agricultura/pecuária",
@@ -88,8 +104,8 @@ namespace ProjetoBio.Animais
                     Tipo = EAlimentacao.Herbivoro,
                     Descricao = "Colhe folhas encontradas, as come ou as usa como compostagem para cultivar um fungo, que é seu alimento. Tem grande interesse em carboidratos simples.",
                     Meio = EMetodoAlimentacao.Herbivoro,
-                    TipoBoca = "Composta por duas garras adjacentes as laterais de uma cavidade.",
-
+                    DescricaoBoca = "Composta por duas garras adjacentes as laterais de uma cavidade.",
+                    DescricaoAnus = "eu nao sei?",
                 },
                 Defesa = new Defesa()
                 {
@@ -119,24 +135,13 @@ namespace ProjetoBio.Animais
                 RegulacaoAgua = "Sem meio de regulação ativa de água, pele impermeável.",
                 Personagem = "Smilinguido",
             };
-            return animal1;
         }
 
-        public static string GetJson()
-        {
-            return JsonSerializer.Serialize(smilinguido());
-        }
+        public static string GetJson() => JsonSerializer.Serialize(smilinguido());
 
-        public static void ShowJson()
-        {
-            MessageBox.Show(GetJson(), "Json: ", MessageBoxButtons.OK);
-        }
+        public static void ShowJson() => MessageBox.Show(GetJson(), "Json: ", MessageBoxButtons.OK);
 
-        public FrmAnimal ToFrmAnimal()
-        {
-            var frm = new FrmAnimal();
-            frm.SetAnimal(this);
-            return frm;
-        }
+        public FrmAnimal ToFrmAnimal() => new FrmAnimal(this);
+        public bool IsNotNull() => GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public).All(x => x.GetValue(this) != null);
     }
 }

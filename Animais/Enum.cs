@@ -1,3 +1,4 @@
+using ProjetoBio.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,29 +23,6 @@ namespace ProjetoBio.Animais
         }
 
         public static T[] GetValues<T>() where T : Enum => (T[]) typeof(T).GetField("Values").GetValue(null);
-    }
-
-    public class KeyPair<T> where T : Enum
-    {
-        public string Key { get; set; }
-        public T Value { get; set; }
-
-        public KeyPair(T e)
-        {
-            Key = e.Text;
-            Value = e;
-        }
-
-        public static KeyPair<T>[] GetKeyPairs() => KeyPair.GetKeyPairs<T>();
-    }
-
-    public static class KeyPair
-    {
-        public static KeyPair<T>[] ToKeyPairs<T>(T[] Values) where T : Enum 
-            => Values.Select(e => new KeyPair<T>(e)).ToArray();
-
-        public static KeyPair<T>[] GetKeyPairs<T>() where T : Enum
-            => ToKeyPairs<T>(Enum.GetValues<T>());
     }
 
     public class Tipo : Enum
@@ -82,6 +60,7 @@ namespace ProjetoBio.Animais
     {
         public ELocomocao[] Meio { get; set; }
         public string Descricao { get; set; }
+        public bool HasLocomocao => Meio.Count() > 0;
 
         public Locomocao(ELocomocao[] meio, string descricao)
         {
@@ -93,20 +72,28 @@ namespace ProjetoBio.Animais
 
         public override string ToString()
         {
-            string _string = "";
-            if (Meio.Count() == 0)
-                { _string = "Não se locomove.\n"; }
-            else if (Meio.Count() == 1) 
-                { _string = "Meio de locomoção:  " + Meio[0]; }
-            else if (Meio.Count() >= 2)
-            {
-                _string = "Meios de locomoção:  | ";
-                foreach (ELocomocao me in Meio)
-                {
-                    _string += me.Text + " | ";
-                }
+            var toText = new StringBuilder();
+            toText.AppendLine("LOCOMOÇÃO:");
+
+            switch (Meio.Count()) {
+                case 0:
+                    toText.AppendLine("Não se locomove.");
+                    break;
+
+                case 1:
+                    toText.AppendLine("Meio de locomoção:  " + Meio[0]);
+                    break;
+
+                default:
+                    toText.Append("Meios de locomoção:  | ");
+                    foreach (ELocomocao me in Meio)
+                        toText.Append(me.Text).Append(" | ");
+                    toText.AppendLine();
+                    break;
             }
-            return _string + "\nDescrição:  " + Descricao;
+
+            toText.Append("Descrição:  ").Append(Descricao);
+            return toText.ToString();
         }
     }
 
@@ -141,71 +128,80 @@ namespace ProjetoBio.Animais
         public EAlimentacao Tipo { get; set; }
         public EMetodoAlimentacao Meio { get; set; }
         public string Descricao { get; set; }
-        public string TipoBoca { get; set; }
-        public bool HasAnus { get; private set; }
-        public bool HasBoca { get; private set; }
+        public string DescricaoBoca { get; set; }
+        public string DescricaoAnus { get; set; }
+        public bool HasAnus => !DescricaoAnus.IsBlank();
+        public bool HasBoca => !DescricaoBoca.IsBlank();
 
-        public void SetBocaAnus(Filo filo)
+        public void CheckAnusBoca(Filo filo)
         {
             if (filo == Filo.Porifera)
             {
-                HasAnus = false;
-                HasBoca = false;
+                if (HasAnus && HasBoca)
+                    throw new ArgumentException(filo.Text + " não tem cu nem boca.");
+                else if (HasAnus)
+                    throw new ArgumentException(filo.Text + " não tem cu.");
+                else if (HasBoca)
+                    throw new ArgumentException(filo.Text + " não tem boca.");
             }
-            else if (filo == Filo.Cnidario)
+            else if (filo == Filo.Cnidario || filo == Filo.Platelminto)
             {
-                HasAnus = false;
-                HasBoca = true;
-            }
-            else if (filo == Filo.Platelminto)
-            {
-                HasAnus = false;
-                HasBoca = true;
+                if (HasAnus && !HasBoca)
+                    throw new ArgumentException(filo.Text + " não tem cu mas deve ter boca.");
+                else if (HasAnus)
+                    throw new ArgumentException(filo.Text + " não tem cu.");
+                else if (!HasBoca)
+                    throw new ArgumentException(filo.Text + " deve ter boca.");
             }
             else
             {
-                HasAnus = true;
-                HasBoca = true;
+                if (!HasBoca && !HasAnus)
+                    throw new ArgumentException(filo.Text + " deve ter cu e boca.");
+                else if (!HasBoca)
+                    throw new ArgumentException(filo.Text + " deve ter boca.");
+                else if (!HasAnus)
+                    throw new ArgumentException(filo.Text + " deve ter cu.");
             }
         }
 
-        public Alimentacao(EAlimentacao tipo, EMetodoAlimentacao meio, string descricao, Filo filo, string tipoBoca)
+        public Alimentacao(Filo filo, EAlimentacao tipo, EMetodoAlimentacao meio, string descricao, string descricaoBoca, string descricaoAnus)
         {
             Tipo = tipo;
             Meio = meio;
-            Descricao = descricao;
-            TipoBoca = tipoBoca;
-            SetBocaAnus(filo);
+            Descricao = descricao.Check();
+            DescricaoBoca = descricaoBoca.ToTrimmed();
+            DescricaoAnus = descricaoAnus.ToTrimmed();
+            CheckAnusBoca(filo);
         }
 
         public Alimentacao() { }
 
-        public Alimentacao(Filo filo) { SetBocaAnus(filo); }
+        public Alimentacao(Filo filo) { CheckAnusBoca(filo); }
 
         public override string ToString()
         {
-            string toText = "Tipo de alimentação:  "
-                + Tipo.Text
-                + "\nMétodo de alimentação:  "
-                + Meio.Text
-                + "\nDescrição:  "
-                + Descricao;
+
+            var toText = new StringBuilder("Tipo de alimentação:  ")
+                .AppendLine(Tipo.Text)
+                .Append("Método de alimentação:  ").AppendLine(Meio.Text)
+                .Append("Descrição:  ").AppendLine(Descricao);
 
             if (HasBoca && HasAnus)
-                toText += "\nPossui boca e ânus.";
+                toText.AppendLine("Possui boca e ânus.");
             else if (HasBoca && !HasAnus)
-                toText += "\nPossui somente boca.";
+                toText.AppendLine("Possui somente boca.");
             else if (!HasBoca && HasAnus)
-                toText += "\nPossui somente ânus.";
+                toText.AppendLine("Possui somente ânus.");
             else if (!HasBoca && !HasAnus)
-                toText += "\nNão possui boca ou ânus.";
+                toText.AppendLine("Não possui boca ou ânus.");
 
             if (HasBoca)
-            {
-                toText += "\nDescrição da boca:  " + TipoBoca;
-            }
+                toText.Append("\tDescrição da boca:  ").AppendLine(DescricaoBoca);
 
-            return toText;
+            if (HasAnus)
+                toText.Append("\tDescrição do ânus:  ").AppendLine(DescricaoAnus);
+
+            return toText.ToString();
         }
     }
 
@@ -217,8 +213,9 @@ namespace ProjetoBio.Animais
         public static readonly EAlimentacao Herbivoro = new EAlimentacao("Herbívoro", 1);
         public static readonly EAlimentacao Carnivoro = new EAlimentacao("Carnívoro", 2);
         public static readonly EAlimentacao Onivoro = new EAlimentacao("Onívoro", 3);
+        public static readonly EAlimentacao Hematofago = new EAlimentacao("Hematófago", 4);
 
-        public static readonly EAlimentacao[] Values = { Particulas, Herbivoro, Carnivoro, Onivoro };
+        public static readonly EAlimentacao[] Values = { Particulas, Herbivoro, Carnivoro, Onivoro, Hematofago };
     }
 
     public class EMetodoAlimentacao : Enum
@@ -243,10 +240,9 @@ namespace ProjetoBio.Animais
         public static readonly EDefesa Mobilidade = new EDefesa("Mobilidade", 4);
         public static readonly EDefesa ResistênciaFisica = new EDefesa("Resistência física", 5);
         public static readonly EDefesa Bando = new EDefesa("Bando", 6);
-        public static readonly EDefesa Nenhum = new EDefesa("Nenhum", 7);
 
         public static readonly EDefesa[] Values = { 
-            Espinhos, Camuflagem, Veneno, Ataque, Mobilidade, ResistênciaFisica, Bando, Nenhum 
+            Espinhos, Camuflagem, Veneno, Ataque, Mobilidade, ResistênciaFisica, Bando
         };
     }
 
@@ -254,6 +250,9 @@ namespace ProjetoBio.Animais
     {
         public EDefesa[] Meios { get; set; }
         public string Descricao { get; set; }
+        public int QntMeios => Meios.Count();
+        public bool HasDefesa => Meios.Count() > 0;
+        public string[] Text => Meios.Select(x => x.Text).ToArray();
 
         public Defesa() { }
         public Defesa(EDefesa[] meios, string descricao)
@@ -264,15 +263,29 @@ namespace ProjetoBio.Animais
 
         public override string ToString()
         {
-            bool moreThan1 = Meios.Count() > 1;
-            string toText = moreThan1 ? "Meios:  " : "Meio:  ";
+            bool moreThan1 = QntMeios > 1;
+            var toText = new StringBuilder();
+            toText.AppendLine("DEFESA:");
 
-            foreach (EDefesa eDef in Meios)
-            {
-                toText += eDef.Text + (moreThan1 ? " | " : "");
+            switch (QntMeios) {
+                case 0:
+                    toText.AppendLine("Este animal não possui meio de defesa.");
+                    break;
+
+                case 1:
+                    toText.Append("Meio de defesa:  ").AppendLine(Meios[0].Text);
+                    break;
+
+                default:
+                    toText.Append("Meios de defesa:  | ");
+                    foreach(var meio in Meios)
+                        toText.Append(meio.Text).Append(" | ");
+                    toText.AppendLine();
+                    break;
             }
 
-            return toText;
+            toText.Append("Descrição:  ").AppendLine(Descricao);
+            return toText.ToString();
         }
     }
 
@@ -307,6 +320,9 @@ namespace ProjetoBio.Animais
         public EDevEmbrionario Meio { get; set; }
         public string Descricao { get; set; }
         public string DescricaoCorte { get; set; }
+        public string EpocaReproducao { get; set; }
+        public bool HasCorte => !DescricaoCorte.IsBlank();
+        public bool HasEpocaReproducao => !EpocaReproducao.IsBlank();
 
         public DevEmbrionario(EReproducao tipoReproducao, EDevEmbrionario meio, string descricao)
         {
@@ -328,13 +344,27 @@ namespace ProjetoBio.Animais
 
         public override string ToString()
         {
-            return "Tipo de reprodução:  " + TipoReproducao.Text
-                + "\nMeio:  " + Meio.Text
-                + "\nDescrição:  " + Descricao
-                + "\n"
-                + (DescricaoCorte != String.Empty
-                ? "Descrição da corte:  " + DescricaoCorte
-                : "Não há comportamento de corte");
+            var toText = new StringBuilder("REPRODUÇÃO E DESENVOLVIMENTO EMBRIONÁRIO: ");
+            toText.AppendLine();
+
+            toText.Append("Tipo de reprodução:  ").AppendLine(TipoReproducao.Text);
+            toText.Append("Meio:  ").AppendLine(Meio.Text);
+            toText.Append("Descrição:  ").AppendLine(Descricao);
+
+            if (HasCorte) {
+                toText.AppendLine("Possui comportamento de corte.");
+                toText.Append("\tDescrição da corte:  ").AppendLine(DescricaoCorte);
+            } else {
+                toText.AppendLine("Não possui comportamento de corte.");
+            }
+
+            if (HasEpocaReproducao)
+            {
+                toText.AppendLine("Possui época de reprodução.");
+                toText.Append("Época de reprodução:  ").AppendLine(EpocaReproducao);
+            }
+
+            return toText.ToString();
         }
     }
 }

@@ -61,6 +61,8 @@
       <DependentUpon>AnimaisGround.cs</DependentUpon>
     </Compile>
     <Compile Include="Animais\Animais.cs" />
+    <Compile Include="Animais\AnimalControl.cs" />
+    <Compile Include="Animais\AnimalModels.cs" />
     <Compile Include="Animais\Enum.cs" />
     <Compile Include="Animais\FrmAnimal.cs">
       <SubType>Form</SubType>
@@ -97,6 +99,8 @@
     <Compile Include="Sanguessugas.Designer.cs">
       <DependentUpon>Sanguessugas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\KeyPair.cs" />
     <EmbeddedResource Include="AnimaisAqua.resx">
       <DependentUpon>AnimaisAqua.cs</DependentUpon>
     </EmbeddedResource>

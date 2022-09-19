@@ -1,3 +1,4 @@
+using ProjetoBio.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,49 +16,22 @@ namespace ProjetoBio.Animais
         public FrmAnimal()
         {
             InitializeComponent();
-            CarregarCB<Filo>(cbFilo);
-            CarregarCB<Tipo>(cbTipo);
-            CarregarCB<Respiracao>(cbRespiracao);
-            CarregarCB<EAlimentacao>(cbEAlimentacao);
-            CarregarCB<EMetodoAlimentacao>(cbEMetodoAlimentacao);
-            CarregarCB<EReproducao>(cbEReproducao);
-            CarregarCB<EDevEmbrionario>(cbEDevEmbrionario);
-            CarregarChkLst<EDefesa>(chkLstEDefesa);
-            CarregarChkLst<ELocomocao>(chkLstELocomocao);
-            // CarregarChkLst<EDefesa>(checkedListBox1);   
+
+            cbFilo.SetFrom<Filo>();
+            cbTipo.SetFrom<Tipo>();
+            cbRespiracao.SetFrom<Respiracao>();
+            cbEAlimentacao.SetFrom<EAlimentacao>();
+            cbEMetodoAlimentacao.SetFrom<EMetodoAlimentacao>();
+            cbEReproducao.SetFrom<EReproducao>();
+            cbEDevEmbrionario.SetFrom<EDevEmbrionario>();
+            chkLstEDefesa.SetFrom<EDefesa>();
+            chkLstELocomocao.SetFrom<ELocomocao>();
         }
 
-        private T[] GetValuesFromChkLst<T>(CheckedListBox chkLst) where T : Enum
-        {
-            var values = new List<T>();
-            var enumValues = Enum.GetValues<T>();
-            foreach (int value in chkLst.CheckedIndices.Cast<int>())
-                values.Add(enumValues[value]);
-            return values.ToArray();
-        }
-
-        private void CarregarChkLst<T>(CheckedListBox checkList) where T : Enum
-        {
-            checkList.CheckOnClick = true;
-            checkList.Items.Clear();
-            foreach (var value in Enum.GetValues<T>())
-                checkList.Items.Add(value.Text);
-        }
-
-        private void CarregarCB<T>(ComboBox cb) where T : Enum
-        {
-            cb.DisplayMember = "Key";
-            cb.ValueMember = "Value";
-            cb.DataSource = KeyPair.GetKeyPairs<T>();
-        }
+        public FrmAnimal(Animal animal) : this() => SetAnimal(animal);
 
         private void checkCampoPersonagem_CheckedChanged(object sender, EventArgs e) =>
             txtPersonagem.Enabled = checkCampoPersonagem.Checked;
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void tabDesenvolvimentoEmbrionario_Click(object sender, EventArgs e)
         {
@@ -67,56 +41,49 @@ namespace ProjetoBio.Animais
         private void chkReproducaoHasCorte_CheckedChanged(object sender, EventArgs e) =>
             txtReproducaoDescricaoCorte.Visible = chkReproducaoHasCorte.Checked;
 
-        private void SetChkLst<T>(CheckedListBox checkedList, T[] values) where T : Enum
-        {
-            var enumValues = Enum.GetValues<T>().ToList();
-            foreach (var value in values)
-                checkedList.SetItemChecked(enumValues.IndexOf(value), true);
-        }
-
         public Animal GetAnimal()
         {
+            this.TrimAll();
+
             return new Animal()
             {
-                Nome = txtNome.Text.Trim(),
+                Nome = txtNome.Text,
                 Filo = (Filo)cbFilo.SelectedValue,
                 Tipo = (Tipo)cbTipo.SelectedValue,
                 Respiracao = (Respiracao)cbRespiracao.SelectedValue,
-                Adaptacoes = txtAdaptacoes.Text.Trim(),
-                Bioma = txtBioma.Text.Trim(),
+                Adaptacoes = txtAdaptacoes.Text,
+                Bioma = txtBioma.Text,
                 Alimentacao = new Alimentacao((Filo)cbFilo.SelectedValue)
                 {
                     Tipo = (EAlimentacao)cbEAlimentacao.SelectedValue,
                     Meio = (EMetodoAlimentacao)cbEMetodoAlimentacao.SelectedValue,
-                    Descricao = txtAlimentacaoDescricao.Text.Trim()
+                    Descricao = txtAlimentacaoDescricao.Text,
+                    DescricaoBoca = txtAlimentacaoDescricaoBoca.Text,
                 },
-                RegulacaoAgua = txtRegulacaoAgua.Text.Trim(),
+                RegulacaoAgua = txtRegulacaoAgua.Text,
                 Locomocao = new Locomocao()
                 {
-                    Meio = GetValuesFromChkLst<ELocomocao>(chkLstELocomocao),
-                    Descricao = txtDescricaoLocomocao.Text.Trim()
+                    Meio = chkLstELocomocao.CheckedValues<ELocomocao>(),
+                    Descricao = txtDescricaoLocomocao.Text,
                 },
                 Defesa = new Defesa()
                 {
-                    Meios = GetValuesFromChkLst<EDefesa>(chkLstEDefesa),
-                    Descricao = txtDefesaDescricao.Text.Trim()
+                    Meios = chkLstEDefesa.CheckedValues<EDefesa>(),
+                    Descricao = txtDefesaDescricao.Text,
                 },
                 DevEmbrionario = new DevEmbrionario()
                 {
                     TipoReproducao = (EReproducao)cbEReproducao.SelectedValue,
                     Meio = (EDevEmbrionario)cbEDevEmbrionario.SelectedValue,
-                    Descricao = txtReproducaoDescricao.Text.Trim(),
-                    DescricaoCorte = chkReproducaoHasCorte.Checked ? txtReproducaoDescricaoCorte.Text.Trim() : String.Empty
+                    Descricao = txtReproducaoDescricao.Text,
+                    DescricaoCorte = chkReproducaoHasCorte.Checked ? txtReproducaoDescricaoCorte.Text : string.Empty,
                 },
-                Personagem = checkCampoPersonagem.Checked ? txtPersonagem.Text.Trim() : String.Empty
+                Personagem = checkCampoPersonagem.Checked ? txtPersonagem.Text : string.Empty
             };
         }
 
         public void SetAnimal(Animal animal)
         {
-            bool hasCorte = animal.DevEmbrionario.DescricaoCorte != String.Empty;
-            bool hasPersonagem = animal.Personagem != String.Empty;
-
             txtNome.Text = animal.Nome;
             cbFilo.SelectedValue = animal.Filo;
             cbTipo.SelectedValue = animal.Tipo;
@@ -127,24 +94,34 @@ namespace ProjetoBio.Animais
             cbEAlimentacao.SelectedValue = animal.Alimentacao.Tipo;
             cbEMetodoAlimentacao.SelectedValue = animal.Alimentacao.Meio;
             txtAlimentacaoDescricao.Text = animal.Alimentacao.Descricao;
-            txtAlimentacaoTipoBoca.Text = animal.Alimentacao.TipoBoca;
+            txtAlimentacaoDescricaoBoca.Text = animal.Alimentacao.DescricaoBoca;
             
             txtRegulacaoAgua.Text = animal.RegulacaoAgua;
-            
-            SetChkLst(chkLstELocomocao, animal.Locomocao.Meio);
+
+            chkLstELocomocao.CheckFrom(animal.Locomocao.Meio);
             txtDescricaoLocomocao.Text = animal.Locomocao.Descricao;
-            
-            SetChkLst(chkLstEDefesa, animal.Defesa.Meios);
+
+            chkLstEDefesa.CheckFrom(animal.Defesa.Meios);
             txtDefesaDescricao.Text = animal.Defesa.Descricao;
 
             cbEReproducao.SelectedValue = animal.DevEmbrionario.TipoReproducao;
             cbEDevEmbrionario.SelectedValue = animal.DevEmbrionario.Meio;
             txtReproducaoDescricao.Text = animal.DevEmbrionario.Descricao;
-            chkReproducaoHasCorte.Checked = hasCorte;
-            txtReproducaoDescricaoCorte.Text = hasCorte ? animal.DevEmbrionario.DescricaoCorte : String.Empty;
+            chkReproducaoHasCorte.Checked = animal.DevEmbrionario.DescricaoCorte != string.Empty;
+            txtReproducaoDescricaoCorte.Text = animal.DevEmbrionario.DescricaoCorte ?? string.Empty;
 
-            checkCampoPersonagem.Checked = hasPersonagem;
-            txtPersonagem.Text = hasPersonagem ? animal.Personagem : String.Empty;
+            checkCampoPersonagem.Checked = animal.Personagem != string.Empty;
+            txtPersonagem.Text = animal.Personagem ?? string.Empty;
+        }
+
+        private void tabGeral_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new FrmAnimal(GetAnimal()).Show();
         }
     }
 }

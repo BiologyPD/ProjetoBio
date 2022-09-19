@@ -50,7 +50,7 @@
             this.lblRegulacaoAgua = new System.Windows.Forms.Label();
             this.txtAlimentacaoDescricao = new System.Windows.Forms.TextBox();
             this.lblAlimentacaoDescricao = new System.Windows.Forms.Label();
-            this.txtAlimentacaoTipoBoca = new System.Windows.Forms.TextBox();
+            this.txtAlimentacaoDescricaoBoca = new System.Windows.Forms.TextBox();
             this.lblAlimentacaoTipoBoca = new System.Windows.Forms.Label();
             this.cbEMetodoAlimentacao = new System.Windows.Forms.ComboBox();
             this.lblAlimentacaoMetodo = new System.Windows.Forms.Label();
@@ -74,6 +74,7 @@
             this.cbEDevEmbrionario = new System.Windows.Forms.ComboBox();
             this.lblEReproducao = new System.Windows.Forms.Label();
             this.cbEReproducao = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabGeral.SuspendLayout();
             this.tabAlimentacao.SuspendLayout();
@@ -219,6 +220,7 @@
             this.tabGeral.TabIndex = 0;
             this.tabGeral.Text = "Geral";
             this.tabGeral.UseVisualStyleBackColor = true;
+            this.tabGeral.Click += new System.EventHandler(this.tabGeral_Click);
             // 
             // txtAdaptacoes
             // 
@@ -253,7 +255,7 @@
             this.tabAlimentacao.Controls.Add(this.lblRegulacaoAgua);
             this.tabAlimentacao.Controls.Add(this.txtAlimentacaoDescricao);
             this.tabAlimentacao.Controls.Add(this.lblAlimentacaoDescricao);
-            this.tabAlimentacao.Controls.Add(this.txtAlimentacaoTipoBoca);
+            this.tabAlimentacao.Controls.Add(this.txtAlimentacaoDescricaoBoca);
             this.tabAlimentacao.Controls.Add(this.lblAlimentacaoTipoBoca);
             this.tabAlimentacao.Controls.Add(this.cbEMetodoAlimentacao);
             this.tabAlimentacao.Controls.Add(this.lblAlimentacaoMetodo);
@@ -303,10 +305,10 @@
             // 
             // txtAlimentacaoTipoBoca
             // 
-            this.txtAlimentacaoTipoBoca.Location = new System.Drawing.Point(113, 63);
-            this.txtAlimentacaoTipoBoca.Name = "txtAlimentacaoTipoBoca";
-            this.txtAlimentacaoTipoBoca.Size = new System.Drawing.Size(170, 20);
-            this.txtAlimentacaoTipoBoca.TabIndex = 5;
+            this.txtAlimentacaoDescricaoBoca.Location = new System.Drawing.Point(113, 63);
+            this.txtAlimentacaoDescricaoBoca.Name = "txtAlimentacaoTipoBoca";
+            this.txtAlimentacaoDescricaoBoca.Size = new System.Drawing.Size(170, 20);
+            this.txtAlimentacaoDescricaoBoca.TabIndex = 5;
             // 
             // lblAlimentacaoTipoBoca
             // 
@@ -527,11 +529,22 @@
             this.cbEReproducao.Size = new System.Drawing.Size(170, 21);
             this.cbEReproducao.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(235, 382);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 390);
+            this.ClientSize = new System.Drawing.Size(322, 417);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl);
             this.Name = "FrmAnimal";
             this.Text = "FrmAnimal";
@@ -572,7 +585,7 @@
         private System.Windows.Forms.ComboBox cbEAlimentacao;
         private System.Windows.Forms.ComboBox cbEMetodoAlimentacao;
         private System.Windows.Forms.Label lblAlimentacaoMetodo;
-        private System.Windows.Forms.TextBox txtAlimentacaoTipoBoca;
+        private System.Windows.Forms.TextBox txtAlimentacaoDescricaoBoca;
         private System.Windows.Forms.Label lblAlimentacaoTipoBoca;
         private System.Windows.Forms.Label lblAlimentacaoDescricao;
         private System.Windows.Forms.Label lblRegulacaoAgua;
@@ -596,5 +609,6 @@
         private System.Windows.Forms.Label lblReproducaoDescricao;
         private System.Windows.Forms.CheckBox chkReproducaoHasCorte;
         private System.Windows.Forms.TextBox txtReproducaoDescricaoCorte;
+        private System.Windows.Forms.Button button1;
     }
 }
