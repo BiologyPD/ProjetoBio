@@ -10,13 +10,13 @@ namespace ProjetoBio.Utils
 {
     public class KeyPair<T> where T : Enum
     {
-        public string Key { get; set; }
-        public T Value { get; set; }
+        public string Key { get; }
+        public T Value { get; }
 
         public KeyPair(T e)
         {
             Key = e.Text;
-            Value = e;
+            Value = e;  // e
         }
 
         public static KeyPair<T>[] GetKeyPairs() => KeyPair.GetKeyPairs<T>();

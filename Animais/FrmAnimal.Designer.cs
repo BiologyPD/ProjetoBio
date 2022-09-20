@@ -42,6 +42,8 @@
             this.lblFilo = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabGeral = new System.Windows.Forms.TabPage();
+            this.txtHabitat = new System.Windows.Forms.TextBox();
+            this.lblHabitat = new System.Windows.Forms.Label();
             this.txtAdaptacoes = new System.Windows.Forms.TextBox();
             this.lblAdaptacoes = new System.Windows.Forms.Label();
             this.checkCampoPersonagem = new System.Windows.Forms.CheckBox();
@@ -66,6 +68,8 @@
             this.chkLstEDefesa = new System.Windows.Forms.CheckedListBox();
             this.lblEDefesa = new System.Windows.Forms.Label();
             this.tabDesenvolvimentoEmbrionario = new System.Windows.Forms.TabPage();
+            this.txtEpocaReproducao = new System.Windows.Forms.TextBox();
+            this.chkHasEpocaSexo = new System.Windows.Forms.CheckBox();
             this.txtReproducaoDescricaoCorte = new System.Windows.Forms.TextBox();
             this.chkReproducaoHasCorte = new System.Windows.Forms.CheckBox();
             this.txtReproducaoDescricao = new System.Windows.Forms.TextBox();
@@ -193,11 +197,13 @@
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(299, 363);
+            this.tabControl.Size = new System.Drawing.Size(299, 389);
             this.tabControl.TabIndex = 2;
             // 
             // tabGeral
             // 
+            this.tabGeral.Controls.Add(this.txtHabitat);
+            this.tabGeral.Controls.Add(this.lblHabitat);
             this.tabGeral.Controls.Add(this.txtAdaptacoes);
             this.tabGeral.Controls.Add(this.lblAdaptacoes);
             this.tabGeral.Controls.Add(this.checkCampoPersonagem);
@@ -216,15 +222,31 @@
             this.tabGeral.Location = new System.Drawing.Point(4, 22);
             this.tabGeral.Name = "tabGeral";
             this.tabGeral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeral.Size = new System.Drawing.Size(291, 337);
+            this.tabGeral.Size = new System.Drawing.Size(291, 363);
             this.tabGeral.TabIndex = 0;
             this.tabGeral.Text = "Geral";
             this.tabGeral.UseVisualStyleBackColor = true;
-            this.tabGeral.Click += new System.EventHandler(this.tabGeral_Click);
+            // 
+            // txtHabitat
+            // 
+            this.txtHabitat.Location = new System.Drawing.Point(9, 297);
+            this.txtHabitat.Multiline = true;
+            this.txtHabitat.Name = "txtHabitat";
+            this.txtHabitat.Size = new System.Drawing.Size(274, 60);
+            this.txtHabitat.TabIndex = 16;
+            // 
+            // lblHabitat
+            // 
+            this.lblHabitat.AutoSize = true;
+            this.lblHabitat.Location = new System.Drawing.Point(6, 280);
+            this.lblHabitat.Name = "lblHabitat";
+            this.lblHabitat.Size = new System.Drawing.Size(41, 13);
+            this.lblHabitat.TabIndex = 15;
+            this.lblHabitat.Text = "Habitat";
             // 
             // txtAdaptacoes
             // 
-            this.txtAdaptacoes.Location = new System.Drawing.Point(9, 205);
+            this.txtAdaptacoes.Location = new System.Drawing.Point(11, 199);
             this.txtAdaptacoes.Multiline = true;
             this.txtAdaptacoes.Name = "txtAdaptacoes";
             this.txtAdaptacoes.Size = new System.Drawing.Size(274, 65);
@@ -233,7 +255,7 @@
             // lblAdaptacoes
             // 
             this.lblAdaptacoes.AutoSize = true;
-            this.lblAdaptacoes.Location = new System.Drawing.Point(6, 189);
+            this.lblAdaptacoes.Location = new System.Drawing.Point(8, 183);
             this.lblAdaptacoes.Name = "lblAdaptacoes";
             this.lblAdaptacoes.Size = new System.Drawing.Size(104, 13);
             this.lblAdaptacoes.TabIndex = 13;
@@ -264,7 +286,7 @@
             this.tabAlimentacao.Location = new System.Drawing.Point(4, 22);
             this.tabAlimentacao.Name = "tabAlimentacao";
             this.tabAlimentacao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAlimentacao.Size = new System.Drawing.Size(291, 337);
+            this.tabAlimentacao.Size = new System.Drawing.Size(291, 363);
             this.tabAlimentacao.TabIndex = 1;
             this.tabAlimentacao.Text = "Alimentação";
             this.tabAlimentacao.UseVisualStyleBackColor = true;
@@ -303,10 +325,10 @@
             this.lblAlimentacaoDescricao.TabIndex = 6;
             this.lblAlimentacaoDescricao.Text = "Descrição da alimentação";
             // 
-            // txtAlimentacaoTipoBoca
+            // txtAlimentacaoDescricaoBoca
             // 
             this.txtAlimentacaoDescricaoBoca.Location = new System.Drawing.Point(113, 63);
-            this.txtAlimentacaoDescricaoBoca.Name = "txtAlimentacaoTipoBoca";
+            this.txtAlimentacaoDescricaoBoca.Name = "txtAlimentacaoDescricaoBoca";
             this.txtAlimentacaoDescricaoBoca.Size = new System.Drawing.Size(170, 20);
             this.txtAlimentacaoDescricaoBoca.TabIndex = 5;
             // 
@@ -365,14 +387,14 @@
             this.tabDefesaLocomocao.Controls.Add(this.lblEDefesa);
             this.tabDefesaLocomocao.Location = new System.Drawing.Point(4, 22);
             this.tabDefesaLocomocao.Name = "tabDefesaLocomocao";
-            this.tabDefesaLocomocao.Size = new System.Drawing.Size(291, 337);
+            this.tabDefesaLocomocao.Size = new System.Drawing.Size(291, 363);
             this.tabDefesaLocomocao.TabIndex = 2;
             this.tabDefesaLocomocao.Text = "Def | Loc";
             this.tabDefesaLocomocao.UseVisualStyleBackColor = true;
             // 
             // txtDescricaoLocomocao
             // 
-            this.txtDescricaoLocomocao.Location = new System.Drawing.Point(9, 264);
+            this.txtDescricaoLocomocao.Location = new System.Drawing.Point(9, 280);
             this.txtDescricaoLocomocao.Multiline = true;
             this.txtDescricaoLocomocao.Name = "txtDescricaoLocomocao";
             this.txtDescricaoLocomocao.Size = new System.Drawing.Size(274, 60);
@@ -381,7 +403,7 @@
             // lblLocomocaoDescricao
             // 
             this.lblLocomocaoDescricao.AutoSize = true;
-            this.lblLocomocaoDescricao.Location = new System.Drawing.Point(6, 248);
+            this.lblLocomocaoDescricao.Location = new System.Drawing.Point(6, 264);
             this.lblLocomocaoDescricao.Name = "lblLocomocaoDescricao";
             this.lblLocomocaoDescricao.Size = new System.Drawing.Size(175, 13);
             this.lblLocomocaoDescricao.TabIndex = 6;
@@ -389,7 +411,7 @@
             // 
             // txtDefesaDescricao
             // 
-            this.txtDefesaDescricao.Location = new System.Drawing.Point(9, 175);
+            this.txtDefesaDescricao.Location = new System.Drawing.Point(9, 180);
             this.txtDefesaDescricao.Multiline = true;
             this.txtDefesaDescricao.Name = "txtDefesaDescricao";
             this.txtDefesaDescricao.Size = new System.Drawing.Size(274, 60);
@@ -398,7 +420,7 @@
             // lblDefesaDescricao
             // 
             this.lblDefesaDescricao.AutoSize = true;
-            this.lblDefesaDescricao.Location = new System.Drawing.Point(6, 159);
+            this.lblDefesaDescricao.Location = new System.Drawing.Point(6, 164);
             this.lblDefesaDescricao.Name = "lblDefesaDescricao";
             this.lblDefesaDescricao.Size = new System.Drawing.Size(155, 13);
             this.lblDefesaDescricao.TabIndex = 4;
@@ -442,6 +464,8 @@
             // 
             // tabDesenvolvimentoEmbrionario
             // 
+            this.tabDesenvolvimentoEmbrionario.Controls.Add(this.txtEpocaReproducao);
+            this.tabDesenvolvimentoEmbrionario.Controls.Add(this.chkHasEpocaSexo);
             this.tabDesenvolvimentoEmbrionario.Controls.Add(this.txtReproducaoDescricaoCorte);
             this.tabDesenvolvimentoEmbrionario.Controls.Add(this.chkReproducaoHasCorte);
             this.tabDesenvolvimentoEmbrionario.Controls.Add(this.txtReproducaoDescricao);
@@ -452,25 +476,45 @@
             this.tabDesenvolvimentoEmbrionario.Controls.Add(this.cbEReproducao);
             this.tabDesenvolvimentoEmbrionario.Location = new System.Drawing.Point(4, 22);
             this.tabDesenvolvimentoEmbrionario.Name = "tabDesenvolvimentoEmbrionario";
-            this.tabDesenvolvimentoEmbrionario.Size = new System.Drawing.Size(291, 337);
+            this.tabDesenvolvimentoEmbrionario.Size = new System.Drawing.Size(291, 363);
             this.tabDesenvolvimentoEmbrionario.TabIndex = 3;
             this.tabDesenvolvimentoEmbrionario.Text = "Dev. Emb";
             this.tabDesenvolvimentoEmbrionario.UseVisualStyleBackColor = true;
             this.tabDesenvolvimentoEmbrionario.Click += new System.EventHandler(this.tabDesenvolvimentoEmbrionario_Click);
             // 
+            // txtEpocaReproducao
+            // 
+            this.txtEpocaReproducao.Enabled = false;
+            this.txtEpocaReproducao.Location = new System.Drawing.Point(6, 282);
+            this.txtEpocaReproducao.Multiline = true;
+            this.txtEpocaReproducao.Name = "txtEpocaReproducao";
+            this.txtEpocaReproducao.Size = new System.Drawing.Size(277, 60);
+            this.txtEpocaReproducao.TabIndex = 10;
+            // 
+            // chkHasEpocaSexo
+            // 
+            this.chkHasEpocaSexo.AutoSize = true;
+            this.chkHasEpocaSexo.Location = new System.Drawing.Point(6, 259);
+            this.chkHasEpocaSexo.Name = "chkHasEpocaSexo";
+            this.chkHasEpocaSexo.Size = new System.Drawing.Size(168, 17);
+            this.chkHasEpocaSexo.TabIndex = 9;
+            this.chkHasEpocaSexo.Text = "Possui época de reprodução?";
+            this.chkHasEpocaSexo.UseVisualStyleBackColor = true;
+            this.chkHasEpocaSexo.CheckedChanged += new System.EventHandler(this.chkHasEpocaSexo_CheckedChanged);
+            // 
             // txtReproducaoDescricaoCorte
             // 
-            this.txtReproducaoDescricaoCorte.Location = new System.Drawing.Point(6, 189);
+            this.txtReproducaoDescricaoCorte.Enabled = false;
+            this.txtReproducaoDescricaoCorte.Location = new System.Drawing.Point(6, 181);
             this.txtReproducaoDescricaoCorte.Multiline = true;
             this.txtReproducaoDescricaoCorte.Name = "txtReproducaoDescricaoCorte";
             this.txtReproducaoDescricaoCorte.Size = new System.Drawing.Size(277, 60);
             this.txtReproducaoDescricaoCorte.TabIndex = 8;
-            this.txtReproducaoDescricaoCorte.Visible = false;
             // 
             // chkReproducaoHasCorte
             // 
             this.chkReproducaoHasCorte.AutoSize = true;
-            this.chkReproducaoHasCorte.Location = new System.Drawing.Point(6, 166);
+            this.chkReproducaoHasCorte.Location = new System.Drawing.Point(6, 158);
             this.chkReproducaoHasCorte.Name = "chkReproducaoHasCorte";
             this.chkReproducaoHasCorte.Size = new System.Drawing.Size(181, 17);
             this.chkReproducaoHasCorte.TabIndex = 7;
@@ -531,7 +575,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(235, 382);
+            this.button1.Location = new System.Drawing.Point(236, 407);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -543,7 +587,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 417);
+            this.ClientSize = new System.Drawing.Size(322, 442);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl);
             this.Name = "FrmAnimal";
@@ -610,5 +654,9 @@
         private System.Windows.Forms.CheckBox chkReproducaoHasCorte;
         private System.Windows.Forms.TextBox txtReproducaoDescricaoCorte;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtEpocaReproducao;
+        private System.Windows.Forms.CheckBox chkHasEpocaSexo;
+        private System.Windows.Forms.TextBox txtHabitat;
+        private System.Windows.Forms.Label lblHabitat;
     }
 }

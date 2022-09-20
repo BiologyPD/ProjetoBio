@@ -89,4 +89,22 @@ namespace ProjetoBio.Utils
 
         public static string Check(this string s) => s.IsBlank() ? throw new ArgumentNullException(nameof(s) + " cannot be null!") : s;
     }
+
+    public static class ControlExtensions
+    {
+        private static readonly ToolTip toolTip = ToolTipModel;
+
+        public static ToolTip ToolTipModel { 
+            get
+            {
+                var tool = new ToolTip();
+                tool.InitialDelay = 2;
+                tool.ReshowDelay = 2;
+                return tool;
+            }
+        }
+
+        public static void AddToolTip(this Control control, string caption)
+            => toolTip.SetToolTip(control, caption);
+    }
 }

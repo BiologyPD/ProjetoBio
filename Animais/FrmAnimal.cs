@@ -26,6 +26,9 @@ namespace ProjetoBio.Animais
             cbEDevEmbrionario.SetFrom<EDevEmbrionario>();
             chkLstEDefesa.SetFrom<EDefesa>();
             chkLstELocomocao.SetFrom<ELocomocao>();
+
+
+            txtNome.AddToolTip("hello world from the 7th ring of hell");
         }
 
         public FrmAnimal(Animal animal) : this() => SetAnimal(animal);
@@ -39,12 +42,14 @@ namespace ProjetoBio.Animais
         }
 
         private void chkReproducaoHasCorte_CheckedChanged(object sender, EventArgs e) =>
-            txtReproducaoDescricaoCorte.Visible = chkReproducaoHasCorte.Checked;
+            txtReproducaoDescricaoCorte.Enabled = chkReproducaoHasCorte.Checked;
 
         public Animal GetAnimal()
         {
             this.TrimAll();
 
+            var tool = new ToolTip();
+            
             return new Animal()
             {
                 Nome = txtNome.Text,
@@ -53,6 +58,7 @@ namespace ProjetoBio.Animais
                 Respiracao = (Respiracao)cbRespiracao.SelectedValue,
                 Adaptacoes = txtAdaptacoes.Text,
                 Bioma = txtBioma.Text,
+                Habitat = txtHabitat.Text,
                 Alimentacao = new Alimentacao((Filo)cbFilo.SelectedValue)
                 {
                     Tipo = (EAlimentacao)cbEAlimentacao.SelectedValue,
@@ -90,6 +96,7 @@ namespace ProjetoBio.Animais
             cbRespiracao.SelectedValue = animal.Respiracao;
             txtAdaptacoes.Text = animal.Adaptacoes;
             txtBioma.Text = animal.Bioma;
+            txtHabitat.Text = animal.Habitat;
             
             cbEAlimentacao.SelectedValue = animal.Alimentacao.Tipo;
             cbEMetodoAlimentacao.SelectedValue = animal.Alimentacao.Meio;
@@ -112,16 +119,15 @@ namespace ProjetoBio.Animais
 
             checkCampoPersonagem.Checked = animal.Personagem != string.Empty;
             txtPersonagem.Text = animal.Personagem ?? string.Empty;
+
+            txtReproducaoDescricaoCorte.Enabled = chkReproducaoHasCorte.Checked;
+            txtEpocaReproducao.Enabled = chkHasEpocaSexo.Checked;
         }
 
-        private void tabGeral_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void button1_Click(object sender, EventArgs e) =>
             new FrmAnimal(GetAnimal()).Show();
-        }
+
+        private void chkHasEpocaSexo_CheckedChanged(object sender, EventArgs e) => 
+            txtEpocaReproducao.Enabled = chkHasEpocaSexo.Checked;
     }
 }

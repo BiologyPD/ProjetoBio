@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.Json;
+// using System.Text.Json;
 using System.Windows.Forms;
 using ProjetoBio.Utils;
 
@@ -12,9 +12,11 @@ namespace ProjetoBio.Animais
 {
     public class Animal
     {
+        // public void @neon genesis<evangelion>(Hospital scene) class
+
         // * textBox
         public string Nome { get; set; }
-        
+
         // textBox
         public string NomeCientifico { get; set; }
         
@@ -39,7 +41,7 @@ namespace ProjetoBio.Animais
         // * textBox
         public string Bioma { get; set; }
 
-        // textBox multiline
+        // * textBox multiline
         public string Habitat { get; set; }
 
         // * comboBox
@@ -63,13 +65,13 @@ namespace ProjetoBio.Animais
         // * comboBox
         // * textBox multiline
         // * optional textBox multiline
-        // optional textBox multiline
+        // * optional textBox multiline
         public DevEmbrionario DevEmbrionario { get; set; }
 
         // * optional textBox
         public string Personagem { get; set; }
 
-        public string InformacoesInuteis { get; set; }
+        public string InformacoesInuteis { get; set; } // não, não vai ter cadastro disso.
 
         public override string ToString()
         {
@@ -165,11 +167,13 @@ namespace ProjetoBio.Animais
             };
         }
 
-        public string GetJson() => JsonSerializer.Serialize(AnimalModels.Suindara);
+        //public string GetJson() => JsonSerializer.Serialize(AnimalModels.Suindara);
 
-        public void ShowJson() => MessageBox.Show(GetJson(), "Json: ", MessageBoxButtons.OK);
+        //public void ShowJson() => MessageBox.Show(GetJson(), "Json: ", MessageBoxButtons.OK);
 
         public FrmAnimal ToFrmAnimal() => new FrmAnimal(this);
-        public bool IsNotNull() => GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public).All(x => x.GetValue(this) != null);
+        public bool IsNotNull => GetType()
+            .GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
+            .All(x => x.GetValue(this) != null);
     }
 }
