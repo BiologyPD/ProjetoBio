@@ -92,7 +92,7 @@ namespace ProjetoBio.Animais
                     break;
             }
 
-            toText.Append("Descrição:  ").Append(Descricao);
+            toText.Append("Descrição:  ").AppendLine(Descricao);
             return toText.ToString();
         }
     }
@@ -176,15 +176,16 @@ namespace ProjetoBio.Animais
 
         public Alimentacao() { }
 
-        public Alimentacao(Filo filo) { CheckAnusBoca(filo); }
+        public Alimentacao(Filo filo) { /* CheckAnusBoca(filo); */ }
 
         public override string ToString()
         {
+            var toText = new StringBuilder("ALIMENTAÇÃO:");
+            toText.AppendLine();
 
-            var toText = new StringBuilder("Tipo de alimentação:  ")
-                .AppendLine(Tipo.Text)
-                .Append("Método de alimentação:  ").AppendLine(Meio.Text)
-                .Append("Descrição:  ").AppendLine(Descricao);
+            toText.Append("Tipo de alimentação:  ").AppendLine(Tipo.Text);
+            toText.Append("Método de alimentação:  ").AppendLine(Meio.Text);
+            toText.Append("Descrição:  ").AppendLine(Descricao);
 
             if (HasBoca && HasAnus)
                 toText.AppendLine("Possui boca e ânus.");
@@ -263,9 +264,8 @@ namespace ProjetoBio.Animais
 
         public override string ToString()
         {
-            bool moreThan1 = QntMeios > 1;
-            var toText = new StringBuilder();
-            toText.AppendLine("DEFESA:");
+            var toText = new StringBuilder("DEFESA:");
+            toText.AppendLine();
 
             switch (QntMeios) {
                 case 0:
@@ -305,7 +305,7 @@ namespace ProjetoBio.Animais
         private EDevEmbrionario(string text, int id) : base(text, id) { }
 
         public static readonly EDevEmbrionario Ovo = new EDevEmbrionario("Ovo", 0);
-        public static readonly EDevEmbrionario OvoCalcificado = new EDevEmbrionario("Ovo calficicado", 1);
+        public static readonly EDevEmbrionario OvoCalcificado = new EDevEmbrionario("Ovo calcificado", 1);
         public static readonly EDevEmbrionario Placenta = new EDevEmbrionario("Placentário", 2);
         public static readonly EDevEmbrionario Larva = new EDevEmbrionario("Larval", 3);
         public static readonly EDevEmbrionario Ninfa = new EDevEmbrionario("Ninfa", 4);
@@ -344,25 +344,22 @@ namespace ProjetoBio.Animais
 
         public override string ToString()
         {
-            var toText = new StringBuilder("REPRODUÇÃO E DESENVOLVIMENTO EMBRIONÁRIO: ");
+            var toText = new StringBuilder("REPRODUÇÃO E DESENVOLVIMENTO EMBRIONÁRIO:");
             toText.AppendLine();
 
             toText.Append("Tipo de reprodução:  ").AppendLine(TipoReproducao.Text);
             toText.Append("Meio:  ").AppendLine(Meio.Text);
             toText.Append("Descrição:  ").AppendLine(Descricao);
 
-            if (HasCorte) {
-                toText.AppendLine("Possui comportamento de corte.");
-                toText.Append("\tDescrição da corte:  ").AppendLine(DescricaoCorte);
-            } else {
+            if (HasCorte)
+                toText.Append("Descrição da corte:  ").AppendLine(DescricaoCorte);
+            else
                 toText.AppendLine("Não possui comportamento de corte.");
-            }
 
             if (HasEpocaReproducao)
-            {
-                toText.AppendLine("Possui época de reprodução.");
                 toText.Append("Época de reprodução:  ").AppendLine(EpocaReproducao);
-            }
+            else
+                toText.AppendLine("Não possui época de reprodução.");
 
             return toText.ToString();
         }

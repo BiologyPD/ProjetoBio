@@ -1,4 +1,5 @@
 ﻿
+using ProjetoBio.Animais;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +19,8 @@ namespace ProjetoBio
         {
             var smilinguido = Animais.Animal.smilinguido();
             // MessageBox.Show(smilinguido.IsNotNull().ToString(), "Smilinguido tem algo nulo?");
-            var texto = new StringBuilder();
-            foreach (var a in typeof(string).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance))
-            {
-                texto.Append(a.Name);
-            }
-
-            MessageBox.Show(texto.ToString());
+            AnimalModels.Suindara.ShowJson();
+            MessageBox.Show(AnimalModels.Suindara.ToString(), "Informações do animalzinho:");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(smilinguido.ToFrmAnimal());

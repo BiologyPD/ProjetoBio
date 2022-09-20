@@ -62,6 +62,7 @@ namespace ProjetoBio.Animais
         // * comboBox
         // * comboBox
         // * textBox multiline
+        // * optional textBox multiline
         // optional textBox multiline
         public DevEmbrionario DevEmbrionario { get; set; }
 
@@ -69,6 +70,33 @@ namespace ProjetoBio.Animais
         public string Personagem { get; set; }
 
         public string InformacoesInuteis { get; set; }
+
+        public override string ToString()
+        {
+            var toText = new StringBuilder("INFORMAÇÕES DO ANIMAL.");
+            toText.AppendLine();
+
+            toText
+                .Append("Nome:  ").AppendLine(Nome)
+                .Append("Nome científico:  ").AppendLine(NomeCientifico)
+                .Append("Filo:  ").AppendLine(Filo.Text)
+                .Append("Aparência:  ").AppendLine(Aparencia)
+                .Append("Bioma:  ").AppendLine(Bioma)
+                .Append("Habitat:  ").AppendLine(Habitat)
+                .Append("Ambiente:  ").AppendLine(Tipo.Text)
+                .Append("Adaptações:  ").AppendLine(Adaptacoes)
+                .Append("Regulação de água:  ").AppendLine(RegulacaoAgua)
+                .Append("Respiração:  ").AppendLine(Respiracao.Text)
+                .Append("Personagem:  ").AppendLine(Personagem)
+                .AppendLine()
+                .AppendLine(Alimentacao.ToString())
+                .AppendLine(Defesa.ToString())
+                .AppendLine(Locomocao.ToString())
+                .AppendLine(DevEmbrionario.ToString())                
+            ;
+
+            return toText.ToString();
+        }
 
         public Animal(string nome, Filo filo, Tipo tipo, Respiracao respiracao, string adaptacoes, string bioma, Alimentacao alimentacao, string regulacaoAgua, Locomocao locomocao, Defesa defesa, DevEmbrionario devEmbrionario, string personagem)
         {
@@ -99,7 +127,7 @@ namespace ProjetoBio.Animais
                 Respiracao = Respiracao.Traqueal,
                 Adaptacoes = "Comportamento social, divisão de trabalho e ocasionalmente agricultura/pecuária",
                 Bioma = "Todos",
-                Alimentacao = new Alimentacao(Filo.Artropode)
+                Alimentacao = new Alimentacao( /* Filo.Artropode */ )
                 {
                     Tipo = EAlimentacao.Herbivoro,
                     Descricao = "Colhe folhas encontradas, as come ou as usa como compostagem para cultivar um fungo, que é seu alimento. Tem grande interesse em carboidratos simples.",
@@ -137,9 +165,9 @@ namespace ProjetoBio.Animais
             };
         }
 
-        public static string GetJson() => JsonSerializer.Serialize(smilinguido());
+        public string GetJson() => JsonSerializer.Serialize(AnimalModels.Suindara);
 
-        public static void ShowJson() => MessageBox.Show(GetJson(), "Json: ", MessageBoxButtons.OK);
+        public void ShowJson() => MessageBox.Show(GetJson(), "Json: ", MessageBoxButtons.OK);
 
         public FrmAnimal ToFrmAnimal() => new FrmAnimal(this);
         public bool IsNotNull() => GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public).All(x => x.GetValue(this) != null);
