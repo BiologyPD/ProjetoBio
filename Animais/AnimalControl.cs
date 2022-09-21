@@ -16,8 +16,8 @@ namespace ProjetoBio.Animais
 
         public static Animal[] GetAnimals() => _animals.ToArray();
 
-        public static Animal[] AnimalsIn(Filo filo) => _animals.FindAll(an => an.Filo == filo).ToArray();
+        public static Animal[] AnimalsIn(Filo filo) => _animals.Where(an => an.Filo == filo).ToArray();
 
-        public static Animal[] OfType(Tipo tipo) => _animals.FindAll(an => an.Tipo == tipo).ToArray();
+        public static Animal[] OfType(Tipo tipo) => _animals.Where(an => an.Tipo == tipo).ToArray();
     }
 }

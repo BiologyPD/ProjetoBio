@@ -8,6 +8,14 @@ namespace ProjetoBio.Animais
 {
     public static class AnimalModels
     {
+        public static readonly Animal[] Animals =
+            typeof(AnimalModels)
+            .GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)
+            .Where(x => x.GetType() == typeof(Animal))
+            .Select(x => x.GetValue(null))
+            .Cast<Animal>()
+            .ToArray();
+
         public static Animal Suindara { get; } = new Animal()
         {
             Nome = "Suindara",
@@ -21,7 +29,7 @@ namespace ProjetoBio.Animais
             Habitat = "Margem sul do rio Amazonas até a Terra do Fogo (arquipélago na extremidade sul da América do Sul) e nas Ilhas Maldivas.",
             RegulacaoAgua = "Para economia de água no organismo, excretam ácido úrico, já que não possuem bexiga.",
             Tipo = Tipo.Aereo,
-            Filo = Filo.Cordado,
+            Filo = Filo.Equinoderma,
             Respiracao = Respiracao.Pulmonar,
             Alimentacao = new Alimentacao(Filo.Cordado)
             {
@@ -51,5 +59,53 @@ namespace ProjetoBio.Animais
                 EpocaReproducao = "Até 22/04/2018, somente entre os meses de janeiro e março, não houveram registros de ninhos ativos, o que talvez indique que o período reprodutivo da espécie seja bastante prolongado.",
             },
         };
+
+        /*
+         new Animal()
+{
+Nome = "Suindara",
+NomeCientifico = "Tyto furcata",
+Personagem = "“Soren” do filme A Lenda dos Guardiões.",
+InformacoesInuteis = "",
+Bioma = "Amazônico/Equatorial.",
+Personagem = "“Soren” do filme A Lenda dos Guardiões.",
+Adaptacoes = "Adaptação para voo com a presença de penas e asas, ausência de bexiga urinária, excreção de ácido úrico e ossos ocos.",
+DescricaoMmberos = "Possui duas asas e duas patas com garras.",
+Aparência = "COJURA!",
+Bioma = "Amazônico/Equatorial.",
+Habitat = "Margem sul do rio Amazonas até a Terra do Fogo (arquipélago na extremidade sul da América do Sul) e nas Ilhas Maldivas.",
+RegulacaoAgua = "Para economia de água no organismo, excretam ácido úrico, já que não possuem bexiga.",
+Tipo = Tipo.Aereo,
+Filo = Filo.Equinoderma,
+Respiracao = Respiracao.Pulmonar,
+Alimentacao = new Alimentacao(Filo.Equinoderma)
+{
+Descricao = "Se alimentam de insetos, pequenos marsupiais, morcegos, roedores, anfíbios, répteis e aves.",
+Meio = EMetodoAlimentacao.Cacador,
+Tipo = EAlimentacao.Carnivoro,
+DescricaoAnus = "Cloaca",
+DescricaoBoca = "Bico",
+},
+Defesa = new Defesa()
+{
+Meios = new ELocomocao[] { EDefesa.Camuflagem, },
+Descricao = "Costumam se esconder muito bem durante o dia, valendo-se da camuflagem que lhes proporcionam suas penas mescladas, de vários tons de marrom, cinza, branco e preto, em meio aos galhos e troncos de árvores.
+Se perturbadas, balançam o corpo lateralmente. Se encurraladas, jogam-se de barriga para cima, enfrentando o perigo com as poderosas garras que lançam para frente.",
+},
+Locomocao = new Locomocao()
+{
+Meio = new Locomocao[] { ELocomocao.Voar, ELocomocao.Andar, ELocomocao.Escalar, Descricao = "ela... voa? e eu acho que ela escala",
+},
+DevEmbrionario = new DevEmbrionario()
+{
+Meio = EDevEmbrionario.OvoCalcificado,
+TipoReproducao = EReproducao.Sexuada,
+Descricao = "Desenvolvimento direto e fecundação interna. Dentro do ovo haverá um zigoto que se desenvolverá em uma pequena ave a partir da incubação de ambos os pais.",
+DescricaoCorte = "Um roncar é emitido no período de acasalamento, entoado em dueto pelo casal, a fêmea responde nos intervalos que o macho intercala.",
+EpocaReproducao = "",
+},
+}
+
+         */
     }
 }

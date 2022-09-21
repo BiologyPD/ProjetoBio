@@ -81,6 +81,7 @@ namespace ProjetoBio.Animais
                     Meio = (EDevEmbrionario)cbEDevEmbrionario.SelectedValue,
                     Descricao = txtReproducaoDescricao.Text,
                     DescricaoCorte = chkReproducaoHasCorte.Checked ? txtReproducaoDescricaoCorte.Text : string.Empty,
+                    EpocaReproducao = chkHasEpocaSexo.Checked ? txtEpocaReproducao.Text : string.Empty,
                 },
                 Personagem = checkCampoPersonagem.Checked ? txtPersonagem.Text : string.Empty,
             };
@@ -139,8 +140,8 @@ namespace ProjetoBio.Animais
 
         private void cbFilo_SelectedIndexChanged(object sender = null, EventArgs e = null)
         {
-            chkHasBoca.Checked = ((Filo)cbFilo.SelectedValue).HasBoca;
-            chkHasAnus.Checked = ((Filo)cbFilo.SelectedValue).HasAnus;
+           // chkHasBoca.Checked = ((KeyPair<FilocbFilo.SelectedValue).HasBoca;
+           // chkHasAnus.Checked = ((KeyPair<Filo>)cbFilo.SelectedValue).HasAnus;
         }
 
         private void chkHasBoca_CheckedChanged(object sender = null, EventArgs e = null) =>
@@ -156,7 +157,8 @@ namespace ProjetoBio.Animais
             toText.AppendLine().AppendLine("{");
 
 
-            toText.Append("Nome = ").AppendQuote(animal.Nome)
+            toText
+                .Append("Nome = ").AppendQuote(animal.Nome)
                 .Append("NomeCientifico = ").AppendQuote(animal.NomeCientifico)
                 .Append("Personagem = ").AppendQuote(animal.Personagem)
                 .Append("InformacoesInuteis = ").AppendQuote(animal.InformacoesInuteis)
@@ -165,46 +167,65 @@ namespace ProjetoBio.Animais
                 .Append("Adaptacoes = ").AppendQuote(animal.Adaptacoes)
                 .Append("DescricaoMmberos = ").AppendQuote(animal.DescricaoMembros)
                 .Append("Aparência = ").AppendQuote(animal.Aparencia)
-            ;
+                .Append("Bioma = ").AppendQuote(animal.Bioma)
+                .Append("Habitat = ").AppendQuote(animal.Habitat)
+                .Append("RegulacaoAgua = ").AppendQuote(animal.RegulacaoAgua)
+                .Append("Tipo = ").AppendComma(EnumExtensions.NameOf(animal.Tipo))
+                .Append("Filo = ").AppendComma(EnumExtensions.NameOf(animal.Filo))
+                .Append("Respiracao = ").AppendComma(EnumExtensions.NameOf(animal.Respiracao))
+                .Append("Alimentacao = ").Append("new Alimentacao(").AppendLine(EnumExtensions.NameOf(animal.Filo) + ")")
+                .AppendLine("{")
+                    .Append("Descricao = ").AppendQuote(animal.Alimentacao.Descricao)
+                    .Append("Meio = ").AppendComma(EnumExtensions.NameOf(animal.Alimentacao.Meio))
+                    .Append("Tipo = ").AppendComma(EnumExtensions.NameOf(animal.Alimentacao.Tipo))
+                    .Append("DescricaoAnus = ").AppendQuote(animal.Alimentacao.DescricaoAnus)
+                    .Append("DescricaoBoca = ").AppendQuote(animal.Alimentacao.DescricaoBoca)
+                .AppendComma("}")
+                .AppendLine("Defesa = new Defesa()")
+                .AppendLine("{")
+                .Append("Meios = new ELocomocao[] { ");
 
-            /*
-            "InformacoesInuteis =" "tem uma baita lenda sobre como se ela passar na sua casa alguém vai morrer, e corujas não tem penas a prova d'água, como a maioria das aves, pois isso as permite voar silenciosamente e atacar despercebidas. Por causa disso, corujas molhadas são um tanto engraçadas. Além disso, corujas NÃO são pássaros. Corujas são aves.",
-            "Bioma =" "Amazônico/Equatorial.",
-            "Habitat =" "Margem sul do rio Amazonas até a Terra do Fogo (arquipélago na extremidade sul da América do Sul) e nas Ilhas Maldivas.",
-            "RegulacaoAgua =" "Para economia de água no organismo, excretam ácido úrico, já que não possuem bexiga.",
-            "Tipo =" Tipo.Aereo,
-            "Filo =" Filo.Cordado,
-            Respiracao = Respiracao.Pulmonar,
-            Alimentacao = new Alimentacao(Filo.Cordado)
-            {
-                Descricao = "Se alimentam de insetos, pequenos marsupiais, morcegos, roedores, anfíbios, répteis e aves.",
-                Meio = EMetodoAlimentacao.Cacador,
-                Tipo = EAlimentacao.Carnivoro,
-                DescricaoAnus = "Cloaca",
-                DescricaoBoca = "Bico",
-            },
-            Defesa = new Defesa()
-            {
-                Meios = new EDefesa[] { EDefesa.Camuflagem },
-                Descricao = "Costumam se esconder muito bem durante o dia, valendo-se da camuflagem que lhes proporcionam suas penas mescladas, de vários tons de marrom, cinza, branco e preto, em meio aos galhos e troncos de árvores."
-                                + "\nSe perturbadas, balançam o corpo lateralmente. Se encurraladas, jogam-se de barriga para cima, enfrentando o perigo com as poderosas garras que lançam para frente.",
-            },
-            Locomocao = new Locomocao()
-            {
-                Meio = new ELocomocao[] { ELocomocao.Voar, ELocomocao.Andar, ELocomocao.Escalar },
-                Descricao = "ela... voa? e eu acho que ela escala", // MISSING
-            },
-            DevEmbrionario = new DevEmbrionario()
-            {
-                Meio = EDevEmbrionario.OvoCalcificado,
-                TipoReproducao = EReproducao.Sexuada,
-                Descricao = "Desenvolvimento direto e fecundação interna. Dentro do ovo haverá um zigoto que se desenvolverá em uma pequena ave a partir da incubação de ambos os pais.",
-                DescricaoCorte = "Um roncar é emitido no período de acasalamento, entoado em dueto pelo casal, a fêmea responde nos intervalos que o macho intercala.",
-                EpocaReproducao = "Até 22/04/2018, somente entre os meses de janeiro e março, não houveram registros de ninhos ativos, o que talvez indique que o período reprodutivo da espécie seja bastante prolongado.",
-            },
-            */
+            foreach (var defesa in animal.Defesa.Meios)
+                toText.Append(EnumExtensions.NameOf(defesa) + ", ");
+
+            toText
+                .AppendComma("}")
+                .Append("Descricao = ").AppendQuote(animal.Defesa.Descricao)
+                .AppendComma("}")
+                .AppendLine("Locomocao = new Locomocao()")
+                .AppendLine("{")
+                .Append("Meio = new Locomocao[] { ");
+
+            foreach (var locomocao in animal.Locomocao.Meio)
+                toText.Append(EnumExtensions.NameOf(locomocao) + ", ");
+
+            toText
+                .AppendComma("}")
+                .Append("Descricao = ").AppendQuote(animal.Locomocao.Descricao)
+                .AppendComma("}")
+                .AppendLine("DevEmbrionario = new DevEmbrionario()")
+                .AppendLine("{")
+                    .Append("Meio = ").AppendComma(EnumExtensions.NameOf(animal.DevEmbrionario.Meio))
+                    .Append("TipoReproducao = ").AppendComma(EnumExtensions.NameOf(animal.DevEmbrionario.TipoReproducao))
+                    .Append("Descricao = ").AppendQuote(animal.DevEmbrionario.Descricao)
+                    .Append("DescricaoCorte = ").AppendQuote(animal.DevEmbrionario.DescricaoCorte)
+                    .Append("EpocaReproducao = ").AppendQuote(animal.DevEmbrionario.EpocaReproducao)
+                .AppendComma("}")
+                .AppendLine("}");
 
             return toText.ToString();
+        }
+
+        private void FrmAnimal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCopiarAnimal_Click(object sender, EventArgs e) => Clipboard.SetText(TextAnimal());
+
+        private void lblAdaptacoes_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

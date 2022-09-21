@@ -11,6 +11,20 @@ using Enum = ProjetoBio.Animais.Enum;
 
 namespace ProjetoBio.Utils
 {
+    public static class EnumExtensions
+    {
+        public static string NameOf<T>(this T enumerator) where T : Enum
+        {
+            foreach (var e in typeof(T).GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static).Where(x => x.GetValue(null).GetType() == typeof(T)))
+            {
+                if (e.GetValue(null) == enumerator)
+                    return typeof(T).Name + "." + e.Name;
+            }
+
+            return null;
+        }
+    }
+
     public static class ComboBoxExtensions
     {
         public static void SetFrom<T>(this ComboBox comboBox) where T : Enum
@@ -94,7 +108,9 @@ namespace ProjetoBio.Utils
 
     public static class StringBuilderExtensions
     {
-        public static StringBuilder AppendQuote(this StringBuilder stringBuilder, string value) => stringBuilder.AppendLine(value.AddQuote());
+        public static StringBuilder AppendQuote(this StringBuilder stringBuilder, string value) => stringBuilder.AppendLine(value.AddQuote() + ",");
+
+        public static StringBuilder AppendComma(this StringBuilder stringBuiler, string value = "") => stringBuiler.AppendLine(value + ",");
     }
 
     public static class ControlExtensions

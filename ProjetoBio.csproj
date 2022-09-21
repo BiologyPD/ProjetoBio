@@ -70,6 +70,7 @@
     <Compile Include="Animais\FrmAnimal.Designer.cs">
       <DependentUpon>FrmAnimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Animais\Parasita.cs" />
     <Compile Include="Aqua.cs" />
     <Compile Include="Ground.cs" />
     <Compile Include="SplashScreen.cs">
