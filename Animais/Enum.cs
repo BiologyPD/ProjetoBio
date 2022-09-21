@@ -54,6 +54,11 @@ namespace ProjetoBio.Animais
         public static readonly Filo[] Values = {
             Porifera, Cnidario, Platelminto, Nematelminto, Molusco, Anelideo, Artropode, Equinoderma, Cordado
         };
+
+        public bool HasAnus => 
+            !(this == Porifera || this == Cnidario || this == Platelminto);
+
+        public bool HasBoca => this != Porifera;
     }
 
     public class Locomocao
@@ -132,6 +137,12 @@ namespace ProjetoBio.Animais
         public string DescricaoAnus { get; set; }
         public bool HasAnus => !DescricaoAnus.IsBlank();
         public bool HasBoca => !DescricaoBoca.IsBlank();
+
+        public static bool CheckAnus(Filo filo) =>
+            !(filo == Filo.Porifera || filo == Filo.Cnidario || filo == Filo.Platelminto);
+
+        public static bool CheckBoca(Filo filo) =>
+            filo != Filo.Porifera;
 
         public void CheckAnusBoca(Filo filo)
         {

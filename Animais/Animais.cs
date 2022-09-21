@@ -14,10 +14,12 @@ namespace ProjetoBio.Animais
     {
         // public void @neon genesis<evangelion>(Hospital scene) class
 
+        public bool HasPersonagem => !Personagem.IsBlank();
+
         // * textBox
         public string Nome { get; set; }
 
-        // textBox
+        // * textBox
         public string NomeCientifico { get; set; }
         
         // textBox

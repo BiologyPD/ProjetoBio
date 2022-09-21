@@ -31,12 +31,8 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.lblPersonagem = new System.Windows.Forms.Label();
             this.txtPersonagem = new System.Windows.Forms.TextBox();
-            this.txtBioma = new System.Windows.Forms.TextBox();
-            this.lblBioma = new System.Windows.Forms.Label();
             this.cbTipo = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
-            this.lblRespiracao = new System.Windows.Forms.Label();
-            this.cbRespiracao = new System.Windows.Forms.ComboBox();
             this.cbFilo = new System.Windows.Forms.ComboBox();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblFilo = new System.Windows.Forms.Label();
@@ -47,13 +43,24 @@
             this.txtAdaptacoes = new System.Windows.Forms.TextBox();
             this.lblAdaptacoes = new System.Windows.Forms.Label();
             this.checkCampoPersonagem = new System.Windows.Forms.CheckBox();
+            this.tabCaracteristicas = new System.Windows.Forms.TabPage();
+            this.chkHasBoca = new System.Windows.Forms.CheckBox();
+            this.chkHasAnus = new System.Windows.Forms.CheckBox();
+            this.lblDescAnus = new System.Windows.Forms.Label();
+            this.txtDescAnus = new System.Windows.Forms.TextBox();
+            this.txtDescBoca = new System.Windows.Forms.TextBox();
+            this.lblDescBoca = new System.Windows.Forms.Label();
+            this.lblNomeCientifico = new System.Windows.Forms.Label();
+            this.txtNomeCientifico = new System.Windows.Forms.TextBox();
+            this.txtBioma = new System.Windows.Forms.TextBox();
+            this.lblBioma = new System.Windows.Forms.Label();
+            this.cbRespiracao = new System.Windows.Forms.ComboBox();
+            this.lblRespiracao = new System.Windows.Forms.Label();
             this.tabAlimentacao = new System.Windows.Forms.TabPage();
             this.txtRegulacaoAgua = new System.Windows.Forms.TextBox();
             this.lblRegulacaoAgua = new System.Windows.Forms.Label();
             this.txtAlimentacaoDescricao = new System.Windows.Forms.TextBox();
             this.lblAlimentacaoDescricao = new System.Windows.Forms.Label();
-            this.txtAlimentacaoDescricaoBoca = new System.Windows.Forms.TextBox();
-            this.lblAlimentacaoTipoBoca = new System.Windows.Forms.Label();
             this.cbEMetodoAlimentacao = new System.Windows.Forms.ComboBox();
             this.lblAlimentacaoMetodo = new System.Windows.Forms.Label();
             this.cbEAlimentacao = new System.Windows.Forms.ComboBox();
@@ -79,8 +86,13 @@
             this.lblEReproducao = new System.Windows.Forms.Label();
             this.cbEReproducao = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblAparencia = new System.Windows.Forms.Label();
+            this.txtAparencia = new System.Windows.Forms.TextBox();
+            this.lblMembros = new System.Windows.Forms.Label();
+            this.txtDescMembros = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.tabGeral.SuspendLayout();
+            this.tabCaracteristicas.SuspendLayout();
             this.tabAlimentacao.SuspendLayout();
             this.tabDefesaLocomocao.SuspendLayout();
             this.tabDesenvolvimentoEmbrionario.SuspendLayout();
@@ -89,7 +101,7 @@
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(6, 12);
+            this.lblNome.Location = new System.Drawing.Point(3, 9);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(35, 13);
             this.lblNome.TabIndex = 0;
@@ -99,7 +111,7 @@
             // lblPersonagem
             // 
             this.lblPersonagem.AutoSize = true;
-            this.lblPersonagem.Location = new System.Drawing.Point(6, 149);
+            this.lblPersonagem.Location = new System.Drawing.Point(3, 88);
             this.lblPersonagem.Name = "lblPersonagem";
             this.lblPersonagem.Size = new System.Drawing.Size(70, 13);
             this.lblPersonagem.TabIndex = 11;
@@ -108,80 +120,48 @@
             // txtPersonagem
             // 
             this.txtPersonagem.Enabled = false;
-            this.txtPersonagem.Location = new System.Drawing.Point(113, 146);
+            this.txtPersonagem.Location = new System.Drawing.Point(109, 85);
             this.txtPersonagem.Name = "txtPersonagem";
-            this.txtPersonagem.Size = new System.Drawing.Size(170, 20);
+            this.txtPersonagem.Size = new System.Drawing.Size(193, 20);
             this.txtPersonagem.TabIndex = 10;
-            // 
-            // txtBioma
-            // 
-            this.txtBioma.Location = new System.Drawing.Point(113, 119);
-            this.txtBioma.Name = "txtBioma";
-            this.txtBioma.Size = new System.Drawing.Size(170, 20);
-            this.txtBioma.TabIndex = 9;
-            // 
-            // lblBioma
-            // 
-            this.lblBioma.AutoSize = true;
-            this.lblBioma.Location = new System.Drawing.Point(6, 122);
-            this.lblBioma.Name = "lblBioma";
-            this.lblBioma.Size = new System.Drawing.Size(36, 13);
-            this.lblBioma.TabIndex = 8;
-            this.lblBioma.Text = "Bioma";
             // 
             // cbTipo
             // 
             this.cbTipo.FormattingEnabled = true;
-            this.cbTipo.Location = new System.Drawing.Point(113, 36);
+            this.cbTipo.Location = new System.Drawing.Point(109, 31);
             this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(170, 21);
+            this.cbTipo.Size = new System.Drawing.Size(193, 21);
             this.cbTipo.TabIndex = 7;
             // 
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(6, 39);
+            this.lblTipo.Location = new System.Drawing.Point(3, 34);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(28, 13);
             this.lblTipo.TabIndex = 6;
             this.lblTipo.Text = "Tipo";
             // 
-            // lblRespiracao
-            // 
-            this.lblRespiracao.AutoSize = true;
-            this.lblRespiracao.Location = new System.Drawing.Point(6, 94);
-            this.lblRespiracao.Name = "lblRespiracao";
-            this.lblRespiracao.Size = new System.Drawing.Size(61, 13);
-            this.lblRespiracao.TabIndex = 5;
-            this.lblRespiracao.Text = "Respiração";
-            // 
-            // cbRespiracao
-            // 
-            this.cbRespiracao.FormattingEnabled = true;
-            this.cbRespiracao.Location = new System.Drawing.Point(113, 91);
-            this.cbRespiracao.Name = "cbRespiracao";
-            this.cbRespiracao.Size = new System.Drawing.Size(170, 21);
-            this.cbRespiracao.TabIndex = 4;
-            // 
             // cbFilo
             // 
             this.cbFilo.FormattingEnabled = true;
-            this.cbFilo.Location = new System.Drawing.Point(113, 63);
+            this.cbFilo.Location = new System.Drawing.Point(109, 58);
             this.cbFilo.Name = "cbFilo";
-            this.cbFilo.Size = new System.Drawing.Size(170, 21);
+            this.cbFilo.Size = new System.Drawing.Size(193, 21);
             this.cbFilo.TabIndex = 3;
+            this.cbFilo.SelectedIndexChanged += new System.EventHandler(this.cbFilo_SelectedIndexChanged);
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(113, 9);
+            this.txtNome.Location = new System.Drawing.Point(109, 6);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(170, 20);
+            this.txtNome.Size = new System.Drawing.Size(193, 20);
             this.txtNome.TabIndex = 2;
             // 
             // lblFilo
             // 
             this.lblFilo.AutoSize = true;
-            this.lblFilo.Location = new System.Drawing.Point(6, 66);
+            this.lblFilo.Location = new System.Drawing.Point(3, 61);
             this.lblFilo.Name = "lblFilo";
             this.lblFilo.Size = new System.Drawing.Size(23, 13);
             this.lblFilo.TabIndex = 1;
@@ -191,13 +171,14 @@
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabGeral);
+            this.tabControl.Controls.Add(this.tabCaracteristicas);
             this.tabControl.Controls.Add(this.tabAlimentacao);
             this.tabControl.Controls.Add(this.tabDefesaLocomocao);
             this.tabControl.Controls.Add(this.tabDesenvolvimentoEmbrionario);
-            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Location = new System.Drawing.Point(8, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(299, 389);
+            this.tabControl.Size = new System.Drawing.Size(316, 375);
             this.tabControl.TabIndex = 2;
             // 
             // tabGeral
@@ -208,37 +189,33 @@
             this.tabGeral.Controls.Add(this.lblAdaptacoes);
             this.tabGeral.Controls.Add(this.checkCampoPersonagem);
             this.tabGeral.Controls.Add(this.lblPersonagem);
-            this.tabGeral.Controls.Add(this.txtBioma);
             this.tabGeral.Controls.Add(this.txtPersonagem);
             this.tabGeral.Controls.Add(this.lblNome);
             this.tabGeral.Controls.Add(this.lblFilo);
-            this.tabGeral.Controls.Add(this.lblBioma);
             this.tabGeral.Controls.Add(this.txtNome);
             this.tabGeral.Controls.Add(this.cbTipo);
             this.tabGeral.Controls.Add(this.cbFilo);
             this.tabGeral.Controls.Add(this.lblTipo);
-            this.tabGeral.Controls.Add(this.cbRespiracao);
-            this.tabGeral.Controls.Add(this.lblRespiracao);
             this.tabGeral.Location = new System.Drawing.Point(4, 22);
             this.tabGeral.Name = "tabGeral";
             this.tabGeral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeral.Size = new System.Drawing.Size(291, 363);
+            this.tabGeral.Size = new System.Drawing.Size(308, 349);
             this.tabGeral.TabIndex = 0;
             this.tabGeral.Text = "Geral";
             this.tabGeral.UseVisualStyleBackColor = true;
             // 
             // txtHabitat
             // 
-            this.txtHabitat.Location = new System.Drawing.Point(9, 297);
+            this.txtHabitat.Location = new System.Drawing.Point(3, 283);
             this.txtHabitat.Multiline = true;
             this.txtHabitat.Name = "txtHabitat";
-            this.txtHabitat.Size = new System.Drawing.Size(274, 60);
+            this.txtHabitat.Size = new System.Drawing.Size(296, 60);
             this.txtHabitat.TabIndex = 16;
             // 
             // lblHabitat
             // 
             this.lblHabitat.AutoSize = true;
-            this.lblHabitat.Location = new System.Drawing.Point(6, 280);
+            this.lblHabitat.Location = new System.Drawing.Point(0, 267);
             this.lblHabitat.Name = "lblHabitat";
             this.lblHabitat.Size = new System.Drawing.Size(41, 13);
             this.lblHabitat.TabIndex = 15;
@@ -246,16 +223,16 @@
             // 
             // txtAdaptacoes
             // 
-            this.txtAdaptacoes.Location = new System.Drawing.Point(11, 199);
+            this.txtAdaptacoes.Location = new System.Drawing.Point(6, 200);
             this.txtAdaptacoes.Multiline = true;
             this.txtAdaptacoes.Name = "txtAdaptacoes";
-            this.txtAdaptacoes.Size = new System.Drawing.Size(274, 65);
+            this.txtAdaptacoes.Size = new System.Drawing.Size(297, 65);
             this.txtAdaptacoes.TabIndex = 14;
             // 
             // lblAdaptacoes
             // 
             this.lblAdaptacoes.AutoSize = true;
-            this.lblAdaptacoes.Location = new System.Drawing.Point(8, 183);
+            this.lblAdaptacoes.Location = new System.Drawing.Point(3, 184);
             this.lblAdaptacoes.Name = "lblAdaptacoes";
             this.lblAdaptacoes.Size = new System.Drawing.Size(104, 13);
             this.lblAdaptacoes.TabIndex = 13;
@@ -264,12 +241,141 @@
             // checkCampoPersonagem
             // 
             this.checkCampoPersonagem.AutoSize = true;
-            this.checkCampoPersonagem.Location = new System.Drawing.Point(92, 149);
+            this.checkCampoPersonagem.Location = new System.Drawing.Point(88, 88);
             this.checkCampoPersonagem.Name = "checkCampoPersonagem";
             this.checkCampoPersonagem.Size = new System.Drawing.Size(15, 14);
             this.checkCampoPersonagem.TabIndex = 12;
             this.checkCampoPersonagem.UseVisualStyleBackColor = true;
             this.checkCampoPersonagem.CheckedChanged += new System.EventHandler(this.checkCampoPersonagem_CheckedChanged);
+            // 
+            // tabCaracteristicas
+            // 
+            this.tabCaracteristicas.Controls.Add(this.txtDescMembros);
+            this.tabCaracteristicas.Controls.Add(this.lblMembros);
+            this.tabCaracteristicas.Controls.Add(this.txtAparencia);
+            this.tabCaracteristicas.Controls.Add(this.lblAparencia);
+            this.tabCaracteristicas.Controls.Add(this.chkHasBoca);
+            this.tabCaracteristicas.Controls.Add(this.chkHasAnus);
+            this.tabCaracteristicas.Controls.Add(this.lblDescAnus);
+            this.tabCaracteristicas.Controls.Add(this.txtDescAnus);
+            this.tabCaracteristicas.Controls.Add(this.txtDescBoca);
+            this.tabCaracteristicas.Controls.Add(this.lblDescBoca);
+            this.tabCaracteristicas.Controls.Add(this.lblNomeCientifico);
+            this.tabCaracteristicas.Controls.Add(this.txtNomeCientifico);
+            this.tabCaracteristicas.Controls.Add(this.txtBioma);
+            this.tabCaracteristicas.Controls.Add(this.lblBioma);
+            this.tabCaracteristicas.Controls.Add(this.cbRespiracao);
+            this.tabCaracteristicas.Controls.Add(this.lblRespiracao);
+            this.tabCaracteristicas.Location = new System.Drawing.Point(4, 22);
+            this.tabCaracteristicas.Name = "tabCaracteristicas";
+            this.tabCaracteristicas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCaracteristicas.Size = new System.Drawing.Size(308, 349);
+            this.tabCaracteristicas.TabIndex = 4;
+            this.tabCaracteristicas.Text = "Características";
+            this.tabCaracteristicas.UseVisualStyleBackColor = true;
+            // 
+            // chkHasBoca
+            // 
+            this.chkHasBoca.AutoSize = true;
+            this.chkHasBoca.Location = new System.Drawing.Point(112, 88);
+            this.chkHasBoca.Name = "chkHasBoca";
+            this.chkHasBoca.Size = new System.Drawing.Size(15, 14);
+            this.chkHasBoca.TabIndex = 21;
+            this.chkHasBoca.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkHasBoca.UseVisualStyleBackColor = true;
+            this.chkHasBoca.CheckedChanged += new System.EventHandler(this.chkHasBoca_CheckedChanged);
+            // 
+            // chkHasAnus
+            // 
+            this.chkHasAnus.AutoSize = true;
+            this.chkHasAnus.Location = new System.Drawing.Point(112, 113);
+            this.chkHasAnus.Name = "chkHasAnus";
+            this.chkHasAnus.Size = new System.Drawing.Size(15, 14);
+            this.chkHasAnus.TabIndex = 20;
+            this.chkHasAnus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkHasAnus.UseVisualStyleBackColor = true;
+            this.chkHasAnus.CheckedChanged += new System.EventHandler(this.chkHasAnus_CheckedChanged);
+            // 
+            // lblDescAnus
+            // 
+            this.lblDescAnus.AutoSize = true;
+            this.lblDescAnus.Location = new System.Drawing.Point(3, 114);
+            this.lblDescAnus.Name = "lblDescAnus";
+            this.lblDescAnus.Size = new System.Drawing.Size(96, 13);
+            this.lblDescAnus.TabIndex = 19;
+            this.lblDescAnus.Text = "Descrição do ânus";
+            // 
+            // txtDescAnus
+            // 
+            this.txtDescAnus.Location = new System.Drawing.Point(130, 111);
+            this.txtDescAnus.Name = "txtDescAnus";
+            this.txtDescAnus.Size = new System.Drawing.Size(172, 20);
+            this.txtDescAnus.TabIndex = 18;
+            // 
+            // txtDescBoca
+            // 
+            this.txtDescBoca.Location = new System.Drawing.Point(130, 85);
+            this.txtDescBoca.Name = "txtDescBoca";
+            this.txtDescBoca.Size = new System.Drawing.Size(172, 20);
+            this.txtDescBoca.TabIndex = 17;
+            // 
+            // lblDescBoca
+            // 
+            this.lblDescBoca.AutoSize = true;
+            this.lblDescBoca.Location = new System.Drawing.Point(3, 88);
+            this.lblDescBoca.Name = "lblDescBoca";
+            this.lblDescBoca.Size = new System.Drawing.Size(97, 13);
+            this.lblDescBoca.TabIndex = 16;
+            this.lblDescBoca.Text = "Descrição da boca";
+            // 
+            // lblNomeCientifico
+            // 
+            this.lblNomeCientifico.AutoSize = true;
+            this.lblNomeCientifico.Location = new System.Drawing.Point(3, 9);
+            this.lblNomeCientifico.Name = "lblNomeCientifico";
+            this.lblNomeCientifico.Size = new System.Drawing.Size(82, 13);
+            this.lblNomeCientifico.TabIndex = 15;
+            this.lblNomeCientifico.Text = "Nome científico";
+            // 
+            // txtNomeCientifico
+            // 
+            this.txtNomeCientifico.Location = new System.Drawing.Point(109, 6);
+            this.txtNomeCientifico.Name = "txtNomeCientifico";
+            this.txtNomeCientifico.Size = new System.Drawing.Size(193, 20);
+            this.txtNomeCientifico.TabIndex = 14;
+            // 
+            // txtBioma
+            // 
+            this.txtBioma.Location = new System.Drawing.Point(109, 59);
+            this.txtBioma.Name = "txtBioma";
+            this.txtBioma.Size = new System.Drawing.Size(193, 20);
+            this.txtBioma.TabIndex = 13;
+            // 
+            // lblBioma
+            // 
+            this.lblBioma.AutoSize = true;
+            this.lblBioma.Location = new System.Drawing.Point(3, 62);
+            this.lblBioma.Name = "lblBioma";
+            this.lblBioma.Size = new System.Drawing.Size(36, 13);
+            this.lblBioma.TabIndex = 12;
+            this.lblBioma.Text = "Bioma";
+            // 
+            // cbRespiracao
+            // 
+            this.cbRespiracao.FormattingEnabled = true;
+            this.cbRespiracao.Location = new System.Drawing.Point(109, 32);
+            this.cbRespiracao.Name = "cbRespiracao";
+            this.cbRespiracao.Size = new System.Drawing.Size(193, 21);
+            this.cbRespiracao.TabIndex = 10;
+            // 
+            // lblRespiracao
+            // 
+            this.lblRespiracao.AutoSize = true;
+            this.lblRespiracao.Location = new System.Drawing.Point(3, 35);
+            this.lblRespiracao.Name = "lblRespiracao";
+            this.lblRespiracao.Size = new System.Drawing.Size(61, 13);
+            this.lblRespiracao.TabIndex = 11;
+            this.lblRespiracao.Text = "Respiração";
             // 
             // tabAlimentacao
             // 
@@ -277,8 +383,6 @@
             this.tabAlimentacao.Controls.Add(this.lblRegulacaoAgua);
             this.tabAlimentacao.Controls.Add(this.txtAlimentacaoDescricao);
             this.tabAlimentacao.Controls.Add(this.lblAlimentacaoDescricao);
-            this.tabAlimentacao.Controls.Add(this.txtAlimentacaoDescricaoBoca);
-            this.tabAlimentacao.Controls.Add(this.lblAlimentacaoTipoBoca);
             this.tabAlimentacao.Controls.Add(this.cbEMetodoAlimentacao);
             this.tabAlimentacao.Controls.Add(this.lblAlimentacaoMetodo);
             this.tabAlimentacao.Controls.Add(this.cbEAlimentacao);
@@ -286,14 +390,14 @@
             this.tabAlimentacao.Location = new System.Drawing.Point(4, 22);
             this.tabAlimentacao.Name = "tabAlimentacao";
             this.tabAlimentacao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAlimentacao.Size = new System.Drawing.Size(291, 363);
+            this.tabAlimentacao.Size = new System.Drawing.Size(308, 349);
             this.tabAlimentacao.TabIndex = 1;
             this.tabAlimentacao.Text = "Alimentação";
             this.tabAlimentacao.UseVisualStyleBackColor = true;
             // 
             // txtRegulacaoAgua
             // 
-            this.txtRegulacaoAgua.Location = new System.Drawing.Point(8, 205);
+            this.txtRegulacaoAgua.Location = new System.Drawing.Point(9, 180);
             this.txtRegulacaoAgua.Multiline = true;
             this.txtRegulacaoAgua.Name = "txtRegulacaoAgua";
             this.txtRegulacaoAgua.Size = new System.Drawing.Size(275, 65);
@@ -302,7 +406,7 @@
             // lblRegulacaoAgua
             // 
             this.lblRegulacaoAgua.AutoSize = true;
-            this.lblRegulacaoAgua.Location = new System.Drawing.Point(8, 188);
+            this.lblRegulacaoAgua.Location = new System.Drawing.Point(9, 163);
             this.lblRegulacaoAgua.Name = "lblRegulacaoAgua";
             this.lblRegulacaoAgua.Size = new System.Drawing.Size(102, 13);
             this.lblRegulacaoAgua.TabIndex = 8;
@@ -310,7 +414,7 @@
             // 
             // txtAlimentacaoDescricao
             // 
-            this.txtAlimentacaoDescricao.Location = new System.Drawing.Point(8, 112);
+            this.txtAlimentacaoDescricao.Location = new System.Drawing.Point(9, 84);
             this.txtAlimentacaoDescricao.Multiline = true;
             this.txtAlimentacaoDescricao.Name = "txtAlimentacaoDescricao";
             this.txtAlimentacaoDescricao.Size = new System.Drawing.Size(275, 65);
@@ -319,27 +423,11 @@
             // lblAlimentacaoDescricao
             // 
             this.lblAlimentacaoDescricao.AutoSize = true;
-            this.lblAlimentacaoDescricao.Location = new System.Drawing.Point(5, 95);
+            this.lblAlimentacaoDescricao.Location = new System.Drawing.Point(6, 67);
             this.lblAlimentacaoDescricao.Name = "lblAlimentacaoDescricao";
             this.lblAlimentacaoDescricao.Size = new System.Drawing.Size(130, 13);
             this.lblAlimentacaoDescricao.TabIndex = 6;
             this.lblAlimentacaoDescricao.Text = "Descrição da alimentação";
-            // 
-            // txtAlimentacaoDescricaoBoca
-            // 
-            this.txtAlimentacaoDescricaoBoca.Location = new System.Drawing.Point(113, 63);
-            this.txtAlimentacaoDescricaoBoca.Name = "txtAlimentacaoDescricaoBoca";
-            this.txtAlimentacaoDescricaoBoca.Size = new System.Drawing.Size(170, 20);
-            this.txtAlimentacaoDescricaoBoca.TabIndex = 5;
-            // 
-            // lblAlimentacaoTipoBoca
-            // 
-            this.lblAlimentacaoTipoBoca.AutoSize = true;
-            this.lblAlimentacaoTipoBoca.Location = new System.Drawing.Point(5, 66);
-            this.lblAlimentacaoTipoBoca.Name = "lblAlimentacaoTipoBoca";
-            this.lblAlimentacaoTipoBoca.Size = new System.Drawing.Size(97, 13);
-            this.lblAlimentacaoTipoBoca.TabIndex = 4;
-            this.lblAlimentacaoTipoBoca.Text = "Descrição da boca";
             // 
             // cbEMetodoAlimentacao
             // 
@@ -387,7 +475,7 @@
             this.tabDefesaLocomocao.Controls.Add(this.lblEDefesa);
             this.tabDefesaLocomocao.Location = new System.Drawing.Point(4, 22);
             this.tabDefesaLocomocao.Name = "tabDefesaLocomocao";
-            this.tabDefesaLocomocao.Size = new System.Drawing.Size(291, 363);
+            this.tabDefesaLocomocao.Size = new System.Drawing.Size(308, 349);
             this.tabDefesaLocomocao.TabIndex = 2;
             this.tabDefesaLocomocao.Text = "Def | Loc";
             this.tabDefesaLocomocao.UseVisualStyleBackColor = true;
@@ -397,7 +485,7 @@
             this.txtDescricaoLocomocao.Location = new System.Drawing.Point(9, 280);
             this.txtDescricaoLocomocao.Multiline = true;
             this.txtDescricaoLocomocao.Name = "txtDescricaoLocomocao";
-            this.txtDescricaoLocomocao.Size = new System.Drawing.Size(274, 60);
+            this.txtDescricaoLocomocao.Size = new System.Drawing.Size(290, 60);
             this.txtDescricaoLocomocao.TabIndex = 7;
             // 
             // lblLocomocaoDescricao
@@ -411,16 +499,16 @@
             // 
             // txtDefesaDescricao
             // 
-            this.txtDefesaDescricao.Location = new System.Drawing.Point(9, 180);
+            this.txtDefesaDescricao.Location = new System.Drawing.Point(9, 184);
             this.txtDefesaDescricao.Multiline = true;
             this.txtDefesaDescricao.Name = "txtDefesaDescricao";
-            this.txtDefesaDescricao.Size = new System.Drawing.Size(274, 60);
+            this.txtDefesaDescricao.Size = new System.Drawing.Size(290, 60);
             this.txtDefesaDescricao.TabIndex = 5;
             // 
             // lblDefesaDescricao
             // 
             this.lblDefesaDescricao.AutoSize = true;
-            this.lblDefesaDescricao.Location = new System.Drawing.Point(6, 164);
+            this.lblDefesaDescricao.Location = new System.Drawing.Point(6, 168);
             this.lblDefesaDescricao.Name = "lblDefesaDescricao";
             this.lblDefesaDescricao.Size = new System.Drawing.Size(155, 13);
             this.lblDefesaDescricao.TabIndex = 4;
@@ -429,7 +517,7 @@
             // lblELocomocao
             // 
             this.lblELocomocao.AutoSize = true;
-            this.lblELocomocao.Location = new System.Drawing.Point(155, 10);
+            this.lblELocomocao.Location = new System.Drawing.Point(161, 10);
             this.lblELocomocao.Name = "lblELocomocao";
             this.lblELocomocao.Size = new System.Drawing.Size(105, 13);
             this.lblELocomocao.TabIndex = 3;
@@ -438,9 +526,11 @@
             // chkLstELocomocao
             // 
             this.chkLstELocomocao.FormattingEnabled = true;
-            this.chkLstELocomocao.Location = new System.Drawing.Point(158, 26);
+            this.chkLstELocomocao.Items.AddRange(new object[] {
+            " "});
+            this.chkLstELocomocao.Location = new System.Drawing.Point(164, 26);
             this.chkLstELocomocao.Name = "chkLstELocomocao";
-            this.chkLstELocomocao.Size = new System.Drawing.Size(125, 124);
+            this.chkLstELocomocao.Size = new System.Drawing.Size(135, 124);
             this.chkLstELocomocao.TabIndex = 2;
             // 
             // chkLstEDefesa
@@ -450,7 +540,7 @@
             " "});
             this.chkLstEDefesa.Location = new System.Drawing.Point(9, 26);
             this.chkLstEDefesa.Name = "chkLstEDefesa";
-            this.chkLstEDefesa.Size = new System.Drawing.Size(125, 124);
+            this.chkLstEDefesa.Size = new System.Drawing.Size(135, 124);
             this.chkLstEDefesa.TabIndex = 1;
             // 
             // lblEDefesa
@@ -476,45 +566,43 @@
             this.tabDesenvolvimentoEmbrionario.Controls.Add(this.cbEReproducao);
             this.tabDesenvolvimentoEmbrionario.Location = new System.Drawing.Point(4, 22);
             this.tabDesenvolvimentoEmbrionario.Name = "tabDesenvolvimentoEmbrionario";
-            this.tabDesenvolvimentoEmbrionario.Size = new System.Drawing.Size(291, 363);
+            this.tabDesenvolvimentoEmbrionario.Size = new System.Drawing.Size(308, 349);
             this.tabDesenvolvimentoEmbrionario.TabIndex = 3;
             this.tabDesenvolvimentoEmbrionario.Text = "Dev. Emb";
             this.tabDesenvolvimentoEmbrionario.UseVisualStyleBackColor = true;
-            this.tabDesenvolvimentoEmbrionario.Click += new System.EventHandler(this.tabDesenvolvimentoEmbrionario_Click);
             // 
             // txtEpocaReproducao
             // 
             this.txtEpocaReproducao.Enabled = false;
-            this.txtEpocaReproducao.Location = new System.Drawing.Point(6, 282);
+            this.txtEpocaReproducao.Location = new System.Drawing.Point(6, 266);
             this.txtEpocaReproducao.Multiline = true;
             this.txtEpocaReproducao.Name = "txtEpocaReproducao";
-            this.txtEpocaReproducao.Size = new System.Drawing.Size(277, 60);
+            this.txtEpocaReproducao.Size = new System.Drawing.Size(297, 60);
             this.txtEpocaReproducao.TabIndex = 10;
             // 
             // chkHasEpocaSexo
             // 
             this.chkHasEpocaSexo.AutoSize = true;
-            this.chkHasEpocaSexo.Location = new System.Drawing.Point(6, 259);
+            this.chkHasEpocaSexo.Location = new System.Drawing.Point(6, 243);
             this.chkHasEpocaSexo.Name = "chkHasEpocaSexo";
             this.chkHasEpocaSexo.Size = new System.Drawing.Size(168, 17);
             this.chkHasEpocaSexo.TabIndex = 9;
             this.chkHasEpocaSexo.Text = "Possui época de reprodução?";
             this.chkHasEpocaSexo.UseVisualStyleBackColor = true;
-            this.chkHasEpocaSexo.CheckedChanged += new System.EventHandler(this.chkHasEpocaSexo_CheckedChanged);
             // 
             // txtReproducaoDescricaoCorte
             // 
             this.txtReproducaoDescricaoCorte.Enabled = false;
-            this.txtReproducaoDescricaoCorte.Location = new System.Drawing.Point(6, 181);
+            this.txtReproducaoDescricaoCorte.Location = new System.Drawing.Point(6, 176);
             this.txtReproducaoDescricaoCorte.Multiline = true;
             this.txtReproducaoDescricaoCorte.Name = "txtReproducaoDescricaoCorte";
-            this.txtReproducaoDescricaoCorte.Size = new System.Drawing.Size(277, 60);
+            this.txtReproducaoDescricaoCorte.Size = new System.Drawing.Size(297, 60);
             this.txtReproducaoDescricaoCorte.TabIndex = 8;
             // 
             // chkReproducaoHasCorte
             // 
             this.chkReproducaoHasCorte.AutoSize = true;
-            this.chkReproducaoHasCorte.Location = new System.Drawing.Point(6, 158);
+            this.chkReproducaoHasCorte.Location = new System.Drawing.Point(6, 153);
             this.chkReproducaoHasCorte.Name = "chkReproducaoHasCorte";
             this.chkReproducaoHasCorte.Size = new System.Drawing.Size(181, 17);
             this.chkReproducaoHasCorte.TabIndex = 7;
@@ -527,7 +615,7 @@
             this.txtReproducaoDescricao.Location = new System.Drawing.Point(6, 84);
             this.txtReproducaoDescricao.Multiline = true;
             this.txtReproducaoDescricao.Name = "txtReproducaoDescricao";
-            this.txtReproducaoDescricao.Size = new System.Drawing.Size(277, 60);
+            this.txtReproducaoDescricao.Size = new System.Drawing.Size(297, 60);
             this.txtReproducaoDescricao.TabIndex = 5;
             // 
             // lblReproducaoDescricao
@@ -551,9 +639,9 @@
             // cbEDevEmbrionario
             // 
             this.cbEDevEmbrionario.FormattingEnabled = true;
-            this.cbEDevEmbrionario.Location = new System.Drawing.Point(113, 36);
+            this.cbEDevEmbrionario.Location = new System.Drawing.Point(108, 36);
             this.cbEDevEmbrionario.Name = "cbEDevEmbrionario";
-            this.cbEDevEmbrionario.Size = new System.Drawing.Size(169, 21);
+            this.cbEDevEmbrionario.Size = new System.Drawing.Size(195, 21);
             this.cbEDevEmbrionario.TabIndex = 2;
             // 
             // lblEReproducao
@@ -568,14 +656,14 @@
             // cbEReproducao
             // 
             this.cbEReproducao.FormattingEnabled = true;
-            this.cbEReproducao.Location = new System.Drawing.Point(113, 8);
+            this.cbEReproducao.Location = new System.Drawing.Point(107, 8);
             this.cbEReproducao.Name = "cbEReproducao";
-            this.cbEReproducao.Size = new System.Drawing.Size(170, 21);
+            this.cbEReproducao.Size = new System.Drawing.Size(196, 21);
             this.cbEReproducao.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(236, 407);
+            this.button1.Location = new System.Drawing.Point(245, 392);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -583,18 +671,56 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lblAparencia
+            // 
+            this.lblAparencia.AutoSize = true;
+            this.lblAparencia.Location = new System.Drawing.Point(3, 150);
+            this.lblAparencia.Name = "lblAparencia";
+            this.lblAparencia.Size = new System.Drawing.Size(55, 13);
+            this.lblAparencia.TabIndex = 22;
+            this.lblAparencia.Text = "Aparência";
+            // 
+            // txtAparencia
+            // 
+            this.txtAparencia.Location = new System.Drawing.Point(6, 166);
+            this.txtAparencia.Multiline = true;
+            this.txtAparencia.Name = "txtAparencia";
+            this.txtAparencia.Size = new System.Drawing.Size(296, 65);
+            this.txtAparencia.TabIndex = 23;
+            // 
+            // lblMembros
+            // 
+            this.lblMembros.AutoSize = true;
+            this.lblMembros.Location = new System.Drawing.Point(3, 253);
+            this.lblMembros.Name = "lblMembros";
+            this.lblMembros.Size = new System.Drawing.Size(50, 13);
+            this.lblMembros.TabIndex = 24;
+            this.lblMembros.Text = "Membros";
+            // 
+            // txtDescMembros
+            // 
+            this.txtDescMembros.Location = new System.Drawing.Point(6, 269);
+            this.txtDescMembros.Multiline = true;
+            this.txtDescMembros.Name = "txtDescMembros";
+            this.txtDescMembros.Size = new System.Drawing.Size(296, 65);
+            this.txtDescMembros.TabIndex = 25;
+            // 
             // FrmAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 442);
+            this.ClientSize = new System.Drawing.Size(331, 427);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmAnimal";
             this.Text = "FrmAnimal";
             this.tabControl.ResumeLayout(false);
             this.tabGeral.ResumeLayout(false);
             this.tabGeral.PerformLayout();
+            this.tabCaracteristicas.ResumeLayout(false);
+            this.tabCaracteristicas.PerformLayout();
             this.tabAlimentacao.ResumeLayout(false);
             this.tabAlimentacao.PerformLayout();
             this.tabDefesaLocomocao.ResumeLayout(false);
@@ -610,14 +736,10 @@
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblFilo;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label lblRespiracao;
-        private System.Windows.Forms.ComboBox cbRespiracao;
         private System.Windows.Forms.ComboBox cbFilo;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabGeral;
         private System.Windows.Forms.TabPage tabAlimentacao;
-        private System.Windows.Forms.TextBox txtBioma;
-        private System.Windows.Forms.Label lblBioma;
         private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.Label lblPersonagem;
@@ -629,8 +751,6 @@
         private System.Windows.Forms.ComboBox cbEAlimentacao;
         private System.Windows.Forms.ComboBox cbEMetodoAlimentacao;
         private System.Windows.Forms.Label lblAlimentacaoMetodo;
-        private System.Windows.Forms.TextBox txtAlimentacaoDescricaoBoca;
-        private System.Windows.Forms.Label lblAlimentacaoTipoBoca;
         private System.Windows.Forms.Label lblAlimentacaoDescricao;
         private System.Windows.Forms.Label lblRegulacaoAgua;
         private System.Windows.Forms.TextBox txtAlimentacaoDescricao;
@@ -658,5 +778,22 @@
         private System.Windows.Forms.CheckBox chkHasEpocaSexo;
         private System.Windows.Forms.TextBox txtHabitat;
         private System.Windows.Forms.Label lblHabitat;
+        private System.Windows.Forms.TabPage tabCaracteristicas;
+        private System.Windows.Forms.TextBox txtBioma;
+        private System.Windows.Forms.Label lblBioma;
+        private System.Windows.Forms.ComboBox cbRespiracao;
+        private System.Windows.Forms.Label lblRespiracao;
+        private System.Windows.Forms.TextBox txtDescBoca;
+        private System.Windows.Forms.Label lblDescBoca;
+        private System.Windows.Forms.Label lblNomeCientifico;
+        private System.Windows.Forms.TextBox txtNomeCientifico;
+        private System.Windows.Forms.TextBox txtDescAnus;
+        private System.Windows.Forms.CheckBox chkHasBoca;
+        private System.Windows.Forms.CheckBox chkHasAnus;
+        private System.Windows.Forms.Label lblDescAnus;
+        private System.Windows.Forms.Label lblAparencia;
+        private System.Windows.Forms.Label lblMembros;
+        private System.Windows.Forms.TextBox txtAparencia;
+        private System.Windows.Forms.TextBox txtDescMembros;
     }
 }

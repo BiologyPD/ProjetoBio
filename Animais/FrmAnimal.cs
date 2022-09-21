@@ -27,21 +27,15 @@ namespace ProjetoBio.Animais
             chkLstEDefesa.SetFrom<EDefesa>();
             chkLstELocomocao.SetFrom<ELocomocao>();
 
-
             txtNome.AddToolTip("hello world from the 7th ring of hell");
         }
 
         public FrmAnimal(Animal animal) : this() => SetAnimal(animal);
 
-        private void checkCampoPersonagem_CheckedChanged(object sender, EventArgs e) =>
+        private void checkCampoPersonagem_CheckedChanged(object sender = null, EventArgs e = null) =>
             txtPersonagem.Enabled = checkCampoPersonagem.Checked;
 
-        private void tabDesenvolvimentoEmbrionario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkReproducaoHasCorte_CheckedChanged(object sender, EventArgs e) =>
+        private void chkReproducaoHasCorte_CheckedChanged(object sender = null, EventArgs e = null) =>
             txtReproducaoDescricaoCorte.Enabled = chkReproducaoHasCorte.Checked;
 
         public Animal GetAnimal()
@@ -49,22 +43,26 @@ namespace ProjetoBio.Animais
             this.TrimAll();
 
             var tool = new ToolTip();
-            
+
             return new Animal()
             {
                 Nome = txtNome.Text,
+                NomeCientifico = txtNomeCientifico.Text,
                 Filo = (Filo)cbFilo.SelectedValue,
                 Tipo = (Tipo)cbTipo.SelectedValue,
                 Respiracao = (Respiracao)cbRespiracao.SelectedValue,
                 Adaptacoes = txtAdaptacoes.Text,
                 Bioma = txtBioma.Text,
                 Habitat = txtHabitat.Text,
+                Aparencia = txtAparencia.Text,
+                DescricaoMembros = txtDescMembros.Text,
                 Alimentacao = new Alimentacao((Filo)cbFilo.SelectedValue)
                 {
                     Tipo = (EAlimentacao)cbEAlimentacao.SelectedValue,
                     Meio = (EMetodoAlimentacao)cbEMetodoAlimentacao.SelectedValue,
                     Descricao = txtAlimentacaoDescricao.Text,
-                    DescricaoBoca = txtAlimentacaoDescricaoBoca.Text,
+                    DescricaoBoca = txtDescBoca.Text,
+                    DescricaoAnus = txtDescAnus.Text,
                 },
                 RegulacaoAgua = txtRegulacaoAgua.Text,
                 Locomocao = new Locomocao()
@@ -84,24 +82,28 @@ namespace ProjetoBio.Animais
                     Descricao = txtReproducaoDescricao.Text,
                     DescricaoCorte = chkReproducaoHasCorte.Checked ? txtReproducaoDescricaoCorte.Text : string.Empty,
                 },
-                Personagem = checkCampoPersonagem.Checked ? txtPersonagem.Text : string.Empty
+                Personagem = checkCampoPersonagem.Checked ? txtPersonagem.Text : string.Empty,
             };
         }
 
         public void SetAnimal(Animal animal)
         {
             txtNome.Text = animal.Nome;
+            txtNomeCientifico.Text = animal.NomeCientifico;
             cbFilo.SelectedValue = animal.Filo;
             cbTipo.SelectedValue = animal.Tipo;
             cbRespiracao.SelectedValue = animal.Respiracao;
             txtAdaptacoes.Text = animal.Adaptacoes;
             txtBioma.Text = animal.Bioma;
             txtHabitat.Text = animal.Habitat;
+            txtAparencia.Text = animal.Aparencia;
+            txtDescMembros.Text = animal.DescricaoMembros;
             
             cbEAlimentacao.SelectedValue = animal.Alimentacao.Tipo;
             cbEMetodoAlimentacao.SelectedValue = animal.Alimentacao.Meio;
             txtAlimentacaoDescricao.Text = animal.Alimentacao.Descricao;
-            txtAlimentacaoDescricaoBoca.Text = animal.Alimentacao.DescricaoBoca;
+            txtDescBoca.Text = animal.Alimentacao.DescricaoBoca;
+            txtDescAnus.Text = animal.Alimentacao.DescricaoAnus;
             
             txtRegulacaoAgua.Text = animal.RegulacaoAgua;
 
@@ -114,20 +116,37 @@ namespace ProjetoBio.Animais
             cbEReproducao.SelectedValue = animal.DevEmbrionario.TipoReproducao;
             cbEDevEmbrionario.SelectedValue = animal.DevEmbrionario.Meio;
             txtReproducaoDescricao.Text = animal.DevEmbrionario.Descricao;
-            chkReproducaoHasCorte.Checked = animal.DevEmbrionario.DescricaoCorte != string.Empty;
-            txtReproducaoDescricaoCorte.Text = animal.DevEmbrionario.DescricaoCorte ?? string.Empty;
+            chkReproducaoHasCorte.Checked = animal.DevEmbrionario.HasCorte;
+            txtReproducaoDescricaoCorte.Text = animal.DevEmbrionario.DescricaoCorte;
+            chkHasEpocaSexo.Checked = animal.DevEmbrionario.HasEpocaReproducao;
+            txtEpocaReproducao.Text = animal.DevEmbrionario.EpocaReproducao;
 
-            checkCampoPersonagem.Checked = animal.Personagem != string.Empty;
-            txtPersonagem.Text = animal.Personagem ?? string.Empty;
+            checkCampoPersonagem.Checked = animal.HasPersonagem;
+            txtPersonagem.Text = animal.Personagem;
 
-            txtReproducaoDescricaoCorte.Enabled = chkReproducaoHasCorte.Checked;
-            txtEpocaReproducao.Enabled = chkHasEpocaSexo.Checked;
+            chkHasBoca_CheckedChanged();
+            chkHasAnus_CheckedChanged();
+            chkReproducaoHasCorte_CheckedChanged();
+            chkHasEpocaSexo_CheckedChanged();
+            cbFilo_SelectedIndexChanged();
         }
 
-        private void button1_Click(object sender, EventArgs e) =>
+        private void button1_Click(object sender = null, EventArgs e = null) =>
             new FrmAnimal(GetAnimal()).Show();
 
-        private void chkHasEpocaSexo_CheckedChanged(object sender, EventArgs e) => 
+        private void chkHasEpocaSexo_CheckedChanged(object sender = null, EventArgs e = null) => 
             txtEpocaReproducao.Enabled = chkHasEpocaSexo.Checked;
+
+        private void cbFilo_SelectedIndexChanged(object sender = null, EventArgs e = null)
+        {
+            chkHasBoca.Checked = ((Filo)cbFilo.SelectedValue).HasBoca;
+            chkHasAnus.Checked = ((Filo)cbFilo.SelectedValue).HasAnus;
+        }
+
+        private void chkHasBoca_CheckedChanged(object sender = null, EventArgs e = null) =>
+            txtDescBoca.Enabled = chkHasBoca.Checked;
+
+        private void chkHasAnus_CheckedChanged(object sender = null, EventArgs e = null) =>
+            txtDescAnus.Enabled = chkHasAnus.Checked;
     }
 }
