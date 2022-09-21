@@ -88,6 +88,13 @@ namespace ProjetoBio.Utils
         public static bool IsBlank(this string s) => string.IsNullOrWhiteSpace(s.ToTrimmed());
 
         public static string Check(this string s) => s.IsBlank() ? throw new ArgumentNullException(nameof(s) + " cannot be null!") : s;
+
+        public static string AddQuote(this string s) => '"' + s.ToTrimmed() + '"';
+    }
+
+    public static class StringBuilderExtensions
+    {
+        public static StringBuilder AppendQuote(this StringBuilder stringBuilder, string value) => stringBuilder.AppendLine(value.AddQuote());
     }
 
     public static class ControlExtensions
