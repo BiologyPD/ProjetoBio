@@ -13,6 +13,8 @@ namespace ProjetoBio.Animais
 {
     public partial class FrmAnimal : Form
     {
+        private bool IsParasita => gbParasita.Enabled;
+
         public FrmAnimal()
         {
             InitializeComponent();
@@ -42,9 +44,7 @@ namespace ProjetoBio.Animais
         {
             this.TrimAll();
 
-            var tool = new ToolTip();
-
-            return new Animal()
+            var an = new Animal()
             {
                 Nome = txtNome.Text,
                 NomeCientifico = txtNomeCientifico.Text,
@@ -85,6 +85,18 @@ namespace ProjetoBio.Animais
                 },
                 Personagem = checkCampoPersonagem.Checked ? txtPersonagem.Text : string.Empty,
             };
+
+            if (IsParasita)
+            {
+                Parasita pr = new Parasita(an);
+                pr.Hospedeiro = txtParasitaHospedeiro.Text;
+                pr.HospedeiroIntermediario = chkParasitaHospedeiroSecundario.Checked ? txtParasitaHospedeiroSecundario.Text : string.Empty;
+                pr.Prevencao = txtParasitaPrevencao.Text;
+                pr.Contaminacao = txtParasitaContaminacao.Text;
+                an = pr;
+            }
+
+            return an;
         }
 
         public void SetAnimal(Animal animal)
@@ -130,6 +142,7 @@ namespace ProjetoBio.Animais
             chkReproducaoHasCorte_CheckedChanged();
             chkHasEpocaSexo_CheckedChanged();
             cbFilo_SelectedIndexChanged();
+            checkCampoPersonagem_CheckedChanged();
         }
 
         private void button1_Click(object sender = null, EventArgs e = null) =>
@@ -140,8 +153,8 @@ namespace ProjetoBio.Animais
 
         private void cbFilo_SelectedIndexChanged(object sender = null, EventArgs e = null)
         {
-           // chkHasBoca.Checked = ((KeyPair<FilocbFilo.SelectedValue).HasBoca;
-           // chkHasAnus.Checked = ((KeyPair<Filo>)cbFilo.SelectedValue).HasAnus;
+           chkHasBoca.Checked = ((Filo)cbFilo.SelectedValue).HasBoca;
+           chkHasAnus.Checked = ((Filo)cbFilo.SelectedValue).HasAnus;
         }
 
         private void chkHasBoca_CheckedChanged(object sender = null, EventArgs e = null) =>
@@ -153,9 +166,14 @@ namespace ProjetoBio.Animais
         private string TextAnimal()
         {
             var animal = GetAnimal();
-            var toText = new StringBuilder("new Animal()");
-            toText.AppendLine().AppendLine("{");
+            var toText = new StringBuilder("new ");
 
+            if (IsParasita)
+                toText.AppendLine("Parasita()");
+            else
+                toText.AppendLine("Animal()");
+
+            toText.AppendLine("{");
 
             toText
                 .Append("Nome = ").AppendQuote(animal.Nome)
@@ -172,7 +190,20 @@ namespace ProjetoBio.Animais
                 .Append("RegulacaoAgua = ").AppendQuote(animal.RegulacaoAgua)
                 .Append("Tipo = ").AppendComma(EnumExtensions.NameOf(animal.Tipo))
                 .Append("Filo = ").AppendComma(EnumExtensions.NameOf(animal.Filo))
-                .Append("Respiracao = ").AppendComma(EnumExtensions.NameOf(animal.Respiracao))
+                .Append("Respiracao = ").AppendComma(EnumExtensions.NameOf(animal.Respiracao));
+
+            if (IsParasita)
+            {
+                var pr = (Parasita)animal;
+
+                toText
+                    .Append("Hospedeiro = ").AppendQuote(pr.Hospedeiro)
+                    .Append("HospedeiroSecundario = ").AppendQuote(pr.HospedeiroIntermediario)
+                    .Append("Prevencao = ").AppendQuote(pr.Prevencao)
+                    .Append("Contaminacao = ").AppendQuote(pr.Contaminacao);
+            }
+
+            toText
                 .Append("Alimentacao = ").Append("new Alimentacao(").AppendLine(EnumExtensions.NameOf(animal.Filo) + ")")
                 .AppendLine("{")
                     .Append("Descricao = ").AppendQuote(animal.Alimentacao.Descricao)
@@ -216,16 +247,13 @@ namespace ProjetoBio.Animais
             return toText.ToString();
         }
 
-        private void FrmAnimal_Load(object sender, EventArgs e)
-        {
+        private void btnCopiarAnimal_Click(object sender, EventArgs e)
+            => Clipboard.SetText(TextAnimal());
 
-        }
+        private void cbEMetodoAlimentacao_SelectedIndexChanged(object sender = null, EventArgs e = null)
+            => gbParasita.Visible = (EMetodoAlimentacao)cbEMetodoAlimentacao.SelectedValue == EMetodoAlimentacao.Parasita;
 
-        private void btnCopiarAnimal_Click(object sender, EventArgs e) => Clipboard.SetText(TextAnimal());
-
-        private void lblAdaptacoes_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void chkParasitaHospedeiroSecundario_CheckedChanged(object sender = null, EventArgs e = null)
+            => txtParasitaHospedeiroSecundario.Enabled = chkParasitaHospedeiroSecundario.Checked;
     }
 }

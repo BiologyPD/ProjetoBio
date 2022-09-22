@@ -237,8 +237,9 @@ namespace ProjetoBio.Animais
         public static readonly EMetodoAlimentacao Filtrador = new EMetodoAlimentacao("Filtrador", 0);
         public static readonly EMetodoAlimentacao Cacador = new EMetodoAlimentacao("Caçador", 1);
         public static readonly EMetodoAlimentacao Herbivoro = new EMetodoAlimentacao("Herbívoro", 2);
+        public static readonly EMetodoAlimentacao Parasita = new EMetodoAlimentacao("Parasita", 3);
 
-        public static readonly EMetodoAlimentacao[] Values = { Filtrador, Cacador, Herbivoro };
+        public static readonly EMetodoAlimentacao[] Values = { Filtrador, Cacador, Herbivoro, Parasita };
     }
 
     public class EDefesa : Enum
