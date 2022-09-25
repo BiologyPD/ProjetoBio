@@ -18,15 +18,19 @@ namespace ProjetoBio
         [STAThread]
         static void Main()
         {
+            /*
             var smilinguido = Animais.Animal.smilinguido();
-            // MessageBox.Show(smilinguido.IsNotNull().ToString(), "Smilinguido tem algo nulo?");
-            //AnimalModels.Suindara.ShowJson();
-            // MessageBox.Show(nameof(AnimalModels.Suindara.Tipo));
+            MessageBox.Show(smilinguido.IsNotNull().ToString(), "Smilinguido tem algo nulo?");
+            AnimalModels.Suindara.ShowJson();
+            MessageBox.Show(nameof(AnimalModels.Suindara.Tipo));
             MessageBox.Show(EnumExtensions.NameOf(AnimalModels.Suindara.Filo));
             MessageBox.Show(AnimalModels.Suindara.ToString(), "Informações do animalzinho:");
+            MessageBox.Show(((Tipo.Parasita as object).GetType() == typeof(Tipo)).ToString());
+            MessageBox.Show(AnimalModels.Suindara.Tipo.GetFullName());
+            */
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(AnimalModels.Suindara.ToFrmAnimal());
+            Application.Run(new MainMenu());
         }
     }
 }

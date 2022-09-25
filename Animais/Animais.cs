@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 // using System.Text.Json;
 using System.Windows.Forms;
 using ProjetoBio.Utils;
+using System.Reflection;
 
 namespace ProjetoBio.Animais
 {
@@ -169,13 +170,27 @@ namespace ProjetoBio.Animais
             };
         }
 
+        public void Update(Animal an)
+        {
+            var difprops = 
+                from PropertyInfo prop in GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                where prop.GetValue(this) != prop.GetValue(an)
+                select prop;
+
+            foreach(var difprop in difprops)
+            {
+                try { difprop.SetValue(this, difprop.GetValue(an)); }
+                catch { }
+            }
+        }
+
         //public string GetJson() => JsonSerializer.Serialize(AnimalModels.Suindara);
 
         //public void ShowJson() => MessageBox.Show(GetJson(), "Json: ", MessageBoxButtons.OK);
 
-        public FrmAnimal ToFrmAnimal() => new FrmAnimal(this);
+        public FrmAnimal ToFrmAnimal() => FrmAnimal.GetInstance(this);
         public bool IsNotNull => GetType()
-            .GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public)
+            .GetProperties(BindingFlags.Instance | BindingFlags.Public)
             .All(x => x.GetValue(this) != null);
     }
 }

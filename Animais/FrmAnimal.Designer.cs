@@ -49,6 +49,15 @@
             this.chkLstEDefesa = new System.Windows.Forms.CheckedListBox();
             this.lblEDefesa = new System.Windows.Forms.Label();
             this.tabAlimentacao = new System.Windows.Forms.TabPage();
+            this.gbParasita = new System.Windows.Forms.GroupBox();
+            this.chkParasitaHospedeiroSecundario = new System.Windows.Forms.CheckBox();
+            this.lblParasitaPrevencao = new System.Windows.Forms.Label();
+            this.txtParasitaContaminacao = new System.Windows.Forms.TextBox();
+            this.txtParasitaPrevencao = new System.Windows.Forms.TextBox();
+            this.lblParasitaContaminacao = new System.Windows.Forms.Label();
+            this.txtParasitaHospedeiroSecundario = new System.Windows.Forms.TextBox();
+            this.txtParasitaHospedeiro = new System.Windows.Forms.TextBox();
+            this.lblParasitaHospedeiro = new System.Windows.Forms.Label();
             this.txtRegulacaoAgua = new System.Windows.Forms.TextBox();
             this.txtAlimentacaoDescricao = new System.Windows.Forms.TextBox();
             this.lblRegulacaoAgua = new System.Windows.Forms.Label();
@@ -81,7 +90,7 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblHabitat = new System.Windows.Forms.Label();
             this.lblAdaptacoes = new System.Windows.Forms.Label();
-            this.checkCampoPersonagem = new System.Windows.Forms.CheckBox();
+            this.chkHasPersonagem = new System.Windows.Forms.CheckBox();
             this.lblPersonagem = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblFilo = new System.Windows.Forms.Label();
@@ -89,24 +98,16 @@
             this.cbFilo = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.lblParasitaHospedeiro = new System.Windows.Forms.Label();
-            this.gbParasita = new System.Windows.Forms.GroupBox();
-            this.txtParasitaHospedeiro = new System.Windows.Forms.TextBox();
-            this.txtParasitaHospedeiroSecundario = new System.Windows.Forms.TextBox();
-            this.lblParasitaContaminacao = new System.Windows.Forms.Label();
-            this.txtParasitaPrevencao = new System.Windows.Forms.TextBox();
-            this.txtParasitaContaminacao = new System.Windows.Forms.TextBox();
-            this.lblParasitaPrevencao = new System.Windows.Forms.Label();
-            this.chkParasitaHospedeiroSecundario = new System.Windows.Forms.CheckBox();
-            this.btnNewFrm = new System.Windows.Forms.Button();
+            this.btnSaveFrm = new System.Windows.Forms.Button();
             this.btnCopiarAnimal = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
             this.tabDesenvolvimentoEmbrionario.SuspendLayout();
             this.tabDefesaLocomocao.SuspendLayout();
             this.tabAlimentacao.SuspendLayout();
+            this.gbParasita.SuspendLayout();
             this.tabCaracteristicas.SuspendLayout();
             this.tabGeral.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.gbParasita.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabDesenvolvimentoEmbrionario
@@ -127,6 +128,7 @@
             this.tabDesenvolvimentoEmbrionario.TabIndex = 3;
             this.tabDesenvolvimentoEmbrionario.Text = "Dev. Emb";
             this.tabDesenvolvimentoEmbrionario.UseVisualStyleBackColor = true;
+            this.tabDesenvolvimentoEmbrionario.Click += new System.EventHandler(this.tabDesenvolvimentoEmbrionario_Click);
             // 
             // txtEpocaReproducao
             // 
@@ -163,6 +165,7 @@
             this.chkHasEpocaSexo.TabIndex = 9;
             this.chkHasEpocaSexo.Text = "Possui época de reprodução?";
             this.chkHasEpocaSexo.UseVisualStyleBackColor = true;
+            this.chkHasEpocaSexo.CheckedChanged += new System.EventHandler(this.chkHasEpocaSexo_CheckedChanged);
             // 
             // chkReproducaoHasCorte
             // 
@@ -325,6 +328,91 @@
             this.tabAlimentacao.TabIndex = 1;
             this.tabAlimentacao.Text = "Alimentação";
             this.tabAlimentacao.UseVisualStyleBackColor = true;
+            // 
+            // gbParasita
+            // 
+            this.gbParasita.Controls.Add(this.chkParasitaHospedeiroSecundario);
+            this.gbParasita.Controls.Add(this.lblParasitaPrevencao);
+            this.gbParasita.Controls.Add(this.txtParasitaContaminacao);
+            this.gbParasita.Controls.Add(this.txtParasitaPrevencao);
+            this.gbParasita.Controls.Add(this.lblParasitaContaminacao);
+            this.gbParasita.Controls.Add(this.txtParasitaHospedeiroSecundario);
+            this.gbParasita.Controls.Add(this.txtParasitaHospedeiro);
+            this.gbParasita.Controls.Add(this.lblParasitaHospedeiro);
+            this.gbParasita.Location = new System.Drawing.Point(4, 251);
+            this.gbParasita.Name = "gbParasita";
+            this.gbParasita.Size = new System.Drawing.Size(316, 147);
+            this.gbParasita.TabIndex = 10;
+            this.gbParasita.TabStop = false;
+            this.gbParasita.Text = "Parasita";
+            this.gbParasita.Visible = false;
+            // 
+            // chkParasitaHospedeiroSecundario
+            // 
+            this.chkParasitaHospedeiroSecundario.AutoSize = true;
+            this.chkParasitaHospedeiroSecundario.Location = new System.Drawing.Point(9, 94);
+            this.chkParasitaHospedeiroSecundario.Name = "chkParasitaHospedeiroSecundario";
+            this.chkParasitaHospedeiroSecundario.Size = new System.Drawing.Size(173, 17);
+            this.chkParasitaHospedeiroSecundario.TabIndex = 8;
+            this.chkParasitaHospedeiroSecundario.Text = "Possui hospedeiro secundário?";
+            this.chkParasitaHospedeiroSecundario.UseVisualStyleBackColor = true;
+            this.chkParasitaHospedeiroSecundario.CheckedChanged += new System.EventHandler(this.chkParasitaHospedeiroSecundario_CheckedChanged);
+            // 
+            // lblParasitaPrevencao
+            // 
+            this.lblParasitaPrevencao.AutoSize = true;
+            this.lblParasitaPrevencao.Location = new System.Drawing.Point(6, 68);
+            this.lblParasitaPrevencao.Name = "lblParasitaPrevencao";
+            this.lblParasitaPrevencao.Size = new System.Drawing.Size(59, 13);
+            this.lblParasitaPrevencao.TabIndex = 7;
+            this.lblParasitaPrevencao.Text = "Prevenção";
+            // 
+            // txtParasitaContaminacao
+            // 
+            this.txtParasitaContaminacao.Location = new System.Drawing.Point(110, 39);
+            this.txtParasitaContaminacao.Name = "txtParasitaContaminacao";
+            this.txtParasitaContaminacao.Size = new System.Drawing.Size(200, 20);
+            this.txtParasitaContaminacao.TabIndex = 6;
+            // 
+            // txtParasitaPrevencao
+            // 
+            this.txtParasitaPrevencao.Location = new System.Drawing.Point(110, 65);
+            this.txtParasitaPrevencao.Name = "txtParasitaPrevencao";
+            this.txtParasitaPrevencao.Size = new System.Drawing.Size(200, 20);
+            this.txtParasitaPrevencao.TabIndex = 5;
+            // 
+            // lblParasitaContaminacao
+            // 
+            this.lblParasitaContaminacao.AutoSize = true;
+            this.lblParasitaContaminacao.Location = new System.Drawing.Point(6, 42);
+            this.lblParasitaContaminacao.Name = "lblParasitaContaminacao";
+            this.lblParasitaContaminacao.Size = new System.Drawing.Size(75, 13);
+            this.lblParasitaContaminacao.TabIndex = 4;
+            this.lblParasitaContaminacao.Text = "Contaminação";
+            // 
+            // txtParasitaHospedeiroSecundario
+            // 
+            this.txtParasitaHospedeiroSecundario.Enabled = false;
+            this.txtParasitaHospedeiroSecundario.Location = new System.Drawing.Point(6, 117);
+            this.txtParasitaHospedeiroSecundario.Name = "txtParasitaHospedeiroSecundario";
+            this.txtParasitaHospedeiroSecundario.Size = new System.Drawing.Size(301, 20);
+            this.txtParasitaHospedeiroSecundario.TabIndex = 2;
+            // 
+            // txtParasitaHospedeiro
+            // 
+            this.txtParasitaHospedeiro.Location = new System.Drawing.Point(110, 13);
+            this.txtParasitaHospedeiro.Name = "txtParasitaHospedeiro";
+            this.txtParasitaHospedeiro.Size = new System.Drawing.Size(200, 20);
+            this.txtParasitaHospedeiro.TabIndex = 1;
+            // 
+            // lblParasitaHospedeiro
+            // 
+            this.lblParasitaHospedeiro.AutoSize = true;
+            this.lblParasitaHospedeiro.Location = new System.Drawing.Point(6, 16);
+            this.lblParasitaHospedeiro.Name = "lblParasitaHospedeiro";
+            this.lblParasitaHospedeiro.Size = new System.Drawing.Size(61, 13);
+            this.lblParasitaHospedeiro.TabIndex = 0;
+            this.lblParasitaHospedeiro.Text = "Hospedeiro";
             // 
             // txtRegulacaoAgua
             // 
@@ -566,7 +654,7 @@
             this.tabGeral.Controls.Add(this.txtNome);
             this.tabGeral.Controls.Add(this.lblHabitat);
             this.tabGeral.Controls.Add(this.lblAdaptacoes);
-            this.tabGeral.Controls.Add(this.checkCampoPersonagem);
+            this.tabGeral.Controls.Add(this.chkHasPersonagem);
             this.tabGeral.Controls.Add(this.lblPersonagem);
             this.tabGeral.Controls.Add(this.lblNome);
             this.tabGeral.Controls.Add(this.lblFilo);
@@ -576,7 +664,7 @@
             this.tabGeral.Location = new System.Drawing.Point(4, 22);
             this.tabGeral.Name = "tabGeral";
             this.tabGeral.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGeral.Size = new System.Drawing.Size(323, 442);
+            this.tabGeral.Size = new System.Drawing.Size(323, 401);
             this.tabGeral.TabIndex = 0;
             this.tabGeral.Text = "Geral";
             this.tabGeral.UseVisualStyleBackColor = true;
@@ -630,15 +718,15 @@
             this.lblAdaptacoes.TabIndex = 13;
             this.lblAdaptacoes.Text = "Adaptações ao meio";
             // 
-            // checkCampoPersonagem
+            // chkHasPersonagem
             // 
-            this.checkCampoPersonagem.AutoSize = true;
-            this.checkCampoPersonagem.Location = new System.Drawing.Point(120, 86);
-            this.checkCampoPersonagem.Name = "checkCampoPersonagem";
-            this.checkCampoPersonagem.Size = new System.Drawing.Size(15, 14);
-            this.checkCampoPersonagem.TabIndex = 12;
-            this.checkCampoPersonagem.UseVisualStyleBackColor = true;
-            this.checkCampoPersonagem.CheckedChanged += new System.EventHandler(this.checkCampoPersonagem_CheckedChanged);
+            this.chkHasPersonagem.AutoSize = true;
+            this.chkHasPersonagem.Location = new System.Drawing.Point(120, 86);
+            this.chkHasPersonagem.Name = "chkHasPersonagem";
+            this.chkHasPersonagem.Size = new System.Drawing.Size(15, 14);
+            this.chkHasPersonagem.TabIndex = 12;
+            this.chkHasPersonagem.UseVisualStyleBackColor = true;
+            this.chkHasPersonagem.CheckedChanged += new System.EventHandler(this.chkHasPersonagem_CheckedChanged);
             // 
             // lblPersonagem
             // 
@@ -702,106 +790,22 @@
             this.tabControl.Controls.Add(this.tabAlimentacao);
             this.tabControl.Controls.Add(this.tabDefesaLocomocao);
             this.tabControl.Controls.Add(this.tabDesenvolvimentoEmbrionario);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(331, 468);
+            this.tabControl.Size = new System.Drawing.Size(331, 427);
             this.tabControl.TabIndex = 2;
             // 
-            // lblParasitaHospedeiro
+            // btnSaveFrm
             // 
-            this.lblParasitaHospedeiro.AutoSize = true;
-            this.lblParasitaHospedeiro.Location = new System.Drawing.Point(6, 16);
-            this.lblParasitaHospedeiro.Name = "lblParasitaHospedeiro";
-            this.lblParasitaHospedeiro.Size = new System.Drawing.Size(61, 13);
-            this.lblParasitaHospedeiro.TabIndex = 0;
-            this.lblParasitaHospedeiro.Text = "Hospedeiro";
-            // 
-            // gbParasita
-            // 
-            this.gbParasita.Controls.Add(this.chkParasitaHospedeiroSecundario);
-            this.gbParasita.Controls.Add(this.lblParasitaPrevencao);
-            this.gbParasita.Controls.Add(this.txtParasitaContaminacao);
-            this.gbParasita.Controls.Add(this.txtParasitaPrevencao);
-            this.gbParasita.Controls.Add(this.lblParasitaContaminacao);
-            this.gbParasita.Controls.Add(this.txtParasitaHospedeiroSecundario);
-            this.gbParasita.Controls.Add(this.txtParasitaHospedeiro);
-            this.gbParasita.Controls.Add(this.lblParasitaHospedeiro);
-            this.gbParasita.Location = new System.Drawing.Point(4, 251);
-            this.gbParasita.Name = "gbParasita";
-            this.gbParasita.Size = new System.Drawing.Size(316, 147);
-            this.gbParasita.TabIndex = 10;
-            this.gbParasita.TabStop = false;
-            this.gbParasita.Text = "Parasita";
-            this.gbParasita.Visible = false;
-            // 
-            // txtParasitaHospedeiro
-            // 
-            this.txtParasitaHospedeiro.Location = new System.Drawing.Point(110, 13);
-            this.txtParasitaHospedeiro.Name = "txtParasitaHospedeiro";
-            this.txtParasitaHospedeiro.Size = new System.Drawing.Size(200, 20);
-            this.txtParasitaHospedeiro.TabIndex = 1;
-            // 
-            // txtParasitaHospedeiroSecundario
-            // 
-            this.txtParasitaHospedeiroSecundario.Enabled = false;
-            this.txtParasitaHospedeiroSecundario.Location = new System.Drawing.Point(6, 117);
-            this.txtParasitaHospedeiroSecundario.Name = "txtParasitaHospedeiroSecundario";
-            this.txtParasitaHospedeiroSecundario.Size = new System.Drawing.Size(301, 20);
-            this.txtParasitaHospedeiroSecundario.TabIndex = 2;
-            // 
-            // lblParasitaContaminacao
-            // 
-            this.lblParasitaContaminacao.AutoSize = true;
-            this.lblParasitaContaminacao.Location = new System.Drawing.Point(6, 42);
-            this.lblParasitaContaminacao.Name = "lblParasitaContaminacao";
-            this.lblParasitaContaminacao.Size = new System.Drawing.Size(75, 13);
-            this.lblParasitaContaminacao.TabIndex = 4;
-            this.lblParasitaContaminacao.Text = "Contaminação";
-            // 
-            // txtParasitaPrevencao
-            // 
-            this.txtParasitaPrevencao.Location = new System.Drawing.Point(110, 65);
-            this.txtParasitaPrevencao.Name = "txtParasitaPrevencao";
-            this.txtParasitaPrevencao.Size = new System.Drawing.Size(200, 20);
-            this.txtParasitaPrevencao.TabIndex = 5;
-            // 
-            // txtParasitaContaminacao
-            // 
-            this.txtParasitaContaminacao.Location = new System.Drawing.Point(110, 39);
-            this.txtParasitaContaminacao.Name = "txtParasitaContaminacao";
-            this.txtParasitaContaminacao.Size = new System.Drawing.Size(200, 20);
-            this.txtParasitaContaminacao.TabIndex = 6;
-            // 
-            // lblParasitaPrevencao
-            // 
-            this.lblParasitaPrevencao.AutoSize = true;
-            this.lblParasitaPrevencao.Location = new System.Drawing.Point(6, 68);
-            this.lblParasitaPrevencao.Name = "lblParasitaPrevencao";
-            this.lblParasitaPrevencao.Size = new System.Drawing.Size(59, 13);
-            this.lblParasitaPrevencao.TabIndex = 7;
-            this.lblParasitaPrevencao.Text = "Prevenção";
-            // 
-            // chkParasitaHospedeiroSecundario
-            // 
-            this.chkParasitaHospedeiroSecundario.AutoSize = true;
-            this.chkParasitaHospedeiroSecundario.Location = new System.Drawing.Point(9, 94);
-            this.chkParasitaHospedeiroSecundario.Name = "chkParasitaHospedeiroSecundario";
-            this.chkParasitaHospedeiroSecundario.Size = new System.Drawing.Size(173, 17);
-            this.chkParasitaHospedeiroSecundario.TabIndex = 8;
-            this.chkParasitaHospedeiroSecundario.Text = "Possui hospedeiro secundário?";
-            this.chkParasitaHospedeiroSecundario.UseVisualStyleBackColor = true;
-            this.chkParasitaHospedeiroSecundario.CheckedChanged += new System.EventHandler(this.chkParasitaHospedeiroSecundario_CheckedChanged);
-            // 
-            // btnNewFrm
-            // 
-            this.btnNewFrm.Location = new System.Drawing.Point(244, 433);
-            this.btnNewFrm.Name = "btnNewFrm";
-            this.btnNewFrm.Size = new System.Drawing.Size(75, 23);
-            this.btnNewFrm.TabIndex = 7;
-            this.btnNewFrm.Text = "New";
-            this.btnNewFrm.UseVisualStyleBackColor = true;
+            this.btnSaveFrm.Location = new System.Drawing.Point(244, 433);
+            this.btnSaveFrm.Name = "btnSaveFrm";
+            this.btnSaveFrm.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveFrm.TabIndex = 7;
+            this.btnSaveFrm.Text = "Save";
+            this.btnSaveFrm.UseVisualStyleBackColor = true;
+            this.btnSaveFrm.Click += new System.EventHandler(this.btnSaveFrm_Click);
             // 
             // btnCopiarAnimal
             // 
@@ -813,12 +817,23 @@
             this.btnCopiarAnimal.UseVisualStyleBackColor = true;
             this.btnCopiarAnimal.Click += new System.EventHandler(this.btnCopiarAnimal_Click);
             // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(12, 433);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 9;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // FrmAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 468);
-            this.Controls.Add(this.btnNewFrm);
+            this.Controls.Add(this.btnNew);
+            this.Controls.Add(this.btnSaveFrm);
             this.Controls.Add(this.btnCopiarAnimal);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -831,13 +846,13 @@
             this.tabDefesaLocomocao.PerformLayout();
             this.tabAlimentacao.ResumeLayout(false);
             this.tabAlimentacao.PerformLayout();
+            this.gbParasita.ResumeLayout(false);
+            this.gbParasita.PerformLayout();
             this.tabCaracteristicas.ResumeLayout(false);
             this.tabCaracteristicas.PerformLayout();
             this.tabGeral.ResumeLayout(false);
             this.tabGeral.PerformLayout();
             this.tabControl.ResumeLayout(false);
-            this.gbParasita.ResumeLayout(false);
-            this.gbParasita.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -896,7 +911,7 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblHabitat;
         private System.Windows.Forms.Label lblAdaptacoes;
-        private System.Windows.Forms.CheckBox checkCampoPersonagem;
+        private System.Windows.Forms.CheckBox chkHasPersonagem;
         private System.Windows.Forms.Label lblPersonagem;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblFilo;
@@ -913,7 +928,8 @@
         private System.Windows.Forms.TextBox txtParasitaContaminacao;
         private System.Windows.Forms.TextBox txtParasitaPrevencao;
         private System.Windows.Forms.Label lblParasitaContaminacao;
-        private System.Windows.Forms.Button btnNewFrm;
+        private System.Windows.Forms.Button btnSaveFrm;
         private System.Windows.Forms.Button btnCopiarAnimal;
+        private System.Windows.Forms.Button btnNew;
     }
 }

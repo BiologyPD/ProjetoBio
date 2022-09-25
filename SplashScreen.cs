@@ -25,8 +25,8 @@ namespace ProjetoBio
             {
                 timer1.Stop();
 
-                MenuPrincipal menu1 = new MenuPrincipal();
-                menu1.Show();
+                //MenuPrincipal menu1 = new MenuPrincipal();
+                //menu1.Show();
                 this.Hide();
             }
         }

@@ -19,24 +19,18 @@ namespace ProjetoBio.Animais
         public Parasita(Animal an)
         {
             var parasiteProprieties = typeof(Parasita).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
-            var animalProprieties = typeof(Animal).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.DeclaredOnly);
+            var animalProprieties = typeof(Animal).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
             
-            var animalPropsString = new StringBuilder();
-            foreach (var prop in animalProprieties)
-                animalPropsString.AppendLine(prop.Name);
-            MessageBox.Show(animalPropsString.ToString());
-
-            var parasitePropsString = new StringBuilder();
-            foreach (var prop in parasiteProprieties)
-                parasitePropsString.AppendLine(prop.Name);
-            MessageBox.Show(parasitePropsString.ToString());
-
             foreach (var propriety in animalProprieties)
             {
                 try {
                     parasiteProprieties.First(x => x.Name == propriety.Name).SetValue(this, propriety.GetValue(an));
                 } catch { }
             }
+        }
+
+        public Parasita()
+        {
         }
 
         public override string ToString()

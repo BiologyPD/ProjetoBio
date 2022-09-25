@@ -47,19 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Air.cs" />
-    <Compile Include="AnimaisAqua.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AnimaisAqua.Designer.cs">
-      <DependentUpon>AnimaisAqua.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AnimaisGround.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AnimaisGround.Designer.cs">
-      <DependentUpon>AnimaisGround.cs</DependentUpon>
-    </Compile>
     <Compile Include="Animais\Animais.cs" />
     <Compile Include="Animais\AnimalControl.cs" />
     <Compile Include="Animais\AnimalModels.cs" />
@@ -71,54 +58,39 @@
       <DependentUpon>FrmAnimal.cs</DependentUpon>
     </Compile>
     <Compile Include="Animais\Parasita.cs" />
-    <Compile Include="Aqua.cs" />
-    <Compile Include="Ground.cs" />
+    <Compile Include="AnimalSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnimalSearch.Designer.cs">
+      <DependentUpon>AnimalSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MenuPrincipal.Designer.cs">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Parasite.cs" />
-    <Compile Include="Porifero.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Porifero.Designer.cs">
-      <DependentUpon>Porifero.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sanguessugas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sanguessugas.Designer.cs">
-      <DependentUpon>Sanguessugas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\KeyPair.cs" />
-    <EmbeddedResource Include="AnimaisAqua.resx">
-      <DependentUpon>AnimaisAqua.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AnimaisGround.resx">
-      <DependentUpon>AnimaisGround.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Animais\FrmAnimal.resx">
       <DependentUpon>FrmAnimal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AnimalSearch.resx">
+      <DependentUpon>AnimalSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuPrincipal.resx">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Porifero.resx">
-      <DependentUpon>Porifero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,9 +102,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Sanguessugas.resx">
-      <DependentUpon>Sanguessugas.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -3,18 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Markup;
+using Enum = ProjetoBio.Animais.Enum;
 
 namespace ProjetoBio.Animais
 {
-    public abstract class Enum
+    public class Enum
     {
         public readonly string Text;
         public readonly int Id;
-        // public static readonly Enum[] Values = null;
 
         protected Enum(string text, int id)
         {
@@ -23,23 +25,44 @@ namespace ProjetoBio.Animais
         }
 
         public static T[] GetValues<T>() where T : Enum => (T[]) typeof(T).GetField("Values").GetValue(null);
+        public override string ToString() => Text;
+
+        public string FullName
+        {
+            get
+            {
+                var thisType = GetType();
+                var enumFields = from FieldInfo field in thisType.GetFields(BindingFlags.Public | BindingFlags.Static)
+                                 where field.FieldType == thisType
+                                 select field;
+
+                foreach (var e in enumFields)
+                {
+                    if (e.GetValue(null) == this)
+                        return thisType.Name + "." + e.Name;
+                }
+
+                return null;
+            }
+        }
     }
 
     public class Tipo : Enum
     {
         private Tipo(string text, int id) : base(text, id) { }
-
+        
         public static readonly Tipo Aereo = new Tipo("Aéreo", 0);
         public static readonly Tipo Terrestre = new Tipo("Terrestre", 1);
         public static readonly Tipo Parasita = new Tipo("Parasita", 2);
         public static readonly Tipo Aquatico = new Tipo("Aquático", 3);
-
+        
         public static readonly Tipo[] Values = { Aereo, Terrestre, Parasita, Aquatico };
     }
 
     public class Filo : Enum
     {
         private Filo(string text, int id) : base(text, id) {}
+        private Filo(Enum enumerator) : this(enumerator.Text, enumerator.Id) { }
 
         public static readonly Filo Porifera = new Filo("Porífera", 0);
         public static readonly Filo Cnidario = new Filo("Cnidário", 1);

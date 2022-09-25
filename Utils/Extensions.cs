@@ -11,34 +11,30 @@ using Enum = ProjetoBio.Animais.Enum;
 
 namespace ProjetoBio.Utils
 {
-    public static class EnumExtensions
-    {
-        public static string NameOf<T>(this T enumerator) where T : Enum
-        {
-            foreach (var e in typeof(T).GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static).Where(x => x.GetValue(null).GetType() == typeof(T)))
-            {
-                if (e.GetValue(null) == enumerator)
-                    return typeof(T).Name + "." + e.Name;
-            }
-
-            return null;
-        }
-    }
-
     public static class ComboBoxExtensions
     {
+        public static void SetFromEmpty<T>(this ComboBox comboBox, string emptyMessage = KeyPair.DefaultEmptyText) where T : Enum
+            => comboBox.SetFrom<T>(emptyMessage);
+
         public static void SetFrom<T>(this ComboBox comboBox) where T : Enum
+            => comboBox.Set(KeyPair.GetKeyPairs<T>());
+
+
+        public static void SetFrom<T>(this ComboBox comboBox, string emptyMessage) where T : Enum
+            => comboBox.Set(KeyPair.GetKeyPairs<T>(emptyMessage));
+
+        public static void Set<T>(this ComboBox comboBox, KeyPair<T>[] keyPairs) where T : Enum
         {
             comboBox.Items.Clear();
-            comboBox.DataSource = KeyPair.GetKeyPairs<T>();
             comboBox.DisplayMember = "Key";
             comboBox.ValueMember = "Value";
+            comboBox.DataSource = keyPairs;
         }
     }
 
     public static class CheckedListBoxExtensions
     {
-        public static void SetFrom<T>(this CheckedListBox checkedListBox) where T : Enum
+        public static void EmptySetFrom<T>(this CheckedListBox checkedListBox) where T : Enum
         {
             checkedListBox.CheckOnClick = true;
             checkedListBox.Items.Clear();
@@ -49,9 +45,12 @@ namespace ProjetoBio.Utils
 
         public static T[] CheckedValues<T>(this CheckedListBox checkedListBox) where T : Enum
         {
+            return
+                (from KeyPair<T> keypair in checkedListBox.CheckedItems
+                 select keypair.Value).ToArray();
+            
             // auto-generated
             // checkedListBox.CheckedItems[0].GetType().GetType().GetProperty("Value").GetValue(checkedListBox.CheckedItems[0], null); 
-            return checkedListBox.CheckedItems.Cast<KeyPair<T>>().Select(x => x.Value).ToArray();
         }
 
         public static void CheckFrom<T>(this CheckedListBox checkedListBox, params T[] values) where T : Enum
